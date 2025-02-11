@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://cq7jfqid4pjt2"]
+
+[ext_resource type="Texture2D" uid="uid://bj04vntg64lw5" path="res://icon.svg" id="1_0lk6c"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
+[ext_resource type="Script" path="res://new_script.gd" id="2_0odp4"]
+[ext_resource type="Script" path="res://slime_2_2d.gd" id="4_tgr73"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_by6cd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bwy1"]
+size = Vector2(132, 132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljkg4"]
+size = Vector2(1158.5, 194)
+
+[node name="Sprite1" type="Node2D"]
+physics_interpolation_mode = 1
+position = Vector2(121, 124)
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(24, -24)
+script = ExtResource("1_lfuix")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
+physics_interpolation_mode = 1
+material = SubResource("CanvasItemMaterial_by6cd")
+texture = ExtResource("1_0lk6c")
+script = ExtResource("2_0odp4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_7bwy1")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(726, 8)
+script = ExtResource("4_tgr73")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+physics_interpolation_mode = 1
+material = SubResource("CanvasItemMaterial_by6cd")
+texture = ExtResource("1_0lk6c")
+script = ExtResource("2_0odp4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_7bwy1")
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="GroundBody" type="StaticBody2D" parent="Ground"]
+
+[node name="GroundC" type="CollisionShape2D" parent="Ground/GroundBody"]
+position = Vector2(459.75, 431)
+shape = SubResource("RectangleShape2D_ljkg4")
