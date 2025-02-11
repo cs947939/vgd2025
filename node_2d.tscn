@@ -10,11 +10,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bwy1"]
 size = Vector2(132, 132)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf7ib"]
+size = Vector2(125, 124)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljkg4"]
 size = Vector2(1158.5, 194)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kk3kv"]
-size = Vector2(82, 450)
 
 [node name="Sprite1" type="Node2D"]
 physics_interpolation_mode = 1
@@ -22,7 +22,8 @@ position = Vector2(121, 124)
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(-40, 266)
+position = Vector2(24, -24)
+collision_layer = 2
 script = ExtResource("1_lfuix")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
@@ -32,12 +33,19 @@ texture = ExtResource("1_0lk6c")
 script = ExtResource("2_0odp4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-position = Vector2(-1, 2)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_7bwy1")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D2/CollisionShape2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/CollisionShape2D/Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(122, 266)
+position = Vector2(726, 8)
+collision_layer = 2
 script = ExtResource("4_tgr73")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
@@ -47,7 +55,7 @@ texture = ExtResource("1_0lk6c")
 script = ExtResource("2_0odp4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(1, 2)
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="Ground" type="Node2D" parent="."]
@@ -58,10 +66,4 @@ shape = SubResource("RectangleShape2D_7bwy1")
 position = Vector2(459.75, 431)
 shape = SubResource("RectangleShape2D_ljkg4")
 
-[node name="GroundLeft" type="Node" parent="."]
-
-[node name="GroundLeftBody" type="CharacterBody2D" parent="GroundLeft"]
-
-[node name="GroundLeftShape" type="CollisionShape2D" parent="GroundLeft/GroundLeftBody"]
-position = Vector2(-39, 233)
-shape = SubResource("RectangleShape2D_kk3kv")
+[connection signal="area_entered" from="CharacterBody2D2/CollisionShape2D/Area2D" to="CharacterBody2D" method="_on_touching_player1"]
