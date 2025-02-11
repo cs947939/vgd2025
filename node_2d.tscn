@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=9 format=3 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Texture2D" uid="uid://bj04vntg64lw5" path="res://icon.svg" id="1_0lk6c"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
@@ -13,13 +13,16 @@ size = Vector2(132, 132)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljkg4"]
 size = Vector2(1158.5, 194)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kk3kv"]
+size = Vector2(82, 450)
+
 [node name="Sprite1" type="Node2D"]
 physics_interpolation_mode = 1
 position = Vector2(121, 124)
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(24, -24)
+position = Vector2(-40, 266)
 script = ExtResource("1_lfuix")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
@@ -34,7 +37,7 @@ shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(726, 8)
+position = Vector2(122, 266)
 script = ExtResource("4_tgr73")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
@@ -54,3 +57,11 @@ shape = SubResource("RectangleShape2D_7bwy1")
 [node name="GroundC" type="CollisionShape2D" parent="Ground/GroundBody"]
 position = Vector2(459.75, 431)
 shape = SubResource("RectangleShape2D_ljkg4")
+
+[node name="GroundLeft" type="Node" parent="."]
+
+[node name="GroundLeftBody" type="CharacterBody2D" parent="GroundLeft"]
+
+[node name="GroundLeftShape" type="CollisionShape2D" parent="GroundLeft/GroundLeftBody"]
+position = Vector2(-41, 232)
+shape = SubResource("RectangleShape2D_kk3kv")
