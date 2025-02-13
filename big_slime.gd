@@ -25,13 +25,13 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left_2", "right_2")
 	if Input.is_action_pressed("left_1") and Input.is_action_pressed("right_2"):
-		split()
+		split(self.global_position.x, self.global_position.x + 50, self.global_position.y, self.global_position.y)
 	if Input.is_action_pressed("right_1") and Input.is_action_pressed("left_2"):
-		split()
+		split(self.global_position.x, self.global_position.x - 50, self.global_position.y, self.global_position.y)
 	if Input.is_action_pressed("up_1") and Input.is_action_pressed("down_2"):
-		split()
+		split(self.global_position.x, self.global_position.x, self.global_position.y, self.global_position.y - 50)
 	if Input.is_action_pressed("down_1") and Input.is_action_pressed("up_2"):
-		split()
+		split(self.global_position.x, self.global_position.x, self.global_position.y, self.global_position.y + 50)
 	if direction:
 		velocity.x = (direction * SPEED )/ 4
 	else:
