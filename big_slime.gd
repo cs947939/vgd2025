@@ -1,6 +1,10 @@
 extends CharacterBody2D
+
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+
+signal hideslime
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -8,12 +12,12 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_key_pressed(KEY_W) and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("left_1", "right_1")
+	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -22,16 +26,5 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-
-
-func _on_on_enter():
-	visible = false
-	print("entered")
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("Entered Body") # Replace with function body.
-
-
 func _on_area_2d_showslime() -> void:
-	visible=false # Replace with function body.
+	visible = true # Replace with function body.

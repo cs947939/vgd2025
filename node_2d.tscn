@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=15 format=3 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Texture2D" uid="uid://bj04vntg64lw5" path="res://icon.svg" id="1_0lk6c"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://playerCollision.gd" id="4_2y4d7"]
 [ext_resource type="Script" path="res://slime_2_2d.gd" id="4_tgr73"]
 [ext_resource type="Script" path="res://area_2d2.gd" id="6_ca46b"]
+[ext_resource type="Script" path="res://big_slime.gd" id="7_v2y33"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_by6cd"]
 
@@ -23,6 +24,9 @@ size = Vector2(1158.5, 194)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4qxx"]
 size = Vector2(70, 468)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy72w"]
+size = Vector2(321, 267)
 
 [node name="Sprite1" type="Node2D"]
 physics_interpolation_mode = 1
@@ -79,6 +83,7 @@ shape = SubResource("RectangleShape2D_7bwy1")
 [node name="Ground" type="Node2D" parent="."]
 
 [node name="GroundBody" type="StaticBody2D" parent="Ground"]
+position = Vector2(17, 0)
 
 [node name="GroundC" type="CollisionShape2D" parent="Ground/GroundBody"]
 position = Vector2(459.75, 431)
@@ -92,6 +97,24 @@ shape = SubResource("RectangleShape2D_ljkg4")
 position = Vector2(-8, 224)
 shape = SubResource("RectangleShape2D_f4qxx")
 
+[node name="BigSlime" type="CharacterBody2D" parent="."]
+visible = false
+position = Vector2(222, -54)
+script = ExtResource("7_v2y33")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigSlime"]
+visible = false
+position = Vector2(248, 254.5)
+shape = SubResource("RectangleShape2D_wy72w")
+
+[node name="Sprite2D" type="Sprite2D" parent="BigSlime"]
+visible = false
+position = Vector2(247.5, 261)
+scale = Vector2(2.38281, 2)
+texture = ExtResource("1_0lk6c")
+
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D" method="_on_touching_player1"]
 [connection signal="body_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_body_entered"]
+[connection signal="showslime" from="CharacterBody2D/Area2D" to="CharacterBody2D2" method="_on_area_2d_showslime"]
+[connection signal="showslime" from="CharacterBody2D/Area2D" to="BigSlime" method="_on_area_2d_showslime"]
