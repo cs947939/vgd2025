@@ -4,13 +4,13 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-signal hideslime
+signal hideslime(x1, x2, y1, y2)
 func _ready() -> void:
 	visible=false
 	process_mode = PROCESS_MODE_DISABLED
-func split() -> void:
+func split(x1, x2, y1, y2) -> void:
 	print("Different Input")
-	hideslime.emit()
+	hideslime.emit(x1, x2, y1, y2)
 	visible = false
 	process_mode = PROCESS_MODE_DISABLED
 func _physics_process(delta: float) -> void:
