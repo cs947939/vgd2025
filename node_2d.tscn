@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=16 format=3 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Texture2D" uid="uid://bj04vntg64lw5" path="res://icon.svg" id="1_0lk6c"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://slime_2_2d.gd" id="4_tgr73"]
 [ext_resource type="Script" path="res://area_2d2.gd" id="6_ca46b"]
 [ext_resource type="Script" path="res://big_slime.gd" id="7_v2y33"]
-[ext_resource type="Texture2D" uid="uid://cspwjhvcv8xj5" path="res://New Piskel.png" id="8_iueuh"]
+[ext_resource type="Script" path="res://slime_input_delay.gd" id="8_jm5xw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_by6cd"]
 
@@ -28,26 +28,6 @@ size = Vector2(70, 468)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wy72w"]
 size = Vector2(321, 267)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c1u0s"]
-texture = ExtResource("8_iueuh")
-margins = Vector2i(7, 6)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-2:2/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_yaqp8"]
-terrain_set_0/mode = 2
-terrain_set_0/terrain_0/name = "Terrain"
-terrain_set_0/terrain_0/color = Color(0.323267, 0.279265, 0.41826, 1)
-terrain_set_1/mode = 0
-sources/2 = SubResource("TileSetAtlasSource_c1u0s")
 
 [node name="Sprite1" type="Node2D"]
 physics_interpolation_mode = 1
@@ -131,8 +111,10 @@ position = Vector2(247.5, 261)
 scale = Vector2(2.38281, 2)
 texture = ExtResource("1_0lk6c")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_set = SubResource("TileSet_yaqp8")
+[node name="SlimeInputDelay" type="Timer" parent="BigSlime"]
+wait_time = 3.0
+one_shot = true
+script = ExtResource("8_jm5xw")
 
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D" method="_on_touching_player1"]
@@ -140,3 +122,7 @@ tile_set = SubResource("TileSet_yaqp8")
 [connection signal="showslime" from="CharacterBody2D/Area2D" to="CharacterBody2D2" method="_on_area_2d_showslime"]
 [connection signal="showslime" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_showslime"]
 [connection signal="showslime" from="CharacterBody2D/Area2D" to="BigSlime" method="_on_area_2d_showslime"]
+[connection signal="delaystart" from="BigSlime" to="BigSlime/SlimeInputDelay" method="_on_big_slime_delaystart"]
+[connection signal="hideslime" from="BigSlime" to="CharacterBody2D2" method="_on_big_slime_hideslime"]
+[connection signal="hideslime" from="BigSlime" to="CharacterBody2D" method="_on_big_slime_hideslime"]
+[connection signal="timeout" from="BigSlime/SlimeInputDelay" to="BigSlime" method="_on_slime_input_delay_timeout"]
