@@ -30,6 +30,7 @@ func _on_area_2d_showslime() -> void:
 	process_mode = PROCESS_MODE_DISABLED
 
 
-func _on_big_slime_hideslime() -> void:
+func _on_big_slime_hideslime(x1, x2, y1, y2) -> void:
+	position = Vector2(x2, y2)
 	visible = true
 	process_mode = PROCESS_MODE_INHERIT

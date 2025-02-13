@@ -3,8 +3,9 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
+signal delaystart
 signal hideslime(x1, x2, y1, y2)
+var allowsplit = false
 func _ready() -> void:
 	visible=false
 	process_mode = PROCESS_MODE_DISABLED
@@ -24,14 +25,14 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left_2", "right_2")
-	if Input.is_action_pressed("left_1") and Input.is_action_pressed("right_2"):
-		split(self.global_position.x, self.global_position.x + 50, self.global_position.y, self.global_position.y)
-	if Input.is_action_pressed("right_1") and Input.is_action_pressed("left_2"):
-		split(self.global_position.x, self.global_position.x - 50, self.global_position.y, self.global_position.y)
-	if Input.is_action_pressed("up_1") and Input.is_action_pressed("down_2"):
-		split(self.global_position.x, self.global_position.x, self.global_position.y, self.global_position.y - 50)
-	if Input.is_action_pressed("down_1") and Input.is_action_pressed("up_2"):
-		split(self.global_position.x, self.global_position.x, self.global_position.y, self.global_position.y + 50)
+	if Input.is_action_pressed("left_1") and Input.is_action_pressed("right_2") and allowsplit==true:
+		split(self.global_position.x-200, self.global_position.x + 200, self.global_position.y-50, self.global_position.y-50)
+	if Input.is_action_pressed("right_1") and Input.is_action_pressed("left_2") and allowsplit==true:
+		split(self.global_position.x, self.global_position.x - 200, self.global_position.y, self.global_position.y)
+	if Input.is_action_pressed("up_1") and Input.is_action_pressed("down_2") and allowsplit==true:
+		split(self.global_position.x-200, self.global_position.x, self.global_position.y, self.global_position.y - 200)
+	if Input.is_action_pressed("down_1") and Input.is_action_pressed("up_2") and allowsplit==true:
+		split(self.global_position.x, self.global_position.x-200, self.global_position.y-200, self.global_position.y)
 	if direction:
 		velocity.x = (direction * SPEED )/ 4
 	else:
@@ -51,5 +52,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_showslime() -> void:
+	delaystart.emit()
 	visible = true # Replace with function body.
 	process_mode = PROCESS_MODE_INHERIT
+
+
+func _on_slime_input_delay_timeout() -> void:
+	allowsplit = true
