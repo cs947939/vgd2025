@@ -27,3 +27,7 @@ func _physics_process(delta: float) -> void:
 func _on_on_enter():
 	visible = false
 	print("entered")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("Entered Body") # Replace with function body.

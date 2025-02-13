@@ -1,21 +1,28 @@
-[gd_scene load_steps=10 format=3 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=13 format=3 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Texture2D" uid="uid://bj04vntg64lw5" path="res://icon.svg" id="1_0lk6c"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
 [ext_resource type="Script" path="res://new_script.gd" id="2_0odp4"]
 [ext_resource type="Script" path="res://playerCollision.gd" id="4_2y4d7"]
 [ext_resource type="Script" path="res://slime_2_2d.gd" id="4_tgr73"]
+[ext_resource type="Script" path="res://area_2d2.gd" id="6_ca46b"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_by6cd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bwy1"]
-size = Vector2(132, 132)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kf7ib"]
 size = Vector2(125, 124)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bwy1"]
+size = Vector2(132, 132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3105w"]
+size = Vector2(145, 138)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljkg4"]
 size = Vector2(1158.5, 194)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4qxx"]
+size = Vector2(70, 468)
 
 [node name="Sprite1" type="Node2D"]
 physics_interpolation_mode = 1
@@ -23,7 +30,7 @@ position = Vector2(121, 124)
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(24, -24)
+position = Vector2(-9, 270)
 collision_layer = 2
 script = ExtResource("1_lfuix")
 
@@ -33,20 +40,21 @@ material = SubResource("CanvasItemMaterial_by6cd")
 texture = ExtResource("1_0lk6c")
 script = ExtResource("2_0odp4")
 
+[node name="Area2D" type="Area2D" parent="CharacterBody2D2"]
+position = Vector2(-1, 0)
+script = ExtResource("4_2y4d7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_kf7ib")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_7bwy1")
 
-[node name="Area2D" type="Area2D" parent="CharacterBody2D2/CollisionShape2D"]
-script = ExtResource("4_2y4d7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/CollisionShape2D/Area2D"]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_kf7ib")
-
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(726, 8)
+position = Vector2(162, 269)
 collision_layer = 2
 script = ExtResource("4_tgr73")
 
@@ -55,6 +63,14 @@ physics_interpolation_mode = 1
 material = SubResource("CanvasItemMaterial_by6cd")
 texture = ExtResource("1_0lk6c")
 script = ExtResource("2_0odp4")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(1, 0)
+script = ExtResource("6_ca46b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_3105w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(1, 0)
@@ -68,5 +84,14 @@ shape = SubResource("RectangleShape2D_7bwy1")
 position = Vector2(459.75, 431)
 shape = SubResource("RectangleShape2D_ljkg4")
 
-[connection signal="area_entered" from="CharacterBody2D2/CollisionShape2D/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="CharacterBody2D2/CollisionShape2D/Area2D" to="CharacterBody2D" method="_on_touching_player1"]
+[node name="GroundLeft" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GroundLeft"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLeft/StaticBody2D"]
+position = Vector2(-8, 224)
+shape = SubResource("RectangleShape2D_f4qxx")
+
+[connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D" method="_on_touching_player1"]
+[connection signal="body_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_body_entered"]
