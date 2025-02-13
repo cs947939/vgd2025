@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("down_1") and Input.is_action_pressed("up_2") and allowsplit==true:
 		split(self.global_position.x, self.global_position.x-200, self.global_position.y-200, self.global_position.y)
 	if direction:
-		velocity.x = (direction * SPEED )/ 4
+		velocity.x = (direction * SPEED )/ 4 
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
