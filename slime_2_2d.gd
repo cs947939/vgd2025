@@ -27,3 +27,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_showslime() -> void:
 	visible = false # Replace with function body.
+	process_mode = PROCESS_MODE_DISABLED
+
+
+func _on_big_slime_hideslime() -> void:
+	visible = true
+	process_mode = PROCESS_MODE_INHERIT
