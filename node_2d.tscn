@@ -24,7 +24,7 @@ size = Vector2(145, 138)
 size = Vector2(1158.5, 194)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4qxx"]
-size = Vector2(70, 468)
+size = Vector2(924, 1297)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wy72w"]
 size = Vector2(321, 267)
@@ -95,7 +95,7 @@ shape = SubResource("RectangleShape2D_ljkg4")
 [node name="StaticBody2D" type="StaticBody2D" parent="GroundLeft"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLeft/StaticBody2D"]
-position = Vector2(-8, 224)
+position = Vector2(-448, -190.5)
 shape = SubResource("RectangleShape2D_f4qxx")
 
 [node name="BigSlime" type="CharacterBody2D" parent="."]
@@ -112,8 +112,7 @@ scale = Vector2(2.38281, 2)
 texture = ExtResource("1_0lk6c")
 
 [node name="SlimeInputDelay" type="Timer" parent="BigSlime"]
-wait_time = 3.0
-one_shot = true
+autostart = true
 script = ExtResource("8_jm5xw")
 
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]

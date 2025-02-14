@@ -13,6 +13,7 @@ func split(x1, x2, y1, y2) -> void:
 	print("Different Input")
 	hideslime.emit(x1, x2, y1, y2)
 	visible = false
+	allowsplit = false
 	process_mode = PROCESS_MODE_DISABLED
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
