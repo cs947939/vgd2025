@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=17 format=3 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Texture2D" uid="uid://bj04vntg64lw5" path="res://icon.svg" id="1_0lk6c"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://area_2d2.gd" id="6_ca46b"]
 [ext_resource type="Script" path="res://big_slime.gd" id="7_v2y33"]
 [ext_resource type="Script" path="res://slime_input_delay.gd" id="8_jm5xw"]
+[ext_resource type="Script" path="res://slime_merge_delay.gd" id="9_ciqts"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_by6cd"]
 
@@ -54,7 +55,7 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-position = Vector2(-1, 0)
+position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -107,7 +108,7 @@ position = Vector2(248, 254.5)
 shape = SubResource("RectangleShape2D_wy72w")
 
 [node name="Sprite2D" type="Sprite2D" parent="BigSlime"]
-position = Vector2(247.5, 261)
+position = Vector2(249, 260)
 scale = Vector2(2.38281, 2)
 texture = ExtResource("1_0lk6c")
 
@@ -115,13 +116,21 @@ texture = ExtResource("1_0lk6c")
 autostart = true
 script = ExtResource("8_jm5xw")
 
+[node name="SlimeMergeDelay" type="Timer" parent="BigSlime"]
+autostart = true
+script = ExtResource("9_ciqts")
+
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D" method="_on_touching_player1"]
 [connection signal="body_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_body_entered"]
 [connection signal="showslime" from="CharacterBody2D/Area2D" to="CharacterBody2D2" method="_on_area_2d_showslime"]
 [connection signal="showslime" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_showslime"]
 [connection signal="showslime" from="CharacterBody2D/Area2D" to="BigSlime" method="_on_area_2d_showslime"]
+[connection signal="cooldownstart" from="BigSlime" to="CharacterBody2D/Area2D" method="_on_big_slime_cooldownstart"]
+[connection signal="cooldownstart" from="BigSlime" to="BigSlime/SlimeMergeDelay" method="_on_big_slime_cooldownstart"]
 [connection signal="delaystart" from="BigSlime" to="BigSlime/SlimeInputDelay" method="_on_big_slime_delaystart"]
 [connection signal="hideslime" from="BigSlime" to="CharacterBody2D2" method="_on_big_slime_hideslime"]
 [connection signal="hideslime" from="BigSlime" to="CharacterBody2D" method="_on_big_slime_hideslime"]
 [connection signal="timeout" from="BigSlime/SlimeInputDelay" to="BigSlime" method="_on_slime_input_delay_timeout"]
+[connection signal="timeout" from="BigSlime/SlimeMergeDelay" to="CharacterBody2D/Area2D" method="_on_slime_merge_delay_timeout"]
+[connection signal="timeout" from="BigSlime/SlimeMergeDelay" to="BigSlime" method="_on_slime_merge_delay_timeout"]
