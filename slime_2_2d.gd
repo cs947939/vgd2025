@@ -34,3 +34,7 @@ func _on_big_slime_hideslime(x1, x2, y1, y2) -> void:
 	position = Vector2(x2, y2)
 	visible = true
 	process_mode = PROCESS_MODE_INHERIT
+
+
+func _on_slime_merge_delay_stopmerge() -> void:
+	pass # Replace with function body.

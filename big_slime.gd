@@ -5,7 +5,9 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 signal delaystart
 signal cooldownstart
+signal mergecheck
 signal hideslime(x1, x2, y1, y2)
+
 var allowsplit = false
 var allowmerge = true
 func _ready() -> void:
@@ -57,10 +59,13 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_showslime() -> void:
+	mergecheck.emit()
 	if allowmerge == true:
 		delaystart.emit()
 		visible = true # Replace with function body.
 		process_mode = PROCESS_MODE_INHERIT
+
+		
 
 
 func _on_slime_input_delay_timeout() -> void:
@@ -72,3 +77,11 @@ func _on_slime_merge_delay_timeout() -> void:
 	print("allow merge")
 	allowmerge= true
 	process_mode = PROCESS_MODE_DISABLED
+
+
+func _on_slime_merge_delay_allowmerge() -> void:
+	allowmerge = true
+
+
+func _on_slime_merge_delay_stopmerge() -> void:
+	pass

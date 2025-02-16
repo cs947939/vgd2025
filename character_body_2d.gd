@@ -1,7 +1,8 @@
 extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
+signal mergecheck3
+var canmerge = true
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -34,8 +35,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_showslime() -> void:
-	visible=false # Replace with function body.
-	process_mode = PROCESS_MODE_DISABLED
+	mergecheck3.emit()
+	if canmerge == true:
+		visible=false # Replace with function body.
+		process_mode = PROCESS_MODE_DISABLED
 
 
 func _on_big_slime_hideslime(x1, none, y1, none2) -> void:
@@ -45,3 +48,16 @@ func _on_big_slime_hideslime(x1, none, y1, none2) -> void:
 
 func _on_hideslime() -> void:
 	visible = true
+
+
+func _on_slime_merge_delay_allowmerge() -> void:
+	canmerge = true
+
+
+func _on_slime_merge_delay_stopmerge() -> void:
+	canmerge = false	
+	#TODO: shutoff area2d here
+
+
+func _on_slime_merge_delay_timeout() -> void:
+	canmerge = true

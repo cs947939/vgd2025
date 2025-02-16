@@ -1,7 +1,9 @@
 extends Area2D
 signal showslime
+signal mergecheck2
 var allowmerge = true
 func _area_entered2(area: Area2D) -> void:
+	mergecheck2.emit()
 	if allowmerge == true:
 		showslime.emit()
 	
@@ -16,13 +18,18 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_big_slime_cooldownstart() -> void:
-	print("delay start")
-	allowmerge= false
+
 
 
 func _on_slime_merge_delay_timeout() -> void:
-	process_mode = PROCESS_MODE_INHERIT
 	print("allow merge")
 	allowmerge= true
-	process_mode = PROCESS_MODE_DISABLED
+	set_monitoring(true)
+
+
+func _on_slime_merge_delay_allowmerge() -> void:
+	allowmerge = true
+
+
+func _on_slime_merge_delay_stopmerge() -> void:
+	set_monitoring(false)
