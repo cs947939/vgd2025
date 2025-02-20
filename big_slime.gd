@@ -21,7 +21,14 @@ func split(x1, x2, y1, y2) -> void:
 	visible = false
 	allowsplit = false
 	process_mode = PROCESS_MODE_DISABLED
+
+	
 func _physics_process(delta: float) -> void:
+	var p1press = []
+	var p2press =[]
+	var p3press =[]
+	var p4press = []
+	var directions = ['up', 'down', 'left', 'right']
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -32,14 +39,38 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left_2", "right_2")
-	if Input.is_action_pressed("left_1") and Input.is_action_pressed("right_2") and allowsplit==true:
-		split(self.global_position.x-140, self.global_position.x + 0, self.global_position.y-50, self.global_position.y-50)
-	if Input.is_action_pressed("right_1") and Input.is_action_pressed("left_2") and allowsplit==true:
-		split(self.global_position.x, self.global_position.x - 0, self.global_position.y, self.global_position.y)
-	if Input.is_action_pressed("up_1") and Input.is_action_pressed("down_2") and allowsplit==true:
-		split(self.global_position.x-140, self.global_position.x, self.global_position.y-75, self.global_position.y - 300)
-	if Input.is_action_pressed("down_1") and Input.is_action_pressed("up_2") and allowsplit==true:
-		split(self.global_position.x, self.global_position.x-120, self.global_position.y-300, self.global_position.y-75)
+	if Input.is_action_pressed("up_1"):
+		p1press.append(directions[0])
+	if Input.is_action_pressed("up_2"):
+		p2press.append(directions[0])
+	if Input.is_action_pressed("up_3"):
+		p3press.append(directions[0])
+	if Input.is_action_pressed("up_4"):
+		p4press.append(directions[0])
+	if Input.is_action_pressed("down_1"):
+		p1press.append(directions[1])
+	if Input.is_action_pressed("down_2"):
+		p2press.append(directions[1])
+	if Input.is_action_pressed("down_3"):
+		p3press.append(directions[1])
+	if Input.is_action_pressed("down_4"):
+		p4press.append(directions[1])
+	if Input.is_action_pressed("left_1"):
+		p1press.append(directions[2])
+	if Input.is_action_pressed("left_2"):
+		p2press.append(directions[2])
+	if Input.is_action_pressed("left_3"):
+		p3press.append(directions[2])
+	if Input.is_action_pressed("left_4"):
+		p4press.append(directions[2])
+	if Input.is_action_pressed("right_1"):
+		p1press.append(directions[3])
+	if Input.is_action_pressed("right_2"):
+		p2press.append(directions[3])	
+	if Input.is_action_pressed("right_3"):
+		p3press.append(directions[3])
+	if Input.is_action_pressed("right_4"):
+		p4press.append(directions[3])	
 	if direction:
 		velocity.x = (direction * SPEED )/ 4 
 	else:
