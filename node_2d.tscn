@@ -406,3 +406,5 @@ script = ExtResource("14_p8mhi")
 [connection signal="timeout" from="SlimeMergeDelay" to="CharacterBody2D2" method="_on_slime_merge_delay_timeout"]
 [connection signal="timeout" from="SlimeMergeDelay" to="CharacterBody2D/Area2D" method="_on_slime_merge_delay_timeout"]
 [connection signal="timeout" from="SlimeMergeDelay" to="SlimeMergeDelay" method="_on_timeout"]
+[connection signal="area_entered" from="Player3Body/Area2D" to="Player3Body/Area2D" method="_on_area_entered"]
+[connection signal="area_entered" from="Player4Body/Area2D" to="Player4Body/Area2D" method="_on_area_entered"]
