@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=27 format=4 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Texture2D" uid="uid://bj04vntg64lw5" path="res://icon.svg" id="1_0lk6c"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://player_3_body.gd" id="11_dxnox"]
 [ext_resource type="Script" path="res://area_2d.gd" id="12_crahk"]
 [ext_resource type="Script" path="res://player_4_body.gd" id="13_ysa2l"]
+[ext_resource type="Script" path="res://merging_engine.gd" id="14_p8mhi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8qvxm"]
 texture = ExtResource("9_rcrtl")
@@ -378,11 +379,14 @@ position = Vector2(-43, 30.5)
 shape = SubResource("RectangleShape2D_g0265")
 
 [node name="MergingEngine" type="Node2D" parent="."]
+script = ExtResource("14_p8mhi")
 
+[connection signal="detect1" from="CharacterBody2D2" to="MergingEngine" method="_on_character_body_2d_2_detect_1"]
 [connection signal="mergecheck3" from="CharacterBody2D2" to="SlimeMergeDelay" method="_on_character_body_2d_2_mergecheck_3"]
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D" method="_on_touching_player1"]
 [connection signal="body_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_body_entered"]
+[connection signal="detect2" from="CharacterBody2D" to="MergingEngine" method="_on_character_body_2d_detect_2"]
 [connection signal="mergecheck2" from="CharacterBody2D/Area2D" to="SlimeMergeDelay" method="_on_area_2d_mergecheck_2"]
 [connection signal="showslime" from="CharacterBody2D/Area2D" to="CharacterBody2D2" method="_on_area_2d_showslime"]
 [connection signal="showslime" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_showslime"]
