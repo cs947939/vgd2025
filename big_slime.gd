@@ -7,7 +7,7 @@ signal delaystart
 signal cooldownstart
 signal mergecheck
 signal hideslime(x1, x2, y1, y2)
-
+var sprite_id = 5 
 var allowsplit = false
 var allowmerge = true
 func _ready() -> void:
@@ -71,6 +71,15 @@ func _physics_process(delta: float) -> void:
 		p3press.append(directions[3])
 	if Input.is_action_pressed("right_4"):
 		p4press.append(directions[3])	
+	for i in range(4):
+		if directions[i] in p1press:
+			for ii in range(3):
+				if directions[ii + 1] in p2press:
+					for iii in range(2):
+						if directions[iii + 2] in p3press:
+							if directions[3] in p4press:
+								print("Split!")
+								break
 	if direction:
 		velocity.x = (direction * SPEED )/ 4 
 	else:
