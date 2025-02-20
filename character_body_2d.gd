@@ -3,6 +3,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 signal mergecheck3
 var canmerge = true
+var sprite_id = 1
+signal detect1
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -32,6 +34,7 @@ func _on_on_enter():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("Entered Body") # Replace with function body.
+	detect1.emit()
 
 
 func _on_area_2d_showslime() -> void:
