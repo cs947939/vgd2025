@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=4 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=28 format=4 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Texture2D" uid="uid://bj04vntg64lw5" path="res://icon.svg" id="1_0lk6c"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
 [ext_resource type="Script" path="res://new_script.gd" id="2_0odp4"]
+[ext_resource type="Texture2D" uid="uid://ct77hsl52qxgb" path="res://551cc3fd67aeaaf (1).png" id="3_jcc0i"]
 [ext_resource type="Script" path="res://playerCollision.gd" id="4_2y4d7"]
 [ext_resource type="Script" path="res://slime_2_2d.gd" id="4_tgr73"]
 [ext_resource type="Script" path="res://area_2d2.gd" id="6_ca46b"]
@@ -223,10 +224,10 @@ sources/1 = SubResource("TileSetAtlasSource_8qvxm")
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_by6cd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kf7ib"]
-size = Vector2(125, 124)
+size = Vector2(19, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bwy1"]
-size = Vector2(132, 132)
+size = Vector2(19, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3105w"]
 size = Vector2(145, 138)
@@ -261,26 +262,25 @@ tile_set = SubResource("TileSet_762ot")
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
 position = Vector2(164, 289)
-scale = Vector2(0.203807, 0.246169)
 collision_layer = 2
 script = ExtResource("1_lfuix")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
 physics_interpolation_mode = 1
 material = SubResource("CanvasItemMaterial_by6cd")
-texture = ExtResource("1_0lk6c")
+position = Vector2(-3, 2)
+texture = ExtResource("3_jcc0i")
+hframes = 3
+vframes = 4
 script = ExtResource("2_0odp4")
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D2"]
-position = Vector2(-1, 0)
 script = ExtResource("4_2y4d7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/Area2D"]
-position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -342,7 +342,7 @@ autostart = true
 script = ExtResource("10_ud7et")
 
 [node name="Player3Body" type="CharacterBody2D" parent="."]
-position = Vector2(870, 833)
+position = Vector2(691, 880)
 script = ExtResource("11_dxnox")
 
 [node name="Player3" type="Sprite2D" parent="Player3Body"]
