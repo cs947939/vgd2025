@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=26 format=4 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Texture2D" uid="uid://bj04vntg64lw5" path="res://icon.svg" id="1_0lk6c"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
@@ -10,6 +10,9 @@
 [ext_resource type="Script" path="res://slime_input_delay.gd" id="8_jm5xw"]
 [ext_resource type="Texture2D" uid="uid://cupxi4beigahc" path="res://973eaedf89f6405 (1).png" id="9_rcrtl"]
 [ext_resource type="Script" path="res://slime_merge_delay.gd" id="10_ud7et"]
+[ext_resource type="Script" path="res://player_3_body.gd" id="11_dxnox"]
+[ext_resource type="Script" path="res://area_2d.gd" id="12_crahk"]
+[ext_resource type="Script" path="res://player_4_body.gd" id="13_ysa2l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8qvxm"]
 texture = ExtResource("9_rcrtl")
@@ -233,6 +236,18 @@ size = Vector2(1247, 468)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wy72w"]
 size = Vector2(321, 267)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sx0hl"]
+size = Vector2(139.25, 130.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtekl"]
+size = Vector2(155, 139)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nipvl"]
+size = Vector2(148, 142)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0265"]
+size = Vector2(160, 147)
+
 [node name="Scene" type="Node2D"]
 physics_interpolation_mode = 1
 position = Vector2(13, -114)
@@ -323,6 +338,44 @@ script = ExtResource("8_jm5xw")
 one_shot = true
 autostart = true
 script = ExtResource("10_ud7et")
+
+[node name="Player3Body" type="CharacterBody2D" parent="."]
+position = Vector2(421, 648)
+script = ExtResource("11_dxnox")
+
+[node name="Player3" type="Sprite2D" parent="Player3Body"]
+position = Vector2(-643, -659)
+texture = ExtResource("1_0lk6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player3Body"]
+position = Vector2(-638.625, -660.75)
+shape = SubResource("RectangleShape2D_sx0hl")
+
+[node name="Area2D" type="Area2D" parent="Player3Body"]
+script = ExtResource("12_crahk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player3Body/Area2D"]
+position = Vector2(-639.5, -656.5)
+shape = SubResource("RectangleShape2D_mtekl")
+
+[node name="Player4Body" type="CharacterBody2D" parent="."]
+position = Vector2(620, -16)
+script = ExtResource("13_ysa2l")
+
+[node name="Player4" type="Sprite2D" parent="Player4Body"]
+position = Vector2(-43, 26)
+texture = ExtResource("1_0lk6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player4Body"]
+position = Vector2(-44, 28)
+shape = SubResource("RectangleShape2D_nipvl")
+
+[node name="Area2D" type="Area2D" parent="Player4Body"]
+script = ExtResource("12_crahk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player4Body/Area2D"]
+position = Vector2(-43, 30.5)
+shape = SubResource("RectangleShape2D_g0265")
 
 [connection signal="mergecheck3" from="CharacterBody2D2" to="SlimeMergeDelay" method="_on_character_body_2d_2_mergecheck_3"]
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
