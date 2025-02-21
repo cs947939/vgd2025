@@ -35,6 +35,7 @@ func level_pass():
 	if current_level == level:
 		level += 1
 		current_level += 1
+		save_level()
 		if level > max_level:
 			end_game
 		else:
