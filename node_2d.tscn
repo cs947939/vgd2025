@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=34 format=4 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Texture2D" uid="uid://bj04vntg64lw5" path="res://icon.svg" id="1_0lk6c"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ct77hsl52qxgb" path="res://551cc3fd67aeaaf (1).png" id="3_jcc0i"]
 [ext_resource type="Script" path="res://playerCollision.gd" id="4_2y4d7"]
 [ext_resource type="Script" path="res://slime_2_2d.gd" id="4_tgr73"]
+[ext_resource type="Script" path="res://animation_script.gd" id="5_gk6m3"]
 [ext_resource type="Script" path="res://area_2d2.gd" id="6_ca46b"]
 [ext_resource type="Script" path="res://big_slime.gd" id="7_v2y33"]
 [ext_resource type="Script" path="res://slime_input_delay.gd" id="8_jm5xw"]
@@ -223,6 +224,90 @@ sources/1 = SubResource("TileSetAtlasSource_8qvxm")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_by6cd"]
 
+[sub_resource type="Animation" id="Animation_frcoi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_udype"]
+resource_name = "start_running"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_q1n6k"]
+resource_name = "running"
+length = 0.45
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_snefw"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4c86s"]
+_data = {
+"RESET": SubResource("Animation_frcoi"),
+"idle": SubResource("Animation_snefw"),
+"running": SubResource("Animation_q1n6k"),
+"start_running": SubResource("Animation_udype")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kf7ib"]
 size = Vector2(19, 19)
 
@@ -273,6 +358,13 @@ texture = ExtResource("3_jcc0i")
 hframes = 3
 vframes = 4
 script = ExtResource("2_0odp4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D2"]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_4c86s")
+}
+script = ExtResource("5_gk6m3")
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D2"]
 script = ExtResource("4_2y4d7")
