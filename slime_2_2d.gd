@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
 
-const SPEED = 100.0
+const SPEED = 75.0
 const JUMP_VELOCITY = -400.0
 var sprite_id = 2
 signal detect2
 @onready var animation_player = $AnimationPlayer2
 @onready var sprite2d = $Sprite2D2
+func _ready() -> void:
+	sprite2d.modulate = Color.from_hsv(0.3, 0.8, 1.4)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -20,15 +22,20 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left_2", "right_2")
-	if direction:
-		if abs(velocity.x) == 0:
-			animation_player.play("start_running")
-		velocity.x = direction * SPEED
-	else:
-		animation_player.play("idle")
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	sprite2d.flip_h = true if direction < 0 else false
-	sprite2d.position.x = 3 if direction < 0 else -3
+	if is_on_floor():
+		if direction:
+			if animation_player.current_animation == "idle":
+				animation_player.play("start_running")
+			velocity.x += direction * SPEED/8
+			if velocity.x > 0 and velocity.x > direction*SPEED:
+				velocity.x = direction*SPEED
+			elif velocity.x < 0 and velocity.x <direction*SPEED:
+				velocity.x = direction*SPEED
+		else:
+			animation_player.play("idle")
+			velocity.x = move_toward(velocity.x, 0, SPEED/10)
+		sprite2d.flip_h = true if direction < 0 else false
+		sprite2d.position.x = 3 if direction < 0 else -3
 
 	move_and_slide()
 
