@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cdfj6aq5apj55"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Levels_Button" type="Button" parent="."]
+offset_left = 186.0
+offset_top = 139.0
+offset_right = 262.0
+offset_bottom = 175.0
+theme_override_font_sizes/font_size = 20
+text = "LEVELS"
+
+[node name="Play_Button" type="Button" parent="."]
+offset_left = 188.0
+offset_top = 95.0
+offset_right = 264.0
+offset_bottom = 131.0
+theme_override_font_sizes/font_size = 20
+text = "PLAY"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 42.0
+offset_right = 635.0
+offset_bottom = 287.0
+theme_override_font_sizes/font_size = 25
+text = "SLIMINATOR MAIN MENU"

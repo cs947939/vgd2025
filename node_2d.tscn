@@ -221,7 +221,7 @@ size = Vector2(321, 267)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_budch"]
 size = Vector2(432, 243)
 
-[node name="Scene" type="Node2D"]
+[node name="Players" type="Node2D"]
 physics_interpolation_mode = 1
 position = Vector2(13, -114)
 
