@@ -7,6 +7,8 @@ var sprite_id = 1
 signal detect1
 @onready var animation_player = $AnimationPlayer
 @onready var sprite2d = $Sprite2D
+func _ready() -> void:
+	sprite2d.modulate = Color.from_hsv(0, 0.8, 1.4)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

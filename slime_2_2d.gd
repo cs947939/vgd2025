@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 var sprite_id = 2
 signal detect2
+@onready var animation_player = $AnimationPlayer2
+@onready var sprite2d = $Sprite2D2
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -18,9 +21,14 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left_2", "right_2")
 	if direction:
+		if abs(velocity.x) == 0:
+			animation_player.play("start_running")
 		velocity.x = direction * SPEED
 	else:
+		animation_player.play("idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	sprite2d.flip_h = true if direction < 0 else false
+	sprite2d.position.x = 3 if direction < 0 else -3
 
 	move_and_slide()
 
