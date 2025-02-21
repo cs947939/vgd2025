@@ -54,3 +54,15 @@ func _on_big_slime_hideslime(x1, x2, y1, y2) -> void:
 
 func _on_slime_merge_delay_stopmerge() -> void:
 	pass # Replace with function body.
+
+
+func _on_merging_engine_sprite_comm(msg: int, id: int) -> void:
+	if id == sprite_id:
+		if msg == 2:
+			#canmerge = true
+			visible=false # Replace with function body.
+			process_mode = PROCESS_MODE_DISABLED
+
+
+func _on_area_2d_on_enter() -> void:
+	detect2.emit()

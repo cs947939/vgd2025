@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+signal detect4
 const SPEED = 75.0
 const JUMP_VELOCITY = -400.0
 var sprite_id = 4
@@ -36,3 +36,15 @@ func _physics_process(delta: float) -> void:
 		sprite2d.position.x = 3 if direction < 0 else -3
 
 	move_and_slide()
+
+
+func _on_area_2d_on_enter() -> void:
+	detect4.emit()
+
+
+func _on_merging_engine_sprite_comm(msg: int, id: int) -> void:
+	if id == sprite_id:
+		if msg == 2:
+			#canmerge = true
+			visible=false # Replace with function body.
+			process_mode = PROCESS_MODE_DISABLED
