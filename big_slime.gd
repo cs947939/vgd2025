@@ -125,3 +125,11 @@ func _on_slime_merge_delay_allowmerge() -> void:
 
 func _on_slime_merge_delay_stopmerge() -> void:
 	pass
+
+
+func _on_merging_engine_sprite_comm(msg: int, id: int) -> void:
+	if sprite_id == id:
+		if msg == 3:
+			delaystart.emit()
+			visible = true # Replace with function body.
+			process_mode = PROCESS_MODE_INHERIT

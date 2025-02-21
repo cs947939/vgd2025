@@ -168,22 +168,6 @@ tracks/0/keys = {
 "values": [Vector2i(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_udype"]
-resource_name = "start_running"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
 [sub_resource type="Animation" id="Animation_q1n6k"]
 resource_name = "running-loop"
 length = 0.45
@@ -199,6 +183,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_udype"]
+resource_name = "start_running"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4c86s"]
@@ -390,15 +390,22 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="animation_finished" from="CharacterBody2D2/AnimationPlayer" to="CharacterBody2D2/AnimationPlayer" method="_on_animation_finished"]
 [connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_body_entered"]
+[connection signal="onEnter" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_on_enter"]
+[connection signal="detect2" from="CharacterBody2D" to="MergingEngine" method="_on_character_body_2d_detect_2"]
 [connection signal="animation_finished" from="CharacterBody2D/AnimationPlayer2" to="CharacterBody2D/AnimationPlayer2" method="_on_animation_finished"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="onEnter" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_on_enter"]
+[connection signal="detect3" from="CharacterBody2D3" to="MergingEngine" method="_on_character_body_2d_3_detect_3"]
 [connection signal="animation_finished" from="CharacterBody2D3/AnimationPlayer3" to="CharacterBody2D3/AnimationPlayer3" method="_on_animation_finished"]
 [connection signal="area_entered" from="CharacterBody2D3/Area2D" to="CharacterBody2D3" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D3/Area2D" to="CharacterBody2D3" method="_on_area_2d_body_entered"]
+[connection signal="onEnter" from="CharacterBody2D3/Area2D" to="CharacterBody2D3" method="_on_area_2d_on_enter"]
+[connection signal="detect4" from="CharacterBody2D4" to="MergingEngine" method="_on_character_body_2d_4_detect_4"]
 [connection signal="animation_finished" from="CharacterBody2D4/AnimationPlayer4" to="CharacterBody2D4/AnimationPlayer4" method="_on_animation_finished"]
 [connection signal="area_entered" from="CharacterBody2D4/Area2D" to="CharacterBody2D4" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D4/Area2D" to="CharacterBody2D4" method="_on_area_2d_body_entered"]
+[connection signal="onEnter" from="CharacterBody2D4/Area2D" to="CharacterBody2D4" method="_on_area_2d_on_enter"]
 [connection signal="cooldownstart" from="BigSlime" to="SlimeMergeDelay" method="_on_big_slime_cooldownstart"]
 [connection signal="delaystart" from="BigSlime" to="BigSlime/SlimeInputDelay" method="_on_big_slime_delaystart"]
 [connection signal="hideslime" from="BigSlime" to="CharacterBody2D2" method="_on_big_slime_hideslime"]
@@ -410,3 +417,8 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="stopmerge" from="SlimeMergeDelay" to="BigSlime" method="_on_slime_merge_delay_stopmerge"]
 [connection signal="timeout" from="SlimeMergeDelay" to="CharacterBody2D2" method="_on_slime_merge_delay_timeout"]
 [connection signal="timeout" from="SlimeMergeDelay" to="SlimeMergeDelay" method="_on_timeout"]
+[connection signal="sprite_comm" from="MergingEngine" to="CharacterBody2D2" method="_on_merging_engine_sprite_comm"]
+[connection signal="sprite_comm" from="MergingEngine" to="CharacterBody2D" method="_on_merging_engine_sprite_comm"]
+[connection signal="sprite_comm" from="MergingEngine" to="CharacterBody2D3" method="_on_merging_engine_sprite_comm"]
+[connection signal="sprite_comm" from="MergingEngine" to="CharacterBody2D4" method="_on_merging_engine_sprite_comm"]
+[connection signal="sprite_comm" from="MergingEngine" to="BigSlime" method="_on_merging_engine_sprite_comm"]

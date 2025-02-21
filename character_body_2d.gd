@@ -79,3 +79,15 @@ func _on_slime_merge_delay_stopmerge() -> void:
 
 func _on_slime_merge_delay_timeout() -> void:
 	canmerge = true
+
+
+func _on_merging_engine_sprite_comm(msg: int, id: int) -> void:
+	if id == sprite_id:
+		if msg == 2:
+			canmerge = true
+			visible=false # Replace with function body.
+			process_mode = PROCESS_MODE_DISABLED
+
+
+func _on_area_2d_on_enter() -> void:
+	detect1.emit()
