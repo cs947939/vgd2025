@@ -239,7 +239,7 @@ shape = SubResource("RectangleShape2D_kf7ib")
 shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="BigSlime" type="CharacterBody2D" parent="."]
-position = Vector2(407, 275)
+position = Vector2(309, 259)
 scale = Vector2(0.222215, 0.265106)
 script = ExtResource("7_v2y33")
 
