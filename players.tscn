@@ -263,9 +263,11 @@ autostart = true
 script = ExtResource("10_ud7et")
 
 [node name="MergingEngine" type="Node2D" parent="."]
+position = Vector2(-88, 168)
 script = ExtResource("14_p8mhi")
 
 [node name="VIEWPORT_SIZE_TEMP" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(203, 235)
 shape = SubResource("RectangleShape2D_budch")
 
