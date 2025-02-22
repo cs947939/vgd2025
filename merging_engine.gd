@@ -49,6 +49,7 @@ func _on_area_2d_rmdetect_1() -> void:
 		var entry = sprite_list[i]
 		if entry == 1:
 			sprite_list.remove_at(i)
+			return
 
 
 func _on_character_body_2d_rmdetect_2() -> void:
