@@ -104,6 +104,8 @@ func _on_area_2d_showslime() -> void:
 		delaystart.emit()
 		visible = true # Replace with function body.
 		process_mode = PROCESS_MODE_INHERIT
+		print("check")
+		print(($"../CharacterBody2D2".global_position.x+$"../CharacterBody2D".global_position.x+$"../CharacterBody2D3".global_position.x+$"../CharacterBody2D4".global_position.x)/4)
 		global_position.x = ($"../CharacterBody2D2".global_position.x+$"../CharacterBody2D".global_position.x+$"../CharacterBody2D3".global_position.x+$"../CharacterBody2D4".global_position.x)/4
 		global_position.y = ($"../CharacterBody2D2".global_position.y+$"../CharacterBody2D".global_position.y+$"../CharacterBody2D3".global_position.y+$"../CharacterBody2D4".global_position.y)/4
 
@@ -135,3 +137,5 @@ func _on_merging_engine_sprite_comm(msg: int, id: int) -> void:
 			delaystart.emit()
 			visible = true # Replace with function body.
 			process_mode = PROCESS_MODE_INHERIT
+			global_position.x = ($"../CharacterBody2D2".global_position.x+$"../CharacterBody2D".global_position.x+$"../CharacterBody2D3".global_position.x+$"../CharacterBody2D4".global_position.x)/4
+			global_position.y = ($"../CharacterBody2D2".global_position.y+$"../CharacterBody2D".global_position.y+$"../CharacterBody2D3".global_position.y+$"../CharacterBody2D4".global_position.y)/4
