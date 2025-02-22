@@ -52,12 +52,12 @@ func _on_merging_engine_sprite_comm(msg: int, id: int) -> void:
 			process_mode = PROCESS_MODE_DISABLED
 
 
-func _on_big_slime_hideslime(x1: Variant, x2: Variant, y1: Variant, y2: Variant, x3: Variant, y3: Variant, x4: Variant, y4: Variant) -> void:
-	position = Vector2(x3, y3)
-	velocity = Vector2(0, 0)
+func _on_big_slime_hideslime(x, xx, direction, xxx) -> void:
+	process_mode = PROCESS_MODE_INHERIT
+	global_position.x = $"../BigSlime".global_position.x + (19 if direction == "right" else (-19 if direction == "left" else 0))
+	global_position.y = $"../BigSlime".global_position.y + (19 if direction == "down" else (-19 if direction == "up" else 0))
 
 	visible = true
-	process_mode = PROCESS_MODE_INHERIT
 
 
 func _on_area_2d_rmdetect_1() -> void:

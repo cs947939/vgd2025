@@ -47,10 +47,11 @@ func _on_area_2d_showslime() -> void:
 	process_mode = PROCESS_MODE_DISABLED
 
 
-func _on_big_slime_hideslime(x1, x2, y1, y2, x3, y3, x4, y4) -> void:
-	position = Vector2(x2, y2)
-	visible = true
+func _on_big_slime_hideslime(x, direction, xx, xxx) -> void:
 	process_mode = PROCESS_MODE_INHERIT
+	global_position.x = $"../BigSlime".global_position.x + (19 if direction == "right" else (-19 if direction == "left" else 0))
+	global_position.y = $"../BigSlime".global_position.y + (19 if direction == "down" else (-19 if direction == "up" else 0))
+	visible = true
 
 
 func _on_slime_merge_delay_stopmerge() -> void:
