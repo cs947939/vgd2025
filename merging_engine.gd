@@ -45,7 +45,7 @@ func _on_character_body_2d_4_detect_4() -> void:
 
 func _on_area_2d_rmdetect_1() -> void:
 	
-	for i in range(sprite_list.length):
+	for i in range(len(sprite_list)):
 		var entry = sprite_list[i]
 		if entry == 1:
 			sprite_list.remove_at(i)
