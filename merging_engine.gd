@@ -44,7 +44,29 @@ func _on_character_body_2d_4_detect_4() -> void:
 
 
 func _on_area_2d_rmdetect_1() -> void:
+	
 	for i in range(sprite_list.length):
 		var entry = sprite_list[i]
 		if entry == 1:
+			sprite_list.remove_at(i)
+
+
+func _on_character_body_2d_rmdetect_2() -> void:
+	for i in range(sprite_list.length):
+		var entry = sprite_list[i]
+		if entry == 2:
+			sprite_list.remove_at(i)
+
+
+func _on_character_body_2d_3_rmdetect_3() -> void:
+	for i in range(sprite_list.length):
+		var entry = sprite_list[i]
+		if entry == 3:
+			sprite_list.remove_at(i)
+
+
+func _on_character_body_2d_4_rmdetect_4() -> void:
+	for i in range(sprite_list.length):
+		var entry = sprite_list[i]
+		if entry == 4:
 			sprite_list.remove_at(i)

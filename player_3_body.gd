@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal detect3
+signal rmdetect3
 const SPEED = 75.0
 const JUMP_VELOCITY = -400.0
 var sprite_id = 3
@@ -57,3 +58,7 @@ func _on_big_slime_hideslime(x1: Variant, x2: Variant, y1: Variant, y2: Variant,
 
 	visible = true
 	process_mode = PROCESS_MODE_INHERIT
+
+
+func _on_area_2d_rmdetect_1() -> void:
+	rmdetect3.emit()

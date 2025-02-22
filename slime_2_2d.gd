@@ -5,6 +5,7 @@ const SPEED = 75.0
 const JUMP_VELOCITY = -400.0
 var sprite_id = 2
 signal detect2
+signal rmdetect2
 @onready var animation_player = $AnimationPlayer2
 @onready var sprite2d = $Sprite2D2
 func _ready() -> void:
@@ -66,3 +67,7 @@ func _on_merging_engine_sprite_comm(msg: int, id: int) -> void:
 
 func _on_area_2d_on_enter() -> void:
 	detect2.emit()
+
+
+func _on_area_2d_rmdetect_1() -> void:
+	rmdetect2.emit()
