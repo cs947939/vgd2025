@@ -116,7 +116,7 @@ position = Vector2(13, -114)
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(256, 274)
+position = Vector2(50, 200)
 collision_layer = 2
 script = ExtResource("1_lfuix")
 
@@ -147,7 +147,7 @@ shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(164, 289)
+position = Vector2(170, 200)
 collision_layer = 2
 script = ExtResource("4_tgr73")
 
@@ -178,7 +178,7 @@ shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="CharacterBody2D3" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(93, 276)
+position = Vector2(90, 200)
 collision_layer = 2
 script = ExtResource("11_dxnox")
 
@@ -209,7 +209,7 @@ shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="CharacterBody2D4" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(33, 244)
+position = Vector2(130, 200)
 collision_layer = 2
 script = ExtResource("13_ysa2l")
 
