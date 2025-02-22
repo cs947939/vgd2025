@@ -1,5 +1,6 @@
 extends Node2D
 var sprite_list = []
+var check_sprite_list = []
 
 signal sprite_comm(msg: int, id: int)
 # Called when the node enters the scene tree for the first time.
@@ -9,16 +10,23 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if 1 in sprite_list:
-		if 2 in sprite_list:
-			if 3 in sprite_list:
-				if 4 in sprite_list:
-					sprite_list = []
-					sprite_comm.emit(2, 1)
-					sprite_comm.emit(2, 2)
-					sprite_comm.emit(2, 3)
-					sprite_comm.emit(2, 4)
-					sprite_comm.emit(3, 5)
+	sprite_list = $"../CharacterBody2D2/1".get_overlapping_areas()
+	if $"../CharacterBody2D/2" in sprite_list:
+		check_sprite_list = $"../CharacterBody2D/2".get_overlapping_areas()
+		for item in check_sprite_list:
+			if not item in sprite_list:
+				sprite_list.append(item)
+	if $"../CharacterBody2D3/3" in sprite_list:
+		check_sprite_list = $"../CharacterBody2D3/3".get_overlapping_areas()
+		for item in check_sprite_list:
+			if not item in sprite_list:
+				sprite_list.append(item)
+	if len(sprite_list) == 4:
+		sprite_comm.emit(2, 1)
+		sprite_comm.emit(2, 2)
+		sprite_comm.emit(2, 3)
+		sprite_comm.emit(2, 4)
+		sprite_comm.emit(3, 5)
 					
 					
 
@@ -53,21 +61,24 @@ func _on_area_2d_rmdetect_1() -> void:
 
 
 func _on_character_body_2d_rmdetect_2() -> void:
-	for i in range(sprite_list.length):
+	for i in range(len(sprite_list)):
 		var entry = sprite_list[i]
 		if entry == 2:
 			sprite_list.remove_at(i)
+			return
 
 
 func _on_character_body_2d_3_rmdetect_3() -> void:
-	for i in range(sprite_list.length):
+	for i in range(len(sprite_list)):
 		var entry = sprite_list[i]
 		if entry == 3:
 			sprite_list.remove_at(i)
+			return
 
 
 func _on_character_body_2d_4_rmdetect_4() -> void:
-	for i in range(sprite_list.length):
+	for i in range(len(sprite_list)):
 		var entry = sprite_list[i]
 		if entry == 4:
 			sprite_list.remove_at(i)
+			return

@@ -136,10 +136,10 @@ libraries = {
 }
 script = ExtResource("5_gk6m3")
 
-[node name="Area2D" type="Area2D" parent="CharacterBody2D2"]
+[node name="1" type="Area2D" parent="CharacterBody2D2"]
 script = ExtResource("4_2y4d7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/1"]
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
@@ -167,10 +167,10 @@ libraries = {
 }
 script = ExtResource("5_gk6m3")
 
-[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+[node name="2" type="Area2D" parent="CharacterBody2D"]
 script = ExtResource("4_2y4d7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/2"]
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
@@ -198,10 +198,10 @@ libraries = {
 }
 script = ExtResource("5_gk6m3")
 
-[node name="Area2D" type="Area2D" parent="CharacterBody2D3"]
+[node name="3" type="Area2D" parent="CharacterBody2D3"]
 script = ExtResource("4_2y4d7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3/3"]
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3"]
@@ -229,10 +229,10 @@ libraries = {
 }
 script = ExtResource("5_gk6m3")
 
-[node name="Area2D" type="Area2D" parent="CharacterBody2D4"]
+[node name="4" type="Area2D" parent="CharacterBody2D4"]
 script = ExtResource("4_2y4d7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4/4"]
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4"]
@@ -274,32 +274,35 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="detect1" from="CharacterBody2D2" to="MergingEngine" method="_on_character_body_2d_2_detect_1"]
 [connection signal="mergecheck3" from="CharacterBody2D2" to="SlimeMergeDelay" method="_on_character_body_2d_2_mergecheck_3"]
 [connection signal="animation_finished" from="CharacterBody2D2/AnimationPlayer" to="CharacterBody2D2/AnimationPlayer" method="_on_animation_finished"]
-[connection signal="area_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="CharacterBody2D2/Area2D" to="CharacterBody2D2/Area2D" method="_on_area_exited"]
-[connection signal="body_entered" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_body_entered"]
-[connection signal="onEnter" from="CharacterBody2D2/Area2D" to="CharacterBody2D2" method="_on_area_2d_on_enter"]
-[connection signal="rmdetect1" from="CharacterBody2D2/Area2D" to="MergingEngine" method="_on_area_2d_rmdetect_1"]
+[connection signal="area_entered" from="CharacterBody2D2/1" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="CharacterBody2D2/1" to="CharacterBody2D2/1" method="_on_area_exited"]
+[connection signal="body_entered" from="CharacterBody2D2/1" to="CharacterBody2D2" method="_on_area_2d_body_entered"]
+[connection signal="onEnter" from="CharacterBody2D2/1" to="CharacterBody2D2" method="_on_area_2d_on_enter"]
+[connection signal="rmdetect1" from="CharacterBody2D2/1" to="MergingEngine" method="_on_area_2d_rmdetect_1"]
 [connection signal="detect2" from="CharacterBody2D" to="MergingEngine" method="_on_character_body_2d_detect_2"]
 [connection signal="rmdetect2" from="CharacterBody2D" to="MergingEngine" method="_on_character_body_2d_rmdetect_2"]
 [connection signal="animation_finished" from="CharacterBody2D/AnimationPlayer2" to="CharacterBody2D/AnimationPlayer2" method="_on_animation_finished"]
-[connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
-[connection signal="onEnter" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_on_enter"]
-[connection signal="rmdetect1" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_rmdetect_1"]
+[connection signal="area_entered" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="CharacterBody2D/2" to="CharacterBody2D/2" method="_on_area_exited"]
+[connection signal="body_entered" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="onEnter" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_on_enter"]
+[connection signal="rmdetect1" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_rmdetect_1"]
 [connection signal="detect3" from="CharacterBody2D3" to="MergingEngine" method="_on_character_body_2d_3_detect_3"]
 [connection signal="rmdetect3" from="CharacterBody2D3" to="MergingEngine" method="_on_character_body_2d_3_rmdetect_3"]
 [connection signal="animation_finished" from="CharacterBody2D3/AnimationPlayer3" to="CharacterBody2D3/AnimationPlayer3" method="_on_animation_finished"]
-[connection signal="area_entered" from="CharacterBody2D3/Area2D" to="CharacterBody2D3" method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="CharacterBody2D3/Area2D" to="CharacterBody2D3" method="_on_area_2d_body_entered"]
-[connection signal="onEnter" from="CharacterBody2D3/Area2D" to="CharacterBody2D3" method="_on_area_2d_on_enter"]
-[connection signal="rmdetect1" from="CharacterBody2D3/Area2D" to="CharacterBody2D3" method="_on_area_2d_rmdetect_1"]
+[connection signal="area_entered" from="CharacterBody2D3/3" to="CharacterBody2D3" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="CharacterBody2D3/3" to="CharacterBody2D3/3" method="_on_area_exited"]
+[connection signal="body_entered" from="CharacterBody2D3/3" to="CharacterBody2D3" method="_on_area_2d_body_entered"]
+[connection signal="onEnter" from="CharacterBody2D3/3" to="CharacterBody2D3" method="_on_area_2d_on_enter"]
+[connection signal="rmdetect1" from="CharacterBody2D3/3" to="CharacterBody2D3" method="_on_area_2d_rmdetect_1"]
 [connection signal="detect4" from="CharacterBody2D4" to="MergingEngine" method="_on_character_body_2d_4_detect_4"]
 [connection signal="rmdetect4" from="CharacterBody2D4" to="MergingEngine" method="_on_character_body_2d_4_rmdetect_4"]
 [connection signal="animation_finished" from="CharacterBody2D4/AnimationPlayer4" to="CharacterBody2D4/AnimationPlayer4" method="_on_animation_finished"]
-[connection signal="area_entered" from="CharacterBody2D4/Area2D" to="CharacterBody2D4" method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="CharacterBody2D4/Area2D" to="CharacterBody2D4" method="_on_area_2d_body_entered"]
-[connection signal="onEnter" from="CharacterBody2D4/Area2D" to="CharacterBody2D4" method="_on_area_2d_on_enter"]
-[connection signal="rmdetect1" from="CharacterBody2D4/Area2D" to="CharacterBody2D4" method="_on_area_2d_rmdetect_1"]
+[connection signal="area_entered" from="CharacterBody2D4/4" to="CharacterBody2D4" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="CharacterBody2D4/4" to="CharacterBody2D4/4" method="_on_area_exited"]
+[connection signal="body_entered" from="CharacterBody2D4/4" to="CharacterBody2D4" method="_on_area_2d_body_entered"]
+[connection signal="onEnter" from="CharacterBody2D4/4" to="CharacterBody2D4" method="_on_area_2d_on_enter"]
+[connection signal="rmdetect1" from="CharacterBody2D4/4" to="CharacterBody2D4" method="_on_area_2d_rmdetect_1"]
 [connection signal="cooldownstart" from="BigSlime" to="SlimeMergeDelay" method="_on_big_slime_cooldownstart"]
 [connection signal="delaystart" from="BigSlime" to="BigSlime/SlimeInputDelay" method="_on_big_slime_delaystart"]
 [connection signal="hideslime" from="BigSlime" to="CharacterBody2D2" method="_on_big_slime_hideslime"]
