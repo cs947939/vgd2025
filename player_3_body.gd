@@ -49,3 +49,11 @@ func _on_merging_engine_sprite_comm(msg: int, id: int) -> void:
 			#canmerge = true
 			visible=false # Replace with function body.
 			process_mode = PROCESS_MODE_DISABLED
+
+
+func _on_big_slime_hideslime(x1: Variant, x2: Variant, y1: Variant, y2: Variant, x3: Variant, y3: Variant, x4: Variant, y4: Variant) -> void:
+	position = Vector2(x3, y3)
+	velocity = Vector2(0, 0)
+
+	visible = true
+	process_mode = PROCESS_MODE_INHERIT

@@ -6,14 +6,14 @@ const JUMP_VELOCITY = -400.0
 signal delaystart
 signal cooldownstart
 signal mergecheck
-signal hideslime(x1, x2, y1, y2)
+signal hideslime(x1, x2, y1, y2, x3, y3, x4, y4)
 var sprite_id = 5 
 var allowsplit = false
 var allowmerge = true
 func _ready() -> void:
 	visible=false
 	process_mode = PROCESS_MODE_DISABLED
-func split(x1, x2, y1, y2) -> void:
+func split(x1, x2, y1, y2, x3, y3, x4, y4) -> void:
 	print("Different Input")
 	hideslime.emit(x1, x2, y1, y2)
 	cooldownstart.emit()
@@ -24,10 +24,10 @@ func split(x1, x2, y1, y2) -> void:
 
 	
 func _physics_process(delta: float) -> void:
-	var p1press = []
-	var p2press =[]
-	var p3press =[]
-	var p4press = []
+	var p1press = "NA"
+	var p2press = "NA"
+	var p3press = "NA"
+	var p4press = "NA"
 	var directions = ['up', 'down', 'left', 'right']
 	# Add the gravity.
 	if not is_on_floor():
@@ -40,46 +40,40 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left_2", "right_2")
 	if Input.is_action_pressed("up_1"):
-		p1press.append(directions[0])
+		p1press = (directions[0])
 	if Input.is_action_pressed("up_2"):
-		p2press.append(directions[0])
+		p2press = (directions[0])
 	if Input.is_action_pressed("up_3"):
-		p3press.append(directions[0])
+		p3press = (directions[0])
 	if Input.is_action_pressed("up_4"):
-		p4press.append(directions[0])
+		p4press = (directions[0])
 	if Input.is_action_pressed("down_1"):
-		p1press.append(directions[1])
+		p1press  = (directions[1])
 	if Input.is_action_pressed("down_2"):
-		p2press.append(directions[1])
+		p2press  = (directions[1])
 	if Input.is_action_pressed("down_3"):
-		p3press.append(directions[1])
+		p3press  = (directions[1])
 	if Input.is_action_pressed("down_4"):
-		p4press.append(directions[1])
+		p4press = (directions[1])
 	if Input.is_action_pressed("left_1"):
-		p1press.append(directions[2])
+		p1press = (directions[2])
 	if Input.is_action_pressed("left_2"):
-		p2press.append(directions[2])
+		p2press = (directions[2])
 	if Input.is_action_pressed("left_3"):
-		p3press.append(directions[2])
+		p3press = (directions[2])
 	if Input.is_action_pressed("left_4"):
-		p4press.append(directions[2])
+		p4press = (directions[2])
 	if Input.is_action_pressed("right_1"):
-		p1press.append(directions[3])
+		p1press = (directions[3])
 	if Input.is_action_pressed("right_2"):
-		p2press.append(directions[3])	
+		p2press = (directions[3])	
 	if Input.is_action_pressed("right_3"):
-		p3press.append(directions[3])
+		p3press = (directions[3])
 	if Input.is_action_pressed("right_4"):
-		p4press.append(directions[3])	
-	for i in range(4):
-		if directions[i] in p1press:
-			for ii in range(3):
-				if directions[ii + 1] in p2press:
-					for iii in range(2):
-						if directions[iii + 2] in p3press:
-							if directions[3] in p4press:
-								print("Split!")
-								break
+		p4press = (directions[3])	
+	if p1press != p2press && p2press != p3press && p3press != p4press:
+		if p1press != p3press && p1press != p4press && p4press != "NA" && p3press != "NA" && p2press != "NA" && p1press != "NA":
+			print("SPLIT!!!!!!!!!!!!")						
 	if direction:
 		velocity.x = (direction * SPEED )/ 4 
 	else:
@@ -93,11 +87,28 @@ func _physics_process(delta: float) -> void:
 	if direction == direction2:
 		velocity.x = direction2 * SPEED
 	else:
-		pass
-		
+		pass	
 	move_and_slide()
-
-
+	var direction3 := Input.get_axis("left_3", "right_3")
+	if direction3:
+		velocity.x = (direction3 * SPEED )/ 4
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if direction == direction2 && direction3 == direction2:
+		velocity.x = direction3 * SPEED
+	else:
+		pass	
+	move_and_slide()
+	var direction4 := Input.get_axis("left_4", "right_4")
+	if direction4:
+		velocity.x = (direction4 * SPEED )/ 4
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if direction == direction2 && direction3 == direction2 && direction4 == direction3:
+		velocity.x = direction3 * SPEED
+	else:
+		pass	
+	move_and_slide()
 func _on_area_2d_showslime() -> void:
 	mergecheck.emit()
 	if allowmerge == true:

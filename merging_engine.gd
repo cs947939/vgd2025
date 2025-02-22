@@ -41,3 +41,10 @@ func _on_character_body_2d_3_detect_3() -> void:
 func _on_character_body_2d_4_detect_4() -> void:
 	print(4)
 	sprite_list.append(4)
+
+
+func _on_area_2d_rmdetect_1() -> void:
+	for i in range(sprite_list.length):
+		var entry = sprite_list[i]
+		if entry == 1:
+			sprite_list.remove_at(i)
