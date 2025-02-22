@@ -13,9 +13,9 @@ var allowmerge = true
 func _ready() -> void:
 	visible=false
 	process_mode = PROCESS_MODE_DISABLED
-func split(x1, x2, y1, y2, x3, y3, x4, y4) -> void:
+func split(direction1, direction2, direction3, direction4) -> void:
 	print("Different Input")
-	hideslime.emit(x1, x2, y1, y2)
+	hideslime.emit(direction1, direction2, direction3, direction4)
 	cooldownstart.emit()
 	allowmerge = false
 	visible = false
@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		p4press = (directions[3])	
 	if p1press != p2press && p2press != p3press && p3press != p4press:
 		if p1press != p3press && p1press != p4press && p4press != "NA" && p3press != "NA" && p2press != "NA" && p1press != "NA":
-			print("SPLIT!!!!!!!!!!!!")						
+			split(p1press, p2press, p3press, p4press)
 	if direction:
 		velocity.x = (direction * SPEED )/ 4 
 	else:
