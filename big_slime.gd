@@ -77,28 +77,24 @@ func _physics_process(delta: float) -> void:
 	if p1press != p2press && p2press != p3press && p3press != p4press:
 		if p1press != p3press && p1press != p4press && p4press != "NA" && p3press != "NA" && p2press != "NA" && p1press != "NA":
 			split(p1press, p2press, p3press, p4press)
-	if direction:
-		velocity.x = (direction * SPEED )/ 4 
+	if is_on_floor():
+		var final_direction = 0
+		if direction:
+			final_direction += direction
 		if direction2:
-			velocity.x += (direction2 * SPEED )/ 4
+			final_direction += direction2
 		if direction3:
-			velocity.x += (direction3 * SPEED )/ 4
+			final_direction += direction3
 		if direction4:
-			velocity.x += (direction4 * SPEED )/ 4
-	elif direction2:
-		velocity.x = (direction2 * SPEED )/ 4
-		if direction3:
-			velocity.x += (direction3 * SPEED )/ 4
-		if direction4:
-			velocity.x += (direction4 * SPEED )/ 4
-	elif direction3:
-		velocity.x = (direction3 * SPEED )/ 4
-		if direction4:
-			velocity.x += (direction4 * SPEED )/ 4
-	elif direction4:
-		velocity.x = (direction4 * SPEED )/ 4
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+			final_direction += direction4
+		if final_direction == 0:
+			velocity.x = move_toward(velocity.x, 0, SPEED/10)
+		else:
+			velocity.x += final_direction*SPEED/32
+			if velocity.x > 0 and velocity.x > final_direction*SPEED/4:
+				velocity.x = final_direction*SPEED/4
+			elif velocity.x < 0 and velocity.x <final_direction*SPEED/4:
+				velocity.x = final_direction*SPEED/4
 	move_and_slide()
 func _on_area_2d_showslime() -> void:
 	mergecheck.emit()
