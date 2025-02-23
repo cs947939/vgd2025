@@ -23,20 +23,23 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left_2", "right_2")
-	if is_on_floor():
-		if direction:
-			if animation_player.current_animation == "idle":
-				animation_player.play("start_running")
+	if direction:
+		if animation_player.current_animation == "idle":
+			animation_player.play("start_running")
+		
+		if is_on_floor():
 			velocity.x += direction * SPEED/8
-			if velocity.x > 0 and velocity.x > direction*SPEED:
-				velocity.x = direction*SPEED
-			elif velocity.x < 0 and velocity.x <direction*SPEED:
-				velocity.x = direction*SPEED
 		else:
-			animation_player.play("idle")
-			velocity.x = move_toward(velocity.x, 0, SPEED/10)
-		sprite2d.flip_h = true if direction < 0 else false
-		sprite2d.position.x = 3 if direction < 0 else -3
+			velocity.x += direction * SPEED/16
+		if velocity.x > 0 and velocity.x > direction*SPEED:
+			velocity.x = direction*SPEED
+		elif velocity.x < 0 and velocity.x <direction*SPEED:
+			velocity.x = direction*SPEED
+	else:
+		animation_player.play("idle")
+		velocity.x = move_toward(velocity.x, 0, ((SPEED/10) if is_on_floor() else (SPEED/200)))
+	sprite2d.flip_h = true if direction < 0 else false
+	sprite2d.position.x = 3 if direction < 0 else -3
 
 	move_and_slide()
 
