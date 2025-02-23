@@ -144,12 +144,11 @@ script = ExtResource("4_2y4d7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/1"]
 shape = SubResource("RectangleShape2D_kf7ib")
 
-[node name="2" type="Area2D" parent="CharacterBody2D2"]
+[node name="damageArea" type="Area2D" parent="CharacterBody2D2"]
 collision_layer = 32768
 collision_mask = 32768
-script = ExtResource("4_2y4d7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/damageArea"]
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
@@ -295,11 +294,6 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="body_entered" from="CharacterBody2D2/1" to="CharacterBody2D2" method="_on_area_2d_body_entered"]
 [connection signal="onEnter" from="CharacterBody2D2/1" to="CharacterBody2D2" method="_on_area_2d_on_enter"]
 [connection signal="rmdetect1" from="CharacterBody2D2/1" to="MergingEngine" method="_on_area_2d_rmdetect_1"]
-[connection signal="area_entered" from="CharacterBody2D2/2" to="CharacterBody2D2" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="CharacterBody2D2/2" to="CharacterBody2D2/2" method="_on_area_exited"]
-[connection signal="body_entered" from="CharacterBody2D2/2" to="CharacterBody2D2" method="_on_area_2d_body_entered"]
-[connection signal="onEnter" from="CharacterBody2D2/2" to="CharacterBody2D2" method="_on_area_2d_on_enter"]
-[connection signal="rmdetect1" from="CharacterBody2D2/2" to="MergingEngine" method="_on_area_2d_rmdetect_1"]
 [connection signal="detect2" from="CharacterBody2D" to="MergingEngine" method="_on_character_body_2d_detect_2"]
 [connection signal="rmdetect2" from="CharacterBody2D" to="MergingEngine" method="_on_character_body_2d_rmdetect_2"]
 [connection signal="animation_finished" from="CharacterBody2D/AnimationPlayer2" to="CharacterBody2D/AnimationPlayer2" method="_on_animation_finished"]
