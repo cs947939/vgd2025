@@ -134,6 +134,7 @@ root_node = NodePath("../Sprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_4c86s")
 }
+autoplay = "idle"
 script = ExtResource("5_gk6m3")
 
 [node name="1" type="Area2D" parent="CharacterBody2D2"]
@@ -144,48 +145,15 @@ script = ExtResource("4_2y4d7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/1"]
 shape = SubResource("RectangleShape2D_kf7ib")
 
-[node name="damageArea" type="Area2D" parent="CharacterBody2D2"]
-collision_layer = 32768
-collision_mask = 32768
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/damageArea"]
-shape = SubResource("RectangleShape2D_kf7ib")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
 shape = SubResource("RectangleShape2D_7bwy1")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-physics_interpolation_mode = 1
-position = Vector2(170, 200)
-collision_layer = 2
-script = ExtResource("4_tgr73")
+[node name="damageArea" type="Area2D" parent="CharacterBody2D2"]
+collision_layer = 0
+collision_mask = 16384
 
-[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D"]
-physics_interpolation_mode = 1
-material = SubResource("CanvasItemMaterial_by6cd")
-position = Vector2(-3, 2)
-texture = ExtResource("3_jcc0i")
-hframes = 3
-vframes = 4
-script = ExtResource("2_0odp4")
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="CharacterBody2D"]
-root_node = NodePath("../Sprite2D2")
-libraries = {
-"": SubResource("AnimationLibrary_4c86s")
-}
-script = ExtResource("5_gk6m3")
-
-[node name="2" type="Area2D" parent="CharacterBody2D"]
-collision_layer = 32768
-collision_mask = 32768
-script = ExtResource("4_2y4d7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/damageArea"]
 shape = SubResource("RectangleShape2D_kf7ib")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="CharacterBody2D3" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
@@ -207,6 +175,7 @@ root_node = NodePath("../Sprite2D3")
 libraries = {
 "": SubResource("AnimationLibrary_4c86s")
 }
+autoplay = "idle"
 script = ExtResource("5_gk6m3")
 
 [node name="3" type="Area2D" parent="CharacterBody2D3"]
@@ -219,6 +188,13 @@ shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3"]
 shape = SubResource("RectangleShape2D_7bwy1")
+
+[node name="damageArea" type="Area2D" parent="CharacterBody2D3"]
+collision_layer = 0
+collision_mask = 16384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3/damageArea"]
+shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CharacterBody2D4" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
@@ -240,6 +216,7 @@ root_node = NodePath("../Sprite2D4")
 libraries = {
 "": SubResource("AnimationLibrary_4c86s")
 }
+autoplay = "idle"
 script = ExtResource("5_gk6m3")
 
 [node name="4" type="Area2D" parent="CharacterBody2D4"]
@@ -252,6 +229,54 @@ shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4"]
 shape = SubResource("RectangleShape2D_7bwy1")
+
+[node name="damageArea" type="Area2D" parent="CharacterBody2D4"]
+collision_layer = 0
+collision_mask = 16384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4/damageArea"]
+shape = SubResource("RectangleShape2D_kf7ib")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(170, 200)
+collision_layer = 2
+script = ExtResource("4_tgr73")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D"]
+physics_interpolation_mode = 1
+material = SubResource("CanvasItemMaterial_by6cd")
+position = Vector2(-3, 2)
+texture = ExtResource("3_jcc0i")
+hframes = 3
+vframes = 4
+script = ExtResource("2_0odp4")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="CharacterBody2D"]
+root_node = NodePath("../Sprite2D2")
+libraries = {
+"": SubResource("AnimationLibrary_4c86s")
+}
+autoplay = "idle"
+script = ExtResource("5_gk6m3")
+
+[node name="2" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 32768
+collision_mask = 32768
+script = ExtResource("4_2y4d7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/2"]
+shape = SubResource("RectangleShape2D_kf7ib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_7bwy1")
+
+[node name="damageArea" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 16384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/damageArea"]
+shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="BigSlime" type="CharacterBody2D" parent="."]
 position = Vector2(309, 259)
@@ -294,14 +319,8 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="body_entered" from="CharacterBody2D2/1" to="CharacterBody2D2" method="_on_area_2d_body_entered"]
 [connection signal="onEnter" from="CharacterBody2D2/1" to="CharacterBody2D2" method="_on_area_2d_on_enter"]
 [connection signal="rmdetect1" from="CharacterBody2D2/1" to="MergingEngine" method="_on_area_2d_rmdetect_1"]
-[connection signal="detect2" from="CharacterBody2D" to="MergingEngine" method="_on_character_body_2d_detect_2"]
-[connection signal="rmdetect2" from="CharacterBody2D" to="MergingEngine" method="_on_character_body_2d_rmdetect_2"]
-[connection signal="animation_finished" from="CharacterBody2D/AnimationPlayer2" to="CharacterBody2D/AnimationPlayer2" method="_on_animation_finished"]
-[connection signal="area_entered" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="CharacterBody2D/2" to="CharacterBody2D/2" method="_on_area_exited"]
-[connection signal="body_entered" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_body_entered"]
-[connection signal="onEnter" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_on_enter"]
-[connection signal="rmdetect1" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_rmdetect_1"]
+[connection signal="area_entered" from="CharacterBody2D2/damageArea" to="CharacterBody2D2" method="_on_damage_area_area_entered"]
+[connection signal="body_entered" from="CharacterBody2D2/damageArea" to="CharacterBody2D2" method="_on_damage_area_body_entered"]
 [connection signal="detect3" from="CharacterBody2D3" to="MergingEngine" method="_on_character_body_2d_3_detect_3"]
 [connection signal="rmdetect3" from="CharacterBody2D3" to="MergingEngine" method="_on_character_body_2d_3_rmdetect_3"]
 [connection signal="animation_finished" from="CharacterBody2D3/AnimationPlayer3" to="CharacterBody2D3/AnimationPlayer3" method="_on_animation_finished"]
@@ -310,6 +329,8 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="body_entered" from="CharacterBody2D3/3" to="CharacterBody2D3" method="_on_area_2d_body_entered"]
 [connection signal="onEnter" from="CharacterBody2D3/3" to="CharacterBody2D3" method="_on_area_2d_on_enter"]
 [connection signal="rmdetect1" from="CharacterBody2D3/3" to="CharacterBody2D3" method="_on_area_2d_rmdetect_1"]
+[connection signal="area_entered" from="CharacterBody2D3/damageArea" to="CharacterBody2D2" method="_on_damage_area_area_entered"]
+[connection signal="body_entered" from="CharacterBody2D3/damageArea" to="CharacterBody2D2" method="_on_damage_area_body_entered"]
 [connection signal="detect4" from="CharacterBody2D4" to="MergingEngine" method="_on_character_body_2d_4_detect_4"]
 [connection signal="rmdetect4" from="CharacterBody2D4" to="MergingEngine" method="_on_character_body_2d_4_rmdetect_4"]
 [connection signal="animation_finished" from="CharacterBody2D4/AnimationPlayer4" to="CharacterBody2D4/AnimationPlayer4" method="_on_animation_finished"]
@@ -318,6 +339,18 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="body_entered" from="CharacterBody2D4/4" to="CharacterBody2D4" method="_on_area_2d_body_entered"]
 [connection signal="onEnter" from="CharacterBody2D4/4" to="CharacterBody2D4" method="_on_area_2d_on_enter"]
 [connection signal="rmdetect1" from="CharacterBody2D4/4" to="CharacterBody2D4" method="_on_area_2d_rmdetect_1"]
+[connection signal="area_entered" from="CharacterBody2D4/damageArea" to="CharacterBody2D2" method="_on_damage_area_area_entered"]
+[connection signal="body_entered" from="CharacterBody2D4/damageArea" to="CharacterBody2D2" method="_on_damage_area_body_entered"]
+[connection signal="detect2" from="CharacterBody2D" to="MergingEngine" method="_on_character_body_2d_detect_2"]
+[connection signal="rmdetect2" from="CharacterBody2D" to="MergingEngine" method="_on_character_body_2d_rmdetect_2"]
+[connection signal="animation_finished" from="CharacterBody2D/AnimationPlayer2" to="CharacterBody2D/AnimationPlayer2" method="_on_animation_finished"]
+[connection signal="area_entered" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="CharacterBody2D/2" to="CharacterBody2D/2" method="_on_area_exited"]
+[connection signal="body_entered" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="onEnter" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_on_enter"]
+[connection signal="rmdetect1" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_rmdetect_1"]
+[connection signal="area_entered" from="CharacterBody2D/damageArea" to="CharacterBody2D2" method="_on_damage_area_area_entered"]
+[connection signal="body_entered" from="CharacterBody2D/damageArea" to="CharacterBody2D2" method="_on_damage_area_body_entered"]
 [connection signal="cooldownstart" from="BigSlime" to="SlimeMergeDelay" method="_on_big_slime_cooldownstart"]
 [connection signal="delaystart" from="BigSlime" to="BigSlime/SlimeInputDelay" method="_on_big_slime_delaystart"]
 [connection signal="hideslime" from="BigSlime" to="CharacterBody2D2" method="_on_big_slime_hideslime"]

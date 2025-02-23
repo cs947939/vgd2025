@@ -22,19 +22,18 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left_1", "right_1")
-	if direction:
-		if animation_player.current_animation == "idle":
-			animation_player.play("start_running")
-		
-		if is_on_floor():
-			velocity.x += direction * SPEED/8
-		else:
-			velocity.x += direction * SPEED/16
-		if velocity.x > 0 and velocity.x > direction*SPEED:
-			velocity.x = direction*SPEED
-		elif velocity.x < 0 and velocity.x <direction*SPEED:
-			velocity.x = direction*SPEED
+	if (direction > 0 and velocity.x > direction*SPEED) or (direction < 0 and velocity.x < direction*SPEED):
+		move_toward(velocity.x, direction*SPEED, ((SPEED) if is_on_floor() else (SPEED/200)))
 	else:
+		if direction:
+			if animation_player.current_animation == "idle":
+				animation_player.play("start_running")
+			
+			if is_on_floor():
+				velocity.x += direction * SPEED/8
+			else:
+				velocity.x += direction * SPEED/16
+	if not direction:
 		animation_player.play("idle")
 		velocity.x = move_toward(velocity.x, 0, ((SPEED/10) if is_on_floor() else (SPEED/200)))
 	sprite2d.flip_h = true if direction < 0 else false
@@ -101,3 +100,12 @@ func _on_merging_engine_sprite_comm(msg: int, id: int) -> void:
 
 func _on_area_2d_on_enter() -> void:
 	detect1.emit()
+
+
+
+	
+
+
+func _on_damage_area_body_entered(body: Node2D) -> void:
+	print("hello")
+	get_tree().reload_current_scene()
