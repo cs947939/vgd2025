@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 75.0
 const JUMP_VELOCITY = -400.0
 signal delaystart
 signal cooldownstart
@@ -39,6 +39,9 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left_2", "right_2")
+	var direction2 := Input.get_axis("left_1", "right_1")
+	var direction3 := Input.get_axis("left_3", "right_3")
+	var direction4 := Input.get_axis("left_4", "right_4")
 	if Input.is_action_pressed("up_1"):
 		p1press = (directions[0])
 	if Input.is_action_pressed("up_2"):
@@ -76,38 +79,26 @@ func _physics_process(delta: float) -> void:
 			split(p1press, p2press, p3press, p4press)
 	if direction:
 		velocity.x = (direction * SPEED )/ 4 
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	move_and_slide()
-	var direction2 := Input.get_axis("left_1", "right_1")
-	if direction2:
+		if direction2:
+			velocity.x += (direction2 * SPEED )/ 4
+		if direction3:
+			velocity.x += (direction3 * SPEED )/ 4
+		if direction4:
+			velocity.x += (direction4 * SPEED )/ 4
+	elif direction2:
 		velocity.x = (direction2 * SPEED )/ 4
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	if direction == direction2:
-		velocity.x = direction2 * SPEED
-	else:
-		pass	
-	move_and_slide()
-	var direction3 := Input.get_axis("left_3", "right_3")
-	if direction3:
+		if direction3:
+			velocity.x += (direction3 * SPEED )/ 4
+		if direction4:
+			velocity.x += (direction4 * SPEED )/ 4
+	elif direction3:
 		velocity.x = (direction3 * SPEED )/ 4
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	if direction == direction2 && direction3 == direction2:
-		velocity.x = direction3 * SPEED
-	else:
-		pass	
-	move_and_slide()
-	var direction4 := Input.get_axis("left_4", "right_4")
-	if direction4:
+		if direction4:
+			velocity.x += (direction4 * SPEED )/ 4
+	elif direction4:
 		velocity.x = (direction4 * SPEED )/ 4
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	if direction == direction2 && direction3 == direction2 && direction4 == direction3:
-		velocity.x = direction3 * SPEED
-	else:
-		pass	
 	move_and_slide()
 func _on_area_2d_showslime() -> void:
 	mergecheck.emit()
