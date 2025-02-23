@@ -4,7 +4,7 @@ signal detect4
 signal rmdetect4
 
 const SPEED = 75.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -200.0
 var sprite_id = 4
 @onready var animation_player = $AnimationPlayer4
 @onready var sprite2d = $Sprite2D4
