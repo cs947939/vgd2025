@@ -137,6 +137,8 @@ libraries = {
 script = ExtResource("5_gk6m3")
 
 [node name="1" type="Area2D" parent="CharacterBody2D2"]
+collision_layer = 32768
+collision_mask = 32768
 script = ExtResource("4_2y4d7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/1"]
@@ -168,6 +170,8 @@ libraries = {
 script = ExtResource("5_gk6m3")
 
 [node name="2" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 32768
+collision_mask = 32768
 script = ExtResource("4_2y4d7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/2"]
@@ -199,6 +203,8 @@ libraries = {
 script = ExtResource("5_gk6m3")
 
 [node name="3" type="Area2D" parent="CharacterBody2D3"]
+collision_layer = 32768
+collision_mask = 32768
 script = ExtResource("4_2y4d7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3/3"]
@@ -230,6 +236,8 @@ libraries = {
 script = ExtResource("5_gk6m3")
 
 [node name="4" type="Area2D" parent="CharacterBody2D4"]
+collision_layer = 32768
+collision_mask = 32768
 script = ExtResource("4_2y4d7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4/4"]
