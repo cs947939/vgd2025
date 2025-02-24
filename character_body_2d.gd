@@ -107,5 +107,4 @@ func _on_area_2d_on_enter() -> void:
 
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
-	print("hello")
 	get_tree().reload_current_scene()
