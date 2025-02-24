@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dagkfdenp1qf6"]
+[gd_scene load_steps=19 format=4 uid="uid://dagkfdenp1qf6"]
 
 [ext_resource type="Texture2D" uid="uid://cupxi4beigahc" path="res://973eaedf89f6405 (1).png" id="1_3st2v"]
 [ext_resource type="Texture2D" uid="uid://bynyycymat4b6" path="res://973eaedf89f6405-1.png.png" id="1_d24ov"]
@@ -292,6 +292,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m61w7"]
+size = Vector2(16, 14)
+
 [node name="Level_Map" type="Node2D"]
 physics_interpolation_mode = 1
 position = Vector2(13, -114)
@@ -319,3 +322,11 @@ position = Vector2(362, 304)
 sprite_frames = SubResource("SpriteFrames_6wsx2")
 autoplay = "default"
 frame_progress = 0.97759
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Spring"]
+collision_layer = 8192
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spring/StaticBody2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_m61w7")

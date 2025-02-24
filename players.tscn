@@ -155,6 +155,13 @@ collision_mask = 16384
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/damageArea"]
 shape = SubResource("RectangleShape2D_kf7ib")
 
+[node name="springArea" type="Area2D" parent="CharacterBody2D2"]
+collision_layer = 0
+collision_mask = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/springArea"]
+shape = SubResource("RectangleShape2D_kf7ib")
+
 [node name="CharacterBody2D3" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
 position = Vector2(90, 200)
@@ -196,6 +203,14 @@ collision_mask = 16384
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3/damageArea"]
 shape = SubResource("RectangleShape2D_kf7ib")
 
+[node name="springArea2" type="Area2D" parent="CharacterBody2D3"]
+position = Vector2(-40, 0)
+collision_layer = 0
+collision_mask = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3/springArea2"]
+shape = SubResource("RectangleShape2D_kf7ib")
+
 [node name="CharacterBody2D4" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
 position = Vector2(130, 200)
@@ -229,6 +244,14 @@ shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4"]
 shape = SubResource("RectangleShape2D_7bwy1")
+
+[node name="springArea3" type="Area2D" parent="CharacterBody2D4"]
+position = Vector2(-80, 0)
+collision_layer = 0
+collision_mask = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4/springArea3"]
+shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="damageArea" type="Area2D" parent="CharacterBody2D4"]
 collision_layer = 0
@@ -270,6 +293,14 @@ shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_7bwy1")
+
+[node name="springArea4" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(-120, 0)
+collision_layer = 0
+collision_mask = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/springArea4"]
+shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="damageArea" type="Area2D" parent="CharacterBody2D"]
 collision_layer = 0
@@ -321,6 +352,7 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="rmdetect1" from="CharacterBody2D2/1" to="MergingEngine" method="_on_area_2d_rmdetect_1"]
 [connection signal="area_entered" from="CharacterBody2D2/damageArea" to="CharacterBody2D2" method="_on_damage_area_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D2/damageArea" to="CharacterBody2D2" method="_on_damage_area_body_entered"]
+[connection signal="body_entered" from="CharacterBody2D2/springArea" to="CharacterBody2D2" method="_on_spring_area_body_entered"]
 [connection signal="detect3" from="CharacterBody2D3" to="MergingEngine" method="_on_character_body_2d_3_detect_3"]
 [connection signal="rmdetect3" from="CharacterBody2D3" to="MergingEngine" method="_on_character_body_2d_3_rmdetect_3"]
 [connection signal="animation_finished" from="CharacterBody2D3/AnimationPlayer3" to="CharacterBody2D3/AnimationPlayer3" method="_on_animation_finished"]
@@ -331,6 +363,7 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="rmdetect1" from="CharacterBody2D3/3" to="CharacterBody2D3" method="_on_area_2d_rmdetect_1"]
 [connection signal="area_entered" from="CharacterBody2D3/damageArea" to="CharacterBody2D2" method="_on_damage_area_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D3/damageArea" to="CharacterBody2D2" method="_on_damage_area_body_entered"]
+[connection signal="body_entered" from="CharacterBody2D3/springArea2" to="CharacterBody2D3" method="_on_spring_area_body_entered"]
 [connection signal="detect4" from="CharacterBody2D4" to="MergingEngine" method="_on_character_body_2d_4_detect_4"]
 [connection signal="rmdetect4" from="CharacterBody2D4" to="MergingEngine" method="_on_character_body_2d_4_rmdetect_4"]
 [connection signal="animation_finished" from="CharacterBody2D4/AnimationPlayer4" to="CharacterBody2D4/AnimationPlayer4" method="_on_animation_finished"]
@@ -339,6 +372,7 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="body_entered" from="CharacterBody2D4/4" to="CharacterBody2D4" method="_on_area_2d_body_entered"]
 [connection signal="onEnter" from="CharacterBody2D4/4" to="CharacterBody2D4" method="_on_area_2d_on_enter"]
 [connection signal="rmdetect1" from="CharacterBody2D4/4" to="CharacterBody2D4" method="_on_area_2d_rmdetect_1"]
+[connection signal="body_entered" from="CharacterBody2D4/springArea3" to="CharacterBody2D4" method="_on_spring_area_body_entered"]
 [connection signal="area_entered" from="CharacterBody2D4/damageArea" to="CharacterBody2D2" method="_on_damage_area_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D4/damageArea" to="CharacterBody2D2" method="_on_damage_area_body_entered"]
 [connection signal="detect2" from="CharacterBody2D" to="MergingEngine" method="_on_character_body_2d_detect_2"]
@@ -349,6 +383,7 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="body_entered" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_body_entered"]
 [connection signal="onEnter" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_on_enter"]
 [connection signal="rmdetect1" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_rmdetect_1"]
+[connection signal="body_entered" from="CharacterBody2D/springArea4" to="CharacterBody2D" method="_on_spring_area_body_entered"]
 [connection signal="area_entered" from="CharacterBody2D/damageArea" to="CharacterBody2D2" method="_on_damage_area_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/damageArea" to="CharacterBody2D2" method="_on_damage_area_body_entered"]
 [connection signal="cooldownstart" from="BigSlime" to="SlimeMergeDelay" method="_on_big_slime_cooldownstart"]

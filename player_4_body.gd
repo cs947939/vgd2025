@@ -68,3 +68,7 @@ func _on_big_slime_hideslime(x, xx, xxx, direction) -> void:
 
 func _on_area_2d_rmdetect_1() -> void:
 	rmdetect4.emit()
+
+
+func _on_spring_area_body_entered(body: Node2D) -> void:
+	velocity.y = -400
