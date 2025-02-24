@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 
 
 func _on_slime_merge_delay_timeout() -> void:
-	print("allow merge")
+
 	allowmerge= true
 	set_monitoring(true)
 

@@ -2,7 +2,7 @@ extends Area2D
 signal onEnter
 signal rmdetect1
 func _on_area_2d_area_entered(area):
-	print("Area Entered")
+
 	onEnter.emit()
 	
 
