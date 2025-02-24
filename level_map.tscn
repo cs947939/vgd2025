@@ -114,7 +114,7 @@ texture = ExtResource("3_fjcii")
 0:0/0/terrains_peering_bit/left_side = 0
 
 [sub_resource type="TileSet" id="TileSet_27y5y"]
-physics_layer_0/collision_layer = 8192
+physics_layer_0/collision_layer = 16384
 physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 2
 terrain_set_0/terrain_0/name = "Water"
