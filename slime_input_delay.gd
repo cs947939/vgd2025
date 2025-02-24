@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _on_big_slime_delaystart() -> void:
-	print("Started timer")
+
 	start(3)

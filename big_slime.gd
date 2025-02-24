@@ -104,8 +104,7 @@ func _on_area_2d_showslime() -> void:
 		delaystart.emit()
 		visible = true # Replace with function body.
 		process_mode = PROCESS_MODE_INHERIT
-		print("check")
-		print(($"../CharacterBody2D2".global_position.x+$"../CharacterBody2D".global_position.x+$"../CharacterBody2D3".global_position.x+$"../CharacterBody2D4".global_position.x)/4)
+		
 		global_position.x = ($"../CharacterBody2D2".global_position.x+$"../CharacterBody2D".global_position.x+$"../CharacterBody2D3".global_position.x+$"../CharacterBody2D4".global_position.x)/4
 		global_position.y = ($"../CharacterBody2D2".global_position.y+$"../CharacterBody2D".global_position.y+$"../CharacterBody2D3".global_position.y+$"../CharacterBody2D4".global_position.y)/4
 
@@ -118,7 +117,6 @@ func _on_slime_input_delay_timeout() -> void:
 
 func _on_slime_merge_delay_timeout() -> void:
 	process_mode = PROCESS_MODE_INHERIT
-	print("allow merge")
 	allowmerge= true
 	process_mode = PROCESS_MODE_DISABLED
 
