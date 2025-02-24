@@ -4,6 +4,7 @@ const JUMP_VELOCITY = -200.0
 signal mergecheck3
 var canmerge = true
 var sprite_id = 1
+var keys = []
 signal detect1
 @onready var animation_player = $AnimationPlayer
 @onready var sprite2d = $Sprite2D
