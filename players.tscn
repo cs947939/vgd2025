@@ -204,8 +204,7 @@ collision_mask = 16384
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="springArea2" type="Area2D" parent="CharacterBody2D3"]
-position = Vector2(-40, 0)
-collision_layer = 0
+collision_layer = 8192
 collision_mask = 8192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3/springArea2"]
@@ -246,8 +245,7 @@ shape = SubResource("RectangleShape2D_kf7ib")
 shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="springArea3" type="Area2D" parent="CharacterBody2D4"]
-position = Vector2(-80, 0)
-collision_layer = 0
+collision_layer = 8192
 collision_mask = 8192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4/springArea3"]
@@ -295,8 +293,7 @@ shape = SubResource("RectangleShape2D_kf7ib")
 shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="springArea4" type="Area2D" parent="CharacterBody2D"]
-position = Vector2(-120, 0)
-collision_layer = 0
+collision_layer = 8192
 collision_mask = 8192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/springArea4"]
@@ -383,7 +380,7 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="body_entered" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_body_entered"]
 [connection signal="onEnter" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_on_enter"]
 [connection signal="rmdetect1" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_rmdetect_1"]
-[connection signal="body_entered" from="CharacterBody2D/springArea4" to="CharacterBody2D" method="_on_spring_area_body_entered"]
+[connection signal="body_entered" from="CharacterBody2D/springArea4" to="CharacterBody2D" method="_on_spring_area_4_body_entered"]
 [connection signal="area_entered" from="CharacterBody2D/damageArea" to="CharacterBody2D2" method="_on_damage_area_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/damageArea" to="CharacterBody2D2" method="_on_damage_area_body_entered"]
 [connection signal="cooldownstart" from="BigSlime" to="SlimeMergeDelay" method="_on_big_slime_cooldownstart"]
