@@ -55,6 +55,6 @@ jobs:
           port: ${{ secrets.PORT }}
           key: ${{ secrets.KEY }}
           source: "build/web/index.html, build/web/index.wasm, build/web/index.pck, build/web/index.js,build/web/index.icon.png, build/web/index.audio.worklet.js, build/web/index.apple-touch-icon.png"
-          target: "/var/www/html/"
+          target: "/var/www/html"
       
         
