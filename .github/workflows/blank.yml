@@ -43,6 +43,10 @@ jobs:
         with:
           name: web  # The name for the artifact
           path: build/web  # The directory to upload as the artifact
+      - name: Itchio Deployment
+        run: |
+          zip -r build/index.zip build/web
+          butler push build/index.zip $ITCHIO_USERNAME/$ITCHIO_GAME:web
       - name: Preapre SSH
         uses: appleboy/scp-action@v0.1.7
         with: 
