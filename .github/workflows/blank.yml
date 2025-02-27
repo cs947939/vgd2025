@@ -18,25 +18,6 @@ jobs:
     runs-on: ubuntu-latest  # Defines the runner (can be ubuntu, macos, etc.)
     container: barichello/godot-ci:4.3
 
-name: CI
-
-# Controls when the workflow will run
-on:
-  push:
-    branches: [ "main" ]  # Triggers the workflow on push to the 'main' branch
-  workflow_dispatch:  # Allows you to run this workflow manually from the Actions tab
-
-env:
-  GODOT_VERSION: 4.3
-  EXPORT_NAME: test-project
-  PROJECT_PATH: test-project
-  # Environment variables to configure Godot project and export settings
-
-jobs:
-  build_and_export:
-    name: Godot CI Build and Export for Web
-    runs-on: ubuntu-latest  # Defines the runner (can be ubuntu, macos, etc.)
-
     steps:
       # Step 1: Check out the repository
       - name: Checkout Repository
