@@ -36,7 +36,9 @@ func _process(delta: float) -> void:
 		for item in check_sprite_list:
 			if not item in sprite_list:
 				sprite_list.append(item)
-	if len(sprite_list) == 4:
+	if len(sprite_list) == 4 and not ($LevelMap/Exit in sprite_list):
+		print("merge")
+		print(get_node("root/LevelMap/Exit"))
 		sprite_comm.emit(2, 1)
 		sprite_comm.emit(2, 2)
 		sprite_comm.emit(2, 3)

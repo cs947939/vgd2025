@@ -2,8 +2,6 @@ extends Node2D
 var level = 1
 var current_level = 1
 var max_level = 10
-signal end_game
-signal next_level
 
 # Called when the node enters the scene tree for the first time.
 
@@ -11,6 +9,9 @@ signal next_level
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready():
+	var exit = get_node("Exit")
+	if exit != null:
+		exit.next_level.connect(self._on_level_pass)
 	load_level()
 
 func load_level():
@@ -31,15 +32,15 @@ func save_level():
 	save_file.store_line(level)
 	save_file.close()
 
-func level_pass():
+func _on_level_pass():
 	if current_level == level:
 		level += 1
 		current_level += 1
 		save_level()
 		if level > max_level:
-			end_game
+			pass
 		else:
-			next_level
+			get_tree().change_scene_to_file("res://level_" + str(current_level) + ".tscn")
 	else:
 		current_level += 1
-		next_level
+		get_tree().change_scene_to_file("res://level_" + str(current_level) + ".tscn")
