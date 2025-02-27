@@ -18,24 +18,47 @@ jobs:
     runs-on: ubuntu-latest  # Defines the runner (can be ubuntu, macos, etc.)
     container: barichello/godot-ci:4.3
 
+name: CI
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ "main" ]  # Triggers the workflow on push to the 'main' branch
+  workflow_dispatch:  # Allows you to run this workflow manually from the Actions tab
+
+env:
+  GODOT_VERSION: 4.3
+  EXPORT_NAME: test-project
+  PROJECT_PATH: test-project
+  # Environment variables to configure Godot project and export settings
+
+jobs:
+  build_and_export:
+    name: Godot CI Build and Export for Web
+    runs-on: ubuntu-latest  # Defines the runner (can be ubuntu, macos, etc.)
+
     steps:
       # Step 1: Check out the repository
-      - name: Checkout
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4  # Check out the repository to access the project files
 
-      # Step 2: Setup Godot version using godot-ci action
-      - name: Setup
+      # Step 2: Setup Godot version and export templates
+      - name: Setup Godot and Export Templates
         run: |
-          mkdir -v -p ~/.local/share/godot/export_templates/
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+          mkdir -v -p ~/.local/share/godot/export_templates/  # Create export templates directory
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable  # Move the export template
+
+      # Step 3: Build the project for Web (HTML5)
       - name: Web Build
         run: |
-          mkdir -v -p build/web
-          EXPORT_DIR="$(readlink -f build)"
-          cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
+          mkdir -v -p build/web  # Create the output directory for the web build
+          EXPORT_DIR="$(readlink -f build)"  # Define the output directory path
+          cd $PROJECT_PATH  # Go to the project directory
+          godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"  # Export project as HTML5
+
+      # Step 4: Upload the exported HTML5 build as an artifact
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: web
-          path: build/web
+          name: web  # The name for the artifact
+          path: build/web  # The directory to upload as the artifact
