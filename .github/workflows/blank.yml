@@ -56,20 +56,5 @@ jobs:
           key: ${{ secrets.KEY }}
           source: "build/web/index.html, build/web/index.wasm, build/web/index.pck, build/web/index.js,build/web/index.icon.png, build/web/index.audio.worklet.js, build/web/index.apple-touch-icon.png"
           target: "/var/www/html/"
-      - name: Move files to server location
-        uses: appleboy/ssh-action@v1.2.1
-        with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USERNAME }}
-            port: ${{ secrets.PORT }}
-            key: ${{ secrets.KEY }}
-            script: |
-             cd /var/www/html/build/web
-             mv index.html /var/www/html
-             mv index.pck /var/www/html
-             mv index.js /var/www/html
-             mv index.wasm /var/www/html
-             mv index.icon.png /var/www/html
-             mv index.audio.worklet.js  /var/www/html
-             mv index.apple-touch-icon.png   /var/www/html
+
         
