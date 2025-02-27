@@ -79,3 +79,9 @@ func _on_area_2d_on_enter() -> void:
 
 func _on_area_2d_rmdetect_1() -> void:
 	rmdetect2.emit()
+
+
+
+
+func _on_spring_area_4_body_entered(body: Node2D) -> void:
+	velocity.y = -400

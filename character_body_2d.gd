@@ -109,3 +109,8 @@ func _on_area_2d_on_enter() -> void:
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
 	get_tree().reload_current_scene()
+
+
+
+func _on_spring_area_body_entered(body: Node2D) -> void:
+	velocity.y = -400
