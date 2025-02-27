@@ -122,14 +122,12 @@ position = Vector2(13, -114)
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-visible = false
 position = Vector2(50, 200)
 collision_layer = 2
 script = ExtResource("1_lfuix")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
 physics_interpolation_mode = 1
-visible = false
 material = SubResource("CanvasItemMaterial_by6cd")
 position = Vector2(-3, 2)
 texture = ExtResource("3_jcc0i")
@@ -146,47 +144,38 @@ autoplay = "idle"
 script = ExtResource("5_gk6m3")
 
 [node name="1" type="Area2D" parent="CharacterBody2D2"]
-visible = false
 collision_layer = 32768
 collision_mask = 32768
 script = ExtResource("4_2y4d7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/1"]
-visible = false
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-visible = false
 shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="damageArea" type="Area2D" parent="CharacterBody2D2"]
-visible = false
 collision_layer = 0
 collision_mask = 16384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/damageArea"]
-visible = false
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="springArea" type="Area2D" parent="CharacterBody2D2"]
-visible = false
 collision_layer = 8192
 collision_mask = 8192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/springArea"]
-visible = false
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CharacterBody2D3" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-visible = false
 position = Vector2(90, 200)
 collision_layer = 2
 script = ExtResource("11_dxnox")
 
 [node name="Sprite2D3" type="Sprite2D" parent="CharacterBody2D3"]
 physics_interpolation_mode = 1
-visible = false
 material = SubResource("CanvasItemMaterial_by6cd")
 position = Vector2(-3, 2)
 texture = ExtResource("3_jcc0i")
@@ -203,47 +192,38 @@ autoplay = "idle"
 script = ExtResource("5_gk6m3")
 
 [node name="3" type="Area2D" parent="CharacterBody2D3"]
-visible = false
 collision_layer = 32768
 collision_mask = 32768
 script = ExtResource("4_2y4d7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3/3"]
-visible = false
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3"]
-visible = false
 shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="damageArea" type="Area2D" parent="CharacterBody2D3"]
-visible = false
 collision_layer = 0
 collision_mask = 16384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3/damageArea"]
-visible = false
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="springArea2" type="Area2D" parent="CharacterBody2D3"]
-visible = false
 collision_layer = 8192
 collision_mask = 8192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3/springArea2"]
-visible = false
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CharacterBody2D4" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-visible = false
 position = Vector2(130, 200)
 collision_layer = 2
 script = ExtResource("13_ysa2l")
 
 [node name="Sprite2D4" type="Sprite2D" parent="CharacterBody2D4"]
 physics_interpolation_mode = 1
-visible = false
 material = SubResource("CanvasItemMaterial_by6cd")
 position = Vector2(-3, 2)
 texture = ExtResource("3_jcc0i")
@@ -260,47 +240,38 @@ autoplay = "idle"
 script = ExtResource("5_gk6m3")
 
 [node name="4" type="Area2D" parent="CharacterBody2D4"]
-visible = false
 collision_layer = 32768
 collision_mask = 32768
 script = ExtResource("4_2y4d7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4/4"]
-visible = false
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4"]
-visible = false
 shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="springArea3" type="Area2D" parent="CharacterBody2D4"]
-visible = false
 collision_layer = 8192
 collision_mask = 8192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4/springArea3"]
-visible = false
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="damageArea" type="Area2D" parent="CharacterBody2D4"]
-visible = false
 collision_layer = 0
 collision_mask = 16384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4/damageArea"]
-visible = false
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-visible = false
 position = Vector2(170, 200)
 collision_layer = 2
 script = ExtResource("4_tgr73")
 
 [node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D"]
 physics_interpolation_mode = 1
-visible = false
 material = SubResource("CanvasItemMaterial_by6cd")
 position = Vector2(-3, 2)
 texture = ExtResource("3_jcc0i")
@@ -317,17 +288,14 @@ autoplay = "idle"
 script = ExtResource("5_gk6m3")
 
 [node name="2" type="Area2D" parent="CharacterBody2D"]
-visible = false
 collision_layer = 32768
 collision_mask = 32768
 script = ExtResource("4_2y4d7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/2"]
-visible = false
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-visible = false
 shape = SubResource("RectangleShape2D_7bwy1")
 
 [node name="springArea4" type="Area2D" parent="CharacterBody2D"]
@@ -335,7 +303,6 @@ collision_layer = 8192
 collision_mask = 8192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/springArea4"]
-visible = false
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="damageArea" type="Area2D" parent="CharacterBody2D"]
@@ -343,7 +310,6 @@ collision_layer = 0
 collision_mask = 16384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/damageArea"]
-visible = false
 shape = SubResource("RectangleShape2D_kf7ib")
 
 [node name="BigSlime" type="CharacterBody2D" parent="."]
@@ -387,7 +353,6 @@ autostart = true
 script = ExtResource("10_ud7et")
 
 [node name="MergingEngine" type="Node2D" parent="."]
-visible = false
 position = Vector2(-88, 168)
 script = ExtResource("14_p8mhi")
 
