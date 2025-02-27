@@ -139,3 +139,7 @@ func _on_merging_engine_sprite_comm(msg: int, id: int) -> void:
 			global_position.y = ($"../CharacterBody2D2".global_position.y+$"../CharacterBody2D".global_position.y+$"../CharacterBody2D3".global_position.y+$"../CharacterBody2D4".global_position.y)/4
 			velocity.x = ($"../CharacterBody2D2".velocity.x+$"../CharacterBody2D".velocity.x+$"../CharacterBody2D3".velocity.x+$"../CharacterBody2D4".velocity.x)/4
 			velocity.y = ($"../CharacterBody2D2".velocity.y+$"../CharacterBody2D".velocity.y+$"../CharacterBody2D3".velocity.y+$"../CharacterBody2D4".velocity.y)/4
+
+
+func _on_spring_area_5_area_entered(area: Area2D) -> void:
+	velocity.y = -200

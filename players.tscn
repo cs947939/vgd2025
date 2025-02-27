@@ -413,6 +413,7 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="hideslime" from="BigSlime" to="CharacterBody2D" method="_on_big_slime_hideslime"]
 [connection signal="mergecheck" from="BigSlime" to="SlimeMergeDelay" method="_on_big_slime_mergecheck"]
 [connection signal="timeout" from="BigSlime/SlimeInputDelay" to="BigSlime" method="_on_slime_input_delay_timeout"]
+[connection signal="area_entered" from="BigSlime/springArea5" to="BigSlime" method="_on_spring_area_5_area_entered"]
 [connection signal="allowmerge" from="SlimeMergeDelay" to="CharacterBody2D2" method="_on_slime_merge_delay_allowmerge"]
 [connection signal="allowmerge" from="SlimeMergeDelay" to="BigSlime" method="_on_slime_merge_delay_allowmerge"]
 [connection signal="stopmerge" from="SlimeMergeDelay" to="CharacterBody2D2" method="_on_slime_merge_delay_stopmerge"]
