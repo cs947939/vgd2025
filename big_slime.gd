@@ -141,5 +141,5 @@ func _on_merging_engine_sprite_comm(msg: int, id: int) -> void:
 			velocity.y = ($"../CharacterBody2D2".velocity.y+$"../CharacterBody2D".velocity.y+$"../CharacterBody2D3".velocity.y+$"../CharacterBody2D4".velocity.y)/4
 
 
-func _on_spring_area_5_area_entered(area: Area2D) -> void:
-	velocity.y = -200
+func _on_spring_area_5_body_entered(area: Area2D) -> void:
+	velocity.y = -400
