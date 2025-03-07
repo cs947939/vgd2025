@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_key_pressed(KEY_W) and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y += JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -69,7 +69,7 @@ func _on_big_slime_hideslime(direction, x, xx, xxx) -> void:
 	global_position.x = $"../BigSlime".global_position.x + (20 if direction == "right" else (-20 if direction == "left" else 0))
 	global_position.y = $"../BigSlime".global_position.y + (20 if direction == "down" else (-20 if direction == "up" else 0))
 	velocity.x = $"../BigSlime".velocity.x  + (200 if direction == "right" else (-200 if direction == "left" else 0))
-	velocity.y = $"../BigSlime".velocity.y  + (200 if direction == "down" else (-200 if direction == "up" else 0))
+	velocity.y = $"../BigSlime".velocity.y  + (200 if direction == "down" else (-50 if direction == "up" else 0))
 	visible = true
 	if not direction=="down":
 		move_and_slide()
@@ -114,3 +114,4 @@ func _on_damage_area_body_entered(body: Node2D) -> void:
 
 func _on_spring_area_body_entered(body: Node2D) -> void:
 	velocity.y = -400
+	move_and_slide()
