@@ -99,52 +99,68 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ih3nk"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hp2pg"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ryuhe"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hvbhm"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bf3ur"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_316au"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ib5w4"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56sp4"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hoo6n"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_24drl"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4ncp"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3hv8s"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xlkgu"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m7t5i"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_44bpf"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ptc2"]
-height = 20.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wy72w"]
 size = Vector2(321, 267)
@@ -164,7 +180,7 @@ position = Vector2(13, -114)
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(50, 200)
+position = Vector2(272, 199)
 collision_layer = 2
 script = ExtResource("1_lfuix")
 
