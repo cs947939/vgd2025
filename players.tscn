@@ -151,8 +151,8 @@ radius = 9.5
 height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m7t5i"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_44bpf"]
 radius = 9.5
