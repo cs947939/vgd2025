@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=40 format=3 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Texture2D" uid="uid://bj04vntg64lw5" path="res://icon.svg" id="1_0lk6c"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
@@ -98,11 +98,53 @@ _data = {
 "start_running": SubResource("Animation_udype")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf7ib"]
-size = Vector2(19, 19)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ih3nk"]
+height = 20.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bwy1"]
-size = Vector2(19, 19)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hp2pg"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ryuhe"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hvbhm"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bf3ur"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_316au"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ib5w4"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56sp4"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hoo6n"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_24drl"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4ncp"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3hv8s"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xlkgu"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m7t5i"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_44bpf"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ptc2"]
+height = 20.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wy72w"]
 size = Vector2(321, 267)
@@ -149,24 +191,24 @@ collision_mask = 32768
 script = ExtResource("4_2y4d7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/1"]
-shape = SubResource("RectangleShape2D_kf7ib")
+shape = SubResource("CapsuleShape2D_ih3nk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-shape = SubResource("RectangleShape2D_7bwy1")
+shape = SubResource("CapsuleShape2D_hp2pg")
 
 [node name="damageArea" type="Area2D" parent="CharacterBody2D2"]
 collision_layer = 0
 collision_mask = 16384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/damageArea"]
-shape = SubResource("RectangleShape2D_kf7ib")
+shape = SubResource("CapsuleShape2D_ryuhe")
 
 [node name="springArea" type="Area2D" parent="CharacterBody2D2"]
 collision_layer = 8192
 collision_mask = 8192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/springArea"]
-shape = SubResource("RectangleShape2D_kf7ib")
+shape = SubResource("CapsuleShape2D_hvbhm")
 
 [node name="CharacterBody2D3" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
@@ -197,24 +239,24 @@ collision_mask = 32768
 script = ExtResource("4_2y4d7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3/3"]
-shape = SubResource("RectangleShape2D_kf7ib")
+shape = SubResource("CapsuleShape2D_bf3ur")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3"]
-shape = SubResource("RectangleShape2D_7bwy1")
+shape = SubResource("CapsuleShape2D_316au")
 
 [node name="damageArea" type="Area2D" parent="CharacterBody2D3"]
 collision_layer = 0
 collision_mask = 16384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3/damageArea"]
-shape = SubResource("RectangleShape2D_kf7ib")
+shape = SubResource("CapsuleShape2D_ib5w4")
 
 [node name="springArea2" type="Area2D" parent="CharacterBody2D3"]
 collision_layer = 8192
 collision_mask = 8192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3/springArea2"]
-shape = SubResource("RectangleShape2D_kf7ib")
+shape = SubResource("CapsuleShape2D_56sp4")
 
 [node name="CharacterBody2D4" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
@@ -245,24 +287,24 @@ collision_mask = 32768
 script = ExtResource("4_2y4d7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4/4"]
-shape = SubResource("RectangleShape2D_kf7ib")
+shape = SubResource("CapsuleShape2D_hoo6n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4"]
-shape = SubResource("RectangleShape2D_7bwy1")
+shape = SubResource("CapsuleShape2D_24drl")
 
 [node name="springArea3" type="Area2D" parent="CharacterBody2D4"]
 collision_layer = 8192
 collision_mask = 8192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4/springArea3"]
-shape = SubResource("RectangleShape2D_kf7ib")
+shape = SubResource("CapsuleShape2D_l4ncp")
 
 [node name="damageArea" type="Area2D" parent="CharacterBody2D4"]
 collision_layer = 0
 collision_mask = 16384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4/damageArea"]
-shape = SubResource("RectangleShape2D_kf7ib")
+shape = SubResource("CapsuleShape2D_3hv8s")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
@@ -293,24 +335,24 @@ collision_mask = 32768
 script = ExtResource("4_2y4d7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/2"]
-shape = SubResource("RectangleShape2D_kf7ib")
+shape = SubResource("CapsuleShape2D_xlkgu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_7bwy1")
+shape = SubResource("CapsuleShape2D_m7t5i")
 
 [node name="springArea4" type="Area2D" parent="CharacterBody2D"]
 collision_layer = 8192
 collision_mask = 8192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/springArea4"]
-shape = SubResource("RectangleShape2D_kf7ib")
+shape = SubResource("CapsuleShape2D_44bpf")
 
 [node name="damageArea" type="Area2D" parent="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 16384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/damageArea"]
-shape = SubResource("RectangleShape2D_kf7ib")
+shape = SubResource("CapsuleShape2D_8ptc2")
 
 [node name="BigSlime" type="CharacterBody2D" parent="."]
 position = Vector2(309, 259)
