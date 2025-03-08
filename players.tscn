@@ -99,67 +99,67 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ih3nk"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hp2pg"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ryuhe"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hvbhm"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bf3ur"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_316au"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ib5w4"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56sp4"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hoo6n"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_24drl"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4ncp"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3hv8s"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xlkgu"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m7t5i"]
 radius = 9.0
 height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_44bpf"]
-radius = 9.5
-height = 19.0
+radius = 9.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ptc2"]
-radius = 9.5
+radius = 9.0
 height = 19.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wy72w"]
