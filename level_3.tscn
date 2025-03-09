@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://b71cf77luv710"]
+[gd_scene load_steps=4 format=4 uid="uid://b71cf77luv710"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_bqy4u"]
 [ext_resource type="PackedScene" uid="uid://dagkfdenp1qf6" path="res://level_map.tscn" id="2_mevxb"]
+[ext_resource type="Script" path="res://button_door_1.gd" id="3_4yem2"]
 
 [node name="level_3" type="Node2D"]
 script = ExtResource("1_bqy4u")
@@ -10,9 +11,14 @@ script = ExtResource("1_bqy4u")
 
 [node name="ButtonDoor1" parent="LevelMap" index="1"]
 position = Vector2(-142, -199)
+script = ExtResource("3_4yem2")
 
-[node name="Doors" parent="LevelMap/ButtonDoor1" index="0"]
-tile_map_data = PackedByteArray("AAAaAB8AAAAAAAAAAAAaAB4AAAAAAAEAAAAaAB0AAAAAAAEAAAA=")
+[node name="Path2D" parent="LevelMap/ButtonDoor1" index="1"]
+position = Vector2(0, 416)
+
+[node name="Doors" parent="LevelMap/ButtonDoor1/Path2D/PathFollow2D" index="0"]
+position = Vector2(448, -5)
+tile_map_data = PackedByteArray("AAAaACAAAAAAAAEAAAAaAB8AAAAAAAEAAAAaACEAAAAAAAAAAAA=")
 
 [node name="Water" parent="LevelMap" index="2"]
 position = Vector2(-15, 142)
@@ -31,5 +37,7 @@ metadata/_edit_group_ = true
 [node name="Exit" parent="LevelMap" index="6"]
 position = Vector2(365, 289)
 metadata/_edit_group_ = true
+
+[connection signal="body_shape_entered" from="LevelMap/ButtonDoor1/Sprite2D/Area2D" to="LevelMap/ButtonDoor1" method="_on_area_2d_body_shape_entered"]
 
 [editable path="LevelMap"]
