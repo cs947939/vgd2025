@@ -164,13 +164,13 @@ radius = 9.0
 height = 19.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wy72w"]
-size = Vector2(321, 267)
+size = Vector2(38, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_175ee"]
-size = Vector2(333.011, 264.045)
+size = Vector2(38, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfh7o"]
-size = Vector2(328.511, 271.589)
+size = Vector2(38, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_budch"]
 size = Vector2(432, 243)
@@ -372,8 +372,7 @@ collision_mask = 16384
 shape = SubResource("CapsuleShape2D_8ptc2")
 
 [node name="BigSlime" type="CharacterBody2D" parent="."]
-position = Vector2(113, 202)
-scale = Vector2(0.222215, 0.265106)
+position = Vector2(79, 170)
 collision_layer = 65538
 script = ExtResource("7_v2y33")
 
@@ -382,16 +381,13 @@ collision_layer = 65536
 collision_mask = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BigSlime/StaticBody2D"]
-position = Vector2(27.9957, 19.882)
 shape = SubResource("RectangleShape2D_wy72w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BigSlime"]
-position = Vector2(27.9957, 19.8819)
 shape = SubResource("RectangleShape2D_wy72w")
 
 [node name="Sprite2D" type="Sprite2D" parent="BigSlime"]
-position = Vector2(30.9957, 22.3819)
-scale = Vector2(2.38281, 2)
+scale = Vector2(0.29, 0.29)
 texture = ExtResource("1_0lk6c")
 
 [node name="SlimeInputDelay" type="Timer" parent="BigSlime"]
@@ -404,7 +400,6 @@ collision_layer = 8192
 collision_mask = 8192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BigSlime/springArea5"]
-position = Vector2(31.5012, 18.8605)
 shape = SubResource("RectangleShape2D_175ee")
 
 [node name="damageArea" type="Area2D" parent="BigSlime"]
@@ -412,7 +407,6 @@ collision_layer = 0
 collision_mask = 16384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BigSlime/damageArea"]
-position = Vector2(29.251, 18.8605)
 shape = SubResource("RectangleShape2D_xfh7o")
 
 [node name="SlimeMergeDelay" type="Timer" parent="."]
