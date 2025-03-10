@@ -373,7 +373,7 @@ shape = SubResource("CapsuleShape2D_8ptc2")
 [node name="BigSlime" type="CharacterBody2D" parent="."]
 position = Vector2(113, 202)
 scale = Vector2(0.222215, 0.265106)
-collision_layer = 65537
+collision_layer = 65538
 script = ExtResource("7_v2y33")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="BigSlime"]
