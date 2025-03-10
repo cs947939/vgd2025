@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dagkfdenp1qf6"]
+[gd_scene load_steps=38 format=4 uid="uid://dagkfdenp1qf6"]
 
 [ext_resource type="Texture2D" uid="uid://cupxi4beigahc" path="res://973eaedf89f6405 (1).png" id="1_3st2v"]
 [ext_resource type="Texture2D" uid="uid://dxhmj4bhybl75" path="res://New Piskel-1.png.png" id="1_fk3s3"]
@@ -158,6 +158,80 @@ terrain_set_0/mode = 2
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_nkct1")
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_vggqc"]
+points = PackedVector2Array(11, 1, 5, -5, 1, -5, -5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvr0m"]
+size = Vector2(15, 8)
+
+[sub_resource type="Curve2D" id="Curve2D_yi81j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -32, 0, 0, 0, 0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dm0xa"]
+texture = ExtResource("4_w77ft")
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0/terrains_peering_bit/bottom_side = 0
+0:2/0/terrains_peering_bit/left_side = 0
+0:2/0/terrains_peering_bit/top_side = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0/terrains_peering_bit/right_side = 0
+1:2/0/terrains_peering_bit/left_side = 0
+1:2/0/terrains_peering_bit/top_side = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0/terrains_peering_bit/bottom_side = 0
+0:1/0/terrains_peering_bit/top_side = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/terrains_peering_bit/right_side = 0
+1:1/0/terrains_peering_bit/bottom_side = 0
+1:1/0/terrains_peering_bit/top_side = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0/terrains_peering_bit/left_side = 0
+2:1/0/terrains_peering_bit/top_side = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0/terrains_peering_bit/right_side = 0
+2:0/0/terrains_peering_bit/top_side = 0
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/terrains_peering_bit/top_side = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0/terrains_peering_bit/left_side = 0
+1:0/0/terrains_peering_bit/top_side = 0
+
+[sub_resource type="TileSet" id="TileSet_qfqsy"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_dm0xa")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r2vwo"]
 texture = ExtResource("3_fjcii")
@@ -466,6 +540,52 @@ rotation = 1.5708
 tile_map_data = PackedByteArray("AAAbACAAAAABAAAAAAAbAB8AAAAAAAIAAAAbAB4AAAAAAAIAAAAaACAAAAABAAEAAAAaAB8AAAABAAEAAAAaAB4AAAABAAEAAAAeACAAAAAAAAIAAAAeACEAAAACAAEAAAAdACEAAAABAAIAAAAdACAAAAABAAAAAAAcACAAAAABAAAAAAAcACEAAAABAAIAAAAbACEAAAABAAIAAAAaACEAAAACAAAAAAA=")
 tile_set = ExtResource("5_khmxy")
 
+[node name="ButtonDoor3" type="Node2D" parent="."]
+position = Vector2(-134, -199)
+rotation = -1.5708
+script = ExtResource("5_inm3s")
+
+[node name="Sprite2D" type="Sprite2D" parent="ButtonDoor3"]
+position = Vector2(-442, 443)
+rotation = 1.5708
+texture = ExtResource("3_bno8p")
+hframes = 3
+vframes = 2
+frame = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ButtonDoor3/Sprite2D"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ButtonDoor3/Sprite2D/StaticBody2D"]
+position = Vector2(-3, 5)
+shape = SubResource("ConvexPolygonShape2D_vggqc")
+
+[node name="Area2D" type="Area2D" parent="ButtonDoor3/Sprite2D"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonDoor3/Sprite2D/Area2D"]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_qvr0m")
+
+[node name="Path2D" type="Path2D" parent="ButtonDoor3"]
+curve = SubResource("Curve2D_yi81j")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ButtonDoor3/Path2D"]
+rotation = -1.5708
+rotates = false
+
+[node name="DoorsLocked" type="TileMapLayer" parent="ButtonDoor3/Path2D/PathFollow2D"]
+position = Vector2(448, 0)
+rotation = 1.5708
+tile_map_data = PackedByteArray("AAAbACAAAAABAAAAAAAbAB8AAAAAAAIAAAAbAB4AAAAAAAIAAAAaACAAAAABAAEAAAAaAB8AAAABAAEAAAAaAB4AAAABAAEAAAAeACAAAAAAAAIAAAAeACEAAAACAAEAAAAdACEAAAABAAIAAAAdACAAAAABAAAAAAAcACAAAAABAAAAAAAcACEAAAABAAIAAAAbACEAAAABAAIAAAAaACEAAAACAAAAAAAaADcAAAAAAAAAAAAaADYAAAAAAAEAAAAaADUAAAAAAAEAAADo/zwAAAAAAAAAAADo/zsAAAAAAAEAAADo/zoAAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_qfqsy")
+
+[node name="DoorsUnlocked" type="TileMapLayer" parent="ButtonDoor3/Path2D/PathFollow2D"]
+position = Vector2(448, 0)
+rotation = 1.5708
+tile_map_data = PackedByteArray("AAAbACAAAAABAAAAAAAbAB8AAAAAAAIAAAAbAB4AAAAAAAIAAAAaACAAAAABAAEAAAAaAB8AAAABAAEAAAAaAB4AAAABAAEAAAAeACAAAAAAAAIAAAAeACEAAAACAAEAAAAdACEAAAABAAIAAAAdACAAAAABAAAAAAAcACAAAAABAAAAAAAcACEAAAABAAIAAAAbACEAAAABAAIAAAAaACEAAAACAAAAAAAaADcAAAAAAAAAAAAaADYAAAAAAAEAAAAaADUAAAAAAAEAAADo/zwAAAAAAAAAAADo/zsAAAAAAAEAAADo/zoAAAAAAAEAAAA=")
+tile_set = ExtResource("5_khmxy")
+
 [node name="Water" type="TileMapLayer" parent="."]
 position = Vector2(4, 149)
 tile_map_data = PackedByteArray("AAAdABAAAAAAAAEAAAAdAA8AAAAAAAEAAAAdAA4AAAAAAAEAAAAdAA0AAAAAAAEAAAAdAAwAAAAAAAAAAAAcABAAAAAAAAEAAAAcAA8AAAAAAAEAAAAcAA4AAAAAAAEAAAAcAA0AAAAAAAEAAAAcAAwAAAAAAAAAAAAbABAAAAAAAAEAAAAbAA8AAAAAAAEAAAAbAA4AAAAAAAEAAAAbAA0AAAAAAAEAAAAbAAwAAAAAAAAAAAAaABAAAAAAAAEAAAAaAA8AAAAAAAEAAAAaAA4AAAAAAAEAAAAaAA0AAAAAAAEAAAAaAAwAAAAAAAAAAAAZABAAAAAAAAEAAAAZAA8AAAAAAAEAAAAZAA4AAAAAAAEAAAAZAA0AAAAAAAEAAAAZAAwAAAAAAAAAAAAYABAAAAAAAAEAAAAYAA8AAAAAAAEAAAAYAA4AAAAAAAEAAAAYAA0AAAAAAAEAAAAYAAwAAAAAAAAAAAAXABAAAAAAAAEAAAAXAA8AAAAAAAEAAAAXAA4AAAAAAAEAAAAXAA0AAAAAAAEAAAAXAAwAAAAAAAAAAAAWABAAAAAAAAEAAAAWAA8AAAAAAAEAAAAWAA4AAAAAAAEAAAAWAA0AAAAAAAEAAAAWAAwAAAAAAAAAAAAVABAAAAAAAAEAAAAVAA8AAAAAAAEAAAAVAA4AAAAAAAEAAAAVAA0AAAAAAAEAAAAVAAwAAAAAAAAAAAAUABAAAAAAAAEAAAAUAA8AAAAAAAEAAAAUAA4AAAAAAAEAAAAUAA0AAAAAAAEAAAAUAAwAAAAAAAAAAAATABAAAAAAAAEAAAATAA8AAAAAAAEAAAATAA4AAAAAAAEAAAATAA0AAAAAAAEAAAATAAwAAAAAAAAAAAASABAAAAAAAAEAAAASAA8AAAAAAAEAAAASAA4AAAAAAAEAAAASAA0AAAAAAAEAAAASAAwAAAAAAAAAAAARABAAAAAAAAEAAAARAA8AAAAAAAEAAAARAA4AAAAAAAEAAAARAA0AAAAAAAEAAAARAAwAAAAAAAAAAAAQABAAAAAAAAEAAAAQAA8AAAAAAAEAAAAQAA4AAAAAAAEAAAAQAA0AAAAAAAEAAAAQAAwAAAAAAAAAAAAPABAAAAAAAAEAAAAPAA8AAAAAAAEAAAAPAA4AAAAAAAEAAAAPAA0AAAAAAAEAAAAPAAwAAAAAAAAAAAAOABAAAAAAAAEAAAAOAA8AAAAAAAEAAAAOAA4AAAAAAAEAAAAOAA0AAAAAAAEAAAAOAAwAAAAAAAAAAAANABAAAAAAAAEAAAANAA8AAAAAAAEAAAANAA4AAAAAAAEAAAANAA0AAAAAAAEAAAANAAwAAAAAAAAAAAAMABAAAAAAAAEAAAAMAA8AAAAAAAEAAAAMAA4AAAAAAAEAAAAMAA0AAAAAAAEAAAAMAAwAAAAAAAAAAAALABAAAAAAAAEAAAALAA8AAAAAAAEAAAALAA4AAAAAAAEAAAALAA0AAAAAAAEAAAALAAwAAAAAAAAAAAAKABAAAAAAAAEAAAAKAA8AAAAAAAEAAAAKAA4AAAAAAAEAAAAKAA0AAAAAAAEAAAAKAAwAAAAAAAAAAAAJABAAAAAAAAEAAAAJAA8AAAAAAAEAAAAJAA4AAAAAAAEAAAAJAA0AAAAAAAEAAAAJAAwAAAAAAAAAAAAIABAAAAAAAAEAAAAIAA8AAAAAAAEAAAAIAA4AAAAAAAEAAAAIAA0AAAAAAAEAAAAIAAwAAAAAAAAAAAAHABAAAAAAAAEAAAAHAA8AAAAAAAEAAAAHAA4AAAAAAAEAAAAHAA0AAAAAAAEAAAAHAAwAAAAAAAAAAAAGABAAAAAAAAEAAAAGAA8AAAAAAAEAAAAGAA4AAAAAAAEAAAAGAA0AAAAAAAEAAAAGAAwAAAAAAAAAAAAFABAAAAAAAAEAAAAFAA8AAAAAAAEAAAAFAA4AAAAAAAEAAAAFAA0AAAAAAAEAAAAFAAwAAAAAAAAAAAAEABAAAAAAAAEAAAAEAA8AAAAAAAEAAAAEAA4AAAAAAAEAAAAEAA0AAAAAAAEAAAAEAAwAAAAAAAAAAAADABAAAAAAAAEAAAADAA8AAAAAAAEAAAADAA4AAAAAAAEAAAADAA0AAAAAAAEAAAADAAwAAAAAAAAAAAACABAAAAAAAAEAAAACAA8AAAAAAAEAAAACAA4AAAAAAAEAAAACAA0AAAAAAAEAAAACAAwAAAAAAAAAAAABABAAAAAAAAEAAAABAA8AAAAAAAEAAAABAA4AAAAAAAEAAAABAA0AAAAAAAEAAAABAAwAAAAAAAAAAAAAABAAAAAAAAEAAAAAAA8AAAAAAAEAAAAAAA4AAAAAAAEAAAAAAA0AAAAAAAEAAAAAAAwAAAAAAAAAAAD//xAAAAAAAAEAAAD//w8AAAAAAAEAAAD//w4AAAAAAAEAAAD//w0AAAAAAAEAAAD//wwAAAAAAAAAAAD+/xAAAAAAAAEAAAD+/w8AAAAAAAEAAAD+/w4AAAAAAAEAAAD+/w0AAAAAAAEAAAD+/wwAAAAAAAAAAAD9/xAAAAAAAAEAAAD9/w8AAAAAAAEAAAD9/w4AAAAAAAEAAAD9/w0AAAAAAAEAAAD9/wwAAAAAAAAAAAA=")
@@ -523,6 +643,7 @@ text = "PRESS SPACE TO CONTINUE"
 
 [connection signal="body_entered" from="ButtonDoor1/Sprite2D/Area2D" to="ButtonDoor1" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="ButtonDoor2/Sprite2D/Area2D" to="ButtonDoor2" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="ButtonDoor3/Sprite2D/Area2D" to="ButtonDoor3" method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Spring" to="Spring" method="_on_animation_finished"]
 [connection signal="area_entered" from="Spring/Area2D" to="Spring" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Exit" to="Exit" method="_on_area_entered"]
