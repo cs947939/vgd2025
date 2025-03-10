@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left_2", "right_2")
 	
 	if (direction > 0 and velocity.x > direction*SPEED) or (direction < 0 and velocity.x < direction*SPEED):
-		move_toward(velocity.x, direction*SPEED, ((SPEED) if is_on_floor() else (SPEED/200)))
+		move_toward(velocity.x, direction*SPEED, ((SPEED) if is_on_floor() else (SPEED/5)))
 	else:
 		if direction:
 			if animation_player.current_animation == "idle":
@@ -53,7 +53,7 @@ func _on_big_slime_hideslime(x, direction, xx, xxx) -> void:
 	global_position.x = $"../BigSlime".global_position.x + (20 if direction == "right" else (-20 if direction == "left" else 0))
 	global_position.y = $"../BigSlime".global_position.y + (20 if direction == "down" else (-20 if direction == "up" else 0))
 	velocity.x = $"../BigSlime".velocity.x  + (200 if direction == "right" else (-200 if direction == "left" else 0))
-	velocity.y = $"../BigSlime".velocity.y  + (200 if direction == "down" else (-100 if direction == "up" else 0))
+	velocity.y = $"../BigSlime".velocity.y  + (200 if direction == "down" else (-300 if direction == "up" else 0))
 	visible = true
 	if not direction=="down":
 		move_and_slide()
