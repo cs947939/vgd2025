@@ -46,6 +46,6 @@ func _input(ev):
 		else:
 			print("loading level" + str(current_level))
 			current_level += 1
-			get_tree().change_scene_to_file("res://level_" + str(current_level) + ".tscn")
 			exit_unconnected = true
 			exit = null
+			get_tree().change_scene_to_file("res://level_" + str(current_level) + ".tscn")

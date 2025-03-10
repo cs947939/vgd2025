@@ -44,6 +44,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_snefw"]
 resource_name = "idle"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -180,7 +181,7 @@ position = Vector2(13, -114)
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(272, 199)
+position = Vector2(50, 200)
 collision_layer = 2
 script = ExtResource("1_lfuix")
 

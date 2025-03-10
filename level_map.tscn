@@ -461,6 +461,11 @@ script = ExtResource("6_ejwjo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 shape = SubResource("RectangleShape2D_jhiax")
 
+[node name="Label" type="Label" parent="Exit"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "HELLO WORLD"
+
 [connection signal="body_entered" from="ButtonDoor1/Sprite2D/Area2D" to="ButtonDoor1" method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Spring" to="Spring" method="_on_animation_finished"]
 [connection signal="area_entered" from="Spring/Area2D" to="Spring" method="_on_area_2d_area_entered"]
