@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left_1", "right_1")
 	if (direction > 0 and velocity.x > direction*SPEED) or (direction < 0 and velocity.x < direction*SPEED):
-		move_toward(velocity.x, direction*SPEED, ((SPEED) if is_on_floor() else (SPEED/200)))
+		move_toward(velocity.x, direction*SPEED, ((SPEED) if is_on_floor() else (SPEED/5)))
 	else:
 		if direction:
 			if animation_player.current_animation == "idle":

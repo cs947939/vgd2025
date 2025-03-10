@@ -93,9 +93,9 @@ size = Vector2(15, 8)
 
 [sub_resource type="Curve2D" id="Curve2D_p8obj"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -32)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -32, 0, 0, 0, 0, 0, 0)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nkct1"]
 texture = ExtResource("4_w77ft")
@@ -380,7 +380,7 @@ tile_map_data = PackedByteArray("AAAaABYAAQABAAAAAAAaABUAAQAAAAAAAAAaABQAAQACAAE
 tile_set = SubResource("TileSet_7fqqy")
 
 [node name="ButtonDoor1" type="Node2D" parent="."]
-position = Vector2(-134, -198)
+position = Vector2(-142, -199)
 script = ExtResource("2_0exn6")
 
 [node name="Sprite2D" type="Sprite2D" parent="ButtonDoor1"]
@@ -411,19 +411,19 @@ rotation = -1.5708
 rotates = false
 
 [node name="DoorsLocked" type="TileMapLayer" parent="ButtonDoor1/Path2D/PathFollow2D"]
-position = Vector2(447.214, -3.05176e-05)
+position = Vector2(448, 0)
 rotation = 1.5708
 tile_map_data = PackedByteArray("AAAbACAAAAABAAAAAAAbAB8AAAAAAAIAAAAbAB4AAAAAAAIAAAAaACAAAAABAAEAAAAaAB8AAAABAAEAAAAaAB4AAAABAAEAAAAeACAAAAAAAAIAAAAeACEAAAACAAEAAAAdACEAAAABAAIAAAAdACAAAAABAAAAAAAcACAAAAABAAAAAAAcACEAAAABAAIAAAAbACEAAAABAAIAAAAaACEAAAACAAAAAAA=")
 tile_set = SubResource("TileSet_nal17")
 
 [node name="DoorsUnlocked" type="TileMapLayer" parent="ButtonDoor1/Path2D/PathFollow2D"]
-position = Vector2(447.214, -3.05176e-05)
+position = Vector2(448, 0)
 rotation = 1.5708
 tile_map_data = PackedByteArray("AAAbACAAAAABAAAAAAAbAB8AAAAAAAIAAAAbAB4AAAAAAAIAAAAaACAAAAABAAEAAAAaAB8AAAABAAEAAAAaAB4AAAABAAEAAAAeACAAAAAAAAIAAAAeACEAAAACAAEAAAAdACEAAAABAAIAAAAdACAAAAABAAAAAAAcACAAAAABAAAAAAAcACEAAAABAAIAAAAbACEAAAABAAIAAAAaACEAAAACAAAAAAA=")
 tile_set = ExtResource("5_khmxy")
 
 [node name="ButtonDoor2" type="Node2D" parent="."]
-position = Vector2(-134, -198)
+position = Vector2(-142, -199)
 script = ExtResource("5_inm3s")
 
 [node name="Sprite2D" type="Sprite2D" parent="ButtonDoor2"]
@@ -455,13 +455,13 @@ rotation = -1.5708
 rotates = false
 
 [node name="DoorsLocked" type="TileMapLayer" parent="ButtonDoor2/Path2D/PathFollow2D"]
-position = Vector2(447.214, -3.05176e-05)
+position = Vector2(448, 0)
 rotation = 1.5708
 tile_map_data = PackedByteArray("AAAbACAAAAABAAAAAAAbAB8AAAAAAAIAAAAbAB4AAAAAAAIAAAAaACAAAAABAAEAAAAaAB8AAAABAAEAAAAaAB4AAAABAAEAAAAeACAAAAAAAAIAAAAeACEAAAACAAEAAAAdACEAAAABAAIAAAAdACAAAAABAAAAAAAcACAAAAABAAAAAAAcACEAAAABAAIAAAAbACEAAAABAAIAAAAaACEAAAACAAAAAAA=")
 tile_set = SubResource("TileSet_nal17")
 
 [node name="DoorsUnlocked" type="TileMapLayer" parent="ButtonDoor2/Path2D/PathFollow2D"]
-position = Vector2(447.214, -3.05176e-05)
+position = Vector2(448, 0)
 rotation = 1.5708
 tile_map_data = PackedByteArray("AAAbACAAAAABAAAAAAAbAB8AAAAAAAIAAAAbAB4AAAAAAAIAAAAaACAAAAABAAEAAAAaAB8AAAABAAEAAAAaAB4AAAABAAEAAAAeACAAAAAAAAIAAAAeACEAAAACAAEAAAAdACEAAAABAAIAAAAdACAAAAABAAAAAAAcACAAAAABAAAAAAAcACEAAAABAAIAAAAbACEAAAABAAIAAAAaACEAAAACAAAAAAA=")
 tile_set = ExtResource("5_khmxy")
