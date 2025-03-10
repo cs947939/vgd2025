@@ -1,7 +1,7 @@
 extends Node2D
 
 var mynode = preload("res://players.tscn")
-var spawns = [Vector2(0, -100), Vector2(0, -100), Vector2(0, -100), Vector2(0, -50), Vector2(0, -100)]
+var spawns = [Vector2(0, -100), Vector2(0, -100), Vector2(0, 0), Vector2(0, -50), Vector2(0, -100), Vector2(0, 0)]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

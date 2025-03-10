@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://cvg4bqcj12kf8"]
+[gd_scene load_steps=6 format=4 uid="uid://df7uthvu8ly84"]
 
-[ext_resource type="Script" path="res://level_1.gd" id="1_nbty6"]
-[ext_resource type="PackedScene" uid="uid://dagkfdenp1qf6" path="res://level_map.tscn" id="2_ms618"]
-[ext_resource type="Script" path="res://button_door_1.gd" id="3_btgbj"]
+[ext_resource type="Script" path="res://level_1.gd" id="1_63p83"]
+[ext_resource type="PackedScene" uid="uid://dagkfdenp1qf6" path="res://level_map.tscn" id="2_rj2bm"]
+[ext_resource type="Script" path="res://button_door_1.gd" id="3_gl8lp"]
 
 [sub_resource type="Curve2D" id="Curve2D_0s4jp"]
 _data = {
@@ -17,9 +17,9 @@ _data = {
 point_count = 3
 
 [node name="level_6" type="Node2D"]
-script = ExtResource("1_nbty6")
+script = ExtResource("1_63p83")
 
-[node name="LevelMap" parent="." instance=ExtResource("2_ms618")]
+[node name="LevelMap" parent="." instance=ExtResource("2_rj2bm")]
 
 [node name="Water" parent="LevelMap" index="1"]
 position = Vector2(-15, 142)
@@ -39,7 +39,7 @@ tile_map_data = PackedByteArray("AAAbACAAAAABAAAAAAAbAB8AAAAAAAIAAAAbAB4AAAAAAAI
 tile_map_data = PackedByteArray("AAAbACAAAAABAAAAAAAbAB8AAAAAAAIAAAAbAB4AAAAAAAIAAAAaACAAAAABAAEAAAAaAB8AAAABAAEAAAAaAB4AAAABAAEAAAAeACAAAAAAAAIAAAAeACEAAAACAAEAAAAdACEAAAABAAIAAAAdACAAAAABAAAAAAAcACAAAAABAAAAAAAcACEAAAABAAIAAAAbACEAAAABAAIAAAAaACEAAAACAAAAAAAaADcAAAAAAAAAAAAaADYAAAAAAAEAAAAaADUAAAAAAAEAAAA=")
 
 [node name="ButtonDoor3" parent="LevelMap" index="4"]
-script = ExtResource("3_btgbj")
+script = ExtResource("3_gl8lp")
 
 [node name="Sprite2D" parent="LevelMap/ButtonDoor3" index="0"]
 position = Vector2(-506.002, 423.998)
