@@ -16,7 +16,7 @@ _data = {
 }
 point_count = 3
 
-[node name="level_6" type="Node2D"]
+[node name="level_7" type="Node2D"]
 script = ExtResource("1_63p83")
 
 [node name="LevelMap" parent="." instance=ExtResource("2_rj2bm")]
