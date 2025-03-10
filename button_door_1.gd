@@ -4,11 +4,13 @@ extends Node2D
 @export var button_pressed = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Path2D/PathFollow2D/DoorsUnlocked.modulate.a = 0
 	$Sprite2D.frame = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if button_pressed:
+		
 		if path_follow.progress_ratio + speed*delta < 0.5:
 			path_follow.progress_ratio += speed*delta
 		else:
@@ -20,3 +22,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 	button_pressed = true
 	$Sprite2D.frame = 5
+	$Path2D/PathFollow2D/DoorsLocked.modulate.a = 0
+	$Path2D/PathFollow2D/DoorsUnlocked.modulate.a = 1

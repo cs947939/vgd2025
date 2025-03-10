@@ -3,7 +3,7 @@ var exit = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Label.process_mode = Node.PROCESS_MODE_DISABLED
+	$Label.modulate.a = 0
 
 
 		
@@ -19,5 +19,8 @@ func _process(delta: float) -> void:
 		exit = false
 		$Label.process_mode = Node.PROCESS_MODE_DISABLED
 	if exit:
-		$Label.modulate.a = (sin(Time.get_unix_time_from_system())**2)/2+1/2
+		$Label.modulate.a = pow(sin(Time.get_unix_time_from_system()),2)/2+0.5
+		print(pow(sin(Time.get_unix_time_from_system()),2))
+	else:
+		$Label.modulate.a = 0
 	

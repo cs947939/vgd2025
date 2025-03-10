@@ -1,17 +1,15 @@
 extends Node2D
-var level = 1
-var current_level = 1
+var level
+var current_level
 var max_level = 10
 var exit_unconnected = true
 var exit = null
-# Called when the node enters the scene tree for the first time.
-
+var input_allowed = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready():
-	var exit = get_node("/root/level_" + str(current_level) + "/LevelMap/Exit")
-	if exit != null:
-		exit.next_level.connect(self._on_level_pass)
+	current_level = 1
+	level = 1
 	load_level()
 
 func load_level():
@@ -29,9 +27,9 @@ func save_level():
 	var save_file = FileAccess.open("user://savefile.save", FileAccess.WRITE)
 	save_file.store_line(str(level))
 	save_file.close()
-
-func _input(ev):
-	if Input.is_action_pressed("ui_select") and get_node("/root/level_" + str(current_level) + "/LevelMap/Exit").exit:
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("ui_select") and input_allowed and get_node("/root/level_" + str(current_level) + "/LevelMap/Exit").exit:
+		input_allowed = false
 		if current_level == level:
 			level += 1
 			current_level += 1
@@ -49,3 +47,4 @@ func _input(ev):
 			exit_unconnected = true
 			exit = null
 			get_tree().change_scene_to_file("res://level_" + str(current_level) + ".tscn")
+		input_allowed = true
