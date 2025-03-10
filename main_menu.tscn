@@ -24,10 +24,10 @@ text = "PLAY"
 script = ExtResource("2_087fk")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 22.0
-offset_top = 42.0
-offset_right = 635.0
-offset_bottom = 287.0
+offset_left = 94.0
+offset_top = 41.0
+offset_right = 707.0
+offset_bottom = 286.0
 theme_override_font_sizes/font_size = 25
 text = "MAIN MENU"
 
