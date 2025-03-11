@@ -54,7 +54,7 @@ func _on_merging_engine_sprite_comm(msg: int, id: int) -> void:
 func _on_big_slime_hideslime(x, xx, xxx, direction) -> void:
 	process_mode = PROCESS_MODE_INHERIT
 	global_position.x = $"../BigSlime".global_position.x + (20 if direction == "right" else (-20 if direction == "left" else 0))
-	global_position.y = $"../BigSlime".global_position.y + (20 if direction == "down" else (-20 if direction == "up" else 0))
+	global_position.y = $"../BigSlime".global_position.y + (0 if direction == "down" else (-40 if direction == "up" else 0))
 	velocity.x = $"../BigSlime".velocity.x  + (200 if direction == "right" else (-200 if direction == "left" else 0))
 	velocity.y = $"../BigSlime".velocity.y  + (200 if direction == "down" else (-300 if direction == "up" else 0))
 	visible = true
