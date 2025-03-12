@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dagkfdenp1qf6"]
+[gd_scene load_steps=40 format=4 uid="uid://dagkfdenp1qf6"]
 
 [ext_resource type="Texture2D" uid="uid://cupxi4beigahc" path="res://973eaedf89f6405 (1).png" id="1_3st2v"]
 [ext_resource type="Texture2D" uid="uid://dxhmj4bhybl75" path="res://New Piskel-1.png.png" id="1_fk3s3"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://button_door_2.gd" id="5_inm3s"]
 [ext_resource type="TileSet" uid="uid://chn5ywcei5rt2" path="res://new_tile_set.tres" id="5_khmxy"]
 [ext_resource type="Script" path="res://exit.gd" id="6_ejwjo"]
+[ext_resource type="Texture2D" uid="uid://wwcd03hjmdcg" path="res://9dc0ba3bc559e0c-2.png-1.png.png" id="12_yj87r"]
+[ext_resource type="Texture2D" uid="uid://c7340vs3i1fuu" path="res://9dc0ba3bc559e0c-1.png-1.png.png" id="13_s0d4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nd1vd"]
 texture = ExtResource("1_fk3s3")
@@ -442,7 +444,7 @@ size = Vector2(16, 8)
 size = Vector2(16, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhiax"]
-size = Vector2(60, 60)
+size = Vector2(46, 46)
 
 [node name="Level_Map" type="Node2D"]
 physics_interpolation_mode = 1
@@ -640,6 +642,15 @@ offset_right = 135.0
 offset_bottom = -17.0
 theme_override_font_sizes/font_size = 8
 text = "PRESS SPACE TO CONTINUE"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Exit"]
+modulate = Color(1, 1, 1, 0.588235)
+scale = Vector2(2, 2)
+texture = ExtResource("12_yj87r")
+
+[node name="Sprite2D" type="Sprite2D" parent="Exit"]
+scale = Vector2(2, 2)
+texture = ExtResource("13_s0d4m")
 
 [connection signal="body_entered" from="ButtonDoor1/Sprite2D/Area2D" to="ButtonDoor1" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="ButtonDoor2/Sprite2D/Area2D" to="ButtonDoor2" method="_on_area_2d_body_entered"]

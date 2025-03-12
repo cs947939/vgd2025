@@ -1,10 +1,11 @@
 extends Node2D
 var level
 var current_level
-var max_level = 10
+var max_level = 6
 var exit_unconnected = true
 var exit = null
 var input_allowed = true
+var players = 2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready():
@@ -19,6 +20,7 @@ func load_level():
 		return
 
 	level = int(save_file.get_line())
+	print(level)
 	save_file.close()
 
 func save_level():
@@ -30,12 +32,12 @@ func save_level():
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("ui_select") and input_allowed and get_node("/root/level_" + str(current_level) + "/LevelMap/Exit") and get_node("/root/level_" + str(current_level) + "/LevelMap/Exit").exit:
 		input_allowed = false
-		if current_level == level:
+		if current_level == level or current_level == max_level:
 			level += 1
 			current_level += 1
 			save_level()  
 			if level > max_level:
-				pass
+				get_tree().change_scene_to_file("res://end.tscn")
 			else:
 				print("loading level" + str(current_level))
 				get_tree().change_scene_to_file("res://level_" + str(current_level) + ".tscn")

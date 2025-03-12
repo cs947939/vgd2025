@@ -17,3 +17,5 @@ func _on_animation_finished(anim_name: StringName) -> void:
 		play("running-loop")
 	elif anim_name == "stop_running":
 		play("idle")
+	elif anim_name == "death":
+		get_tree().reload_current_scene()

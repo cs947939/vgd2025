@@ -53,4 +53,23 @@ position = Vector2(252, 256)
 [node name="Exit" parent="LevelMap" index="8"]
 position = Vector2(303, 235)
 
+[node name="Label5" type="Label" parent="."]
+offset_left = 44.0
+offset_top = 29.0
+offset_right = 131.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 40
+text = "2"
+
+[node name="Label" type="Label" parent="Label5"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 138.0
+offset_right = 114.0
+offset_bottom = 165.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 10
+text = "TOUCH EACH OTHER TO MERGE
+AND BECOME BIGGER"
+
 [editable path="LevelMap"]

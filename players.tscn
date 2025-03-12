@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=46 format=3 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Texture2D" uid="uid://bj04vntg64lw5" path="res://icon.svg" id="1_0lk6c"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
@@ -107,6 +107,22 @@ tracks/0/keys = {
 "values": [3, 2, 1, 0]
 }
 
+[sub_resource type="Animation" id="Animation_7d5ql"]
+resource_name = "stop_upward"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(12, 0), Vector2i(11, 0), Vector2i(10, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_jo3wt"]
 resource_name = "upward"
 length = 0.2
@@ -124,27 +140,62 @@ tracks/0/keys = {
 "values": [Vector2i(13, 0), Vector2i(14, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_7d5ql"]
-resource_name = "stop_upward"
+[sub_resource type="Animation" id="Animation_hxkon"]
+resource_name = "downward"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_qgsfa"]
+resource_name = "start_downward"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame_coords")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2i(12, 0), Vector2i(11, 0), Vector2i(10, 0)]
+"values": [5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_yhe6j"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [15, 16, 17, 18, 19]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4c86s"]
 _data = {
 "RESET": SubResource("Animation_frcoi"),
+"death": SubResource("Animation_yhe6j"),
+"downward": SubResource("Animation_hxkon"),
 "idle": SubResource("Animation_snefw"),
 "running-loop": SubResource("Animation_q1n6k"),
+"start_downward": SubResource("Animation_qgsfa"),
 "start_running": SubResource("Animation_udype"),
 "stop_running": SubResource("Animation_s1nu8"),
 "stop_upward": SubResource("Animation_7d5ql"),
@@ -487,7 +538,7 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="onEnter" from="CharacterBody2D3/3" to="CharacterBody2D3" method="_on_area_2d_on_enter"]
 [connection signal="rmdetect1" from="CharacterBody2D3/3" to="CharacterBody2D3" method="_on_area_2d_rmdetect_1"]
 [connection signal="area_entered" from="CharacterBody2D3/damageArea" to="CharacterBody2D2" method="_on_damage_area_area_entered"]
-[connection signal="body_entered" from="CharacterBody2D3/damageArea" to="CharacterBody2D2" method="_on_damage_area_body_entered"]
+[connection signal="body_entered" from="CharacterBody2D3/damageArea" to="CharacterBody2D3" method="_on_damage_area_body_entered"]
 [connection signal="body_entered" from="CharacterBody2D3/springArea2" to="CharacterBody2D3" method="_on_spring_area_body_entered"]
 [connection signal="detect4" from="CharacterBody2D4" to="MergingEngine" method="_on_character_body_2d_4_detect_4"]
 [connection signal="rmdetect4" from="CharacterBody2D4" to="MergingEngine" method="_on_character_body_2d_4_rmdetect_4"]
@@ -499,7 +550,7 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="rmdetect1" from="CharacterBody2D4/4" to="CharacterBody2D4" method="_on_area_2d_rmdetect_1"]
 [connection signal="body_entered" from="CharacterBody2D4/springArea3" to="CharacterBody2D4" method="_on_spring_area_body_entered"]
 [connection signal="area_entered" from="CharacterBody2D4/damageArea" to="CharacterBody2D2" method="_on_damage_area_area_entered"]
-[connection signal="body_entered" from="CharacterBody2D4/damageArea" to="CharacterBody2D2" method="_on_damage_area_body_entered"]
+[connection signal="body_entered" from="CharacterBody2D4/damageArea" to="CharacterBody2D4" method="_on_damage_area_body_entered"]
 [connection signal="detect2" from="CharacterBody2D" to="MergingEngine" method="_on_character_body_2d_detect_2"]
 [connection signal="rmdetect2" from="CharacterBody2D" to="MergingEngine" method="_on_character_body_2d_rmdetect_2"]
 [connection signal="animation_finished" from="CharacterBody2D/AnimationPlayer2" to="CharacterBody2D/AnimationPlayer2" method="_on_animation_finished"]
@@ -510,7 +561,7 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="rmdetect1" from="CharacterBody2D/2" to="CharacterBody2D" method="_on_area_2d_rmdetect_1"]
 [connection signal="body_entered" from="CharacterBody2D/springArea4" to="CharacterBody2D" method="_on_spring_area_4_body_entered"]
 [connection signal="area_entered" from="CharacterBody2D/damageArea" to="CharacterBody2D2" method="_on_damage_area_area_entered"]
-[connection signal="body_entered" from="CharacterBody2D/damageArea" to="CharacterBody2D2" method="_on_damage_area_body_entered"]
+[connection signal="body_entered" from="CharacterBody2D/damageArea" to="CharacterBody2D" method="_on_damage_area_body_entered"]
 [connection signal="cooldownstart" from="BigSlime" to="SlimeMergeDelay" method="_on_big_slime_cooldownstart"]
 [connection signal="delaystart" from="BigSlime" to="BigSlime/SlimeInputDelay" method="_on_big_slime_delaystart"]
 [connection signal="hideslime" from="BigSlime" to="CharacterBody2D2" method="_on_big_slime_hideslime"]
