@@ -11,6 +11,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if enabled:
 		self.disabled = false
+		
 
 
 func _on_button_up() -> void:

@@ -1,5 +1,5 @@
 extends Node2D
-var level
+@onready var level
 var current_level
 var max_level = 6
 var exit_unconnected = true
@@ -21,6 +21,8 @@ func load_level():
 
 	level = int(save_file.get_line())
 	print(level)
+	if level < 1:
+		level = 1
 	save_file.close()
 
 func save_level():
