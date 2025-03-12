@@ -3,10 +3,10 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
-offset_left = 88.0
-offset_top = 94.0
-offset_right = 463.0
-offset_bottom = 197.0
+offset_left = 16.0
+offset_top = 19.0
+offset_right = 391.0
+offset_bottom = 122.0
 theme_override_colors/font_color = Color(0.309879, 0.680158, 0.251036, 1)
 theme_override_font_sizes/font_size = 50
 text = "CONGRATULATIONS

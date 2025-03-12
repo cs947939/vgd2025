@@ -1,37 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdfj6aq5apj55"]
+[gd_scene load_steps=5 format=3 uid="uid://cdfj6aq5apj55"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_uao1w"]
 [ext_resource type="Script" path="res://levels_button.gd" id="2_47q5c"]
 [ext_resource type="Script" path="res://play_button.gd" id="2_087fk"]
+[ext_resource type="Texture2D" uid="uid://nhl642dom57l" path="res://photo2pixel_download-1.png.png" id="4_lvmr5"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_uao1w")
 
 [node name="Levels_Button" type="Button" parent="."]
-offset_left = 186.0
-offset_top = 139.0
-offset_right = 262.0
-offset_bottom = 175.0
+offset_left = 179.0
+offset_top = 185.0
+offset_right = 255.0
+offset_bottom = 221.0
 theme_override_font_sizes/font_size = 20
 text = "LEVELS"
 script = ExtResource("2_47q5c")
 
 [node name="Play_Button" type="Button" parent="."]
-offset_left = 188.0
-offset_top = 95.0
-offset_right = 264.0
-offset_bottom = 131.0
+offset_left = 181.0
+offset_top = 141.0
+offset_right = 257.0
+offset_bottom = 177.0
 theme_override_font_sizes/font_size = 20
 text = "PLAY"
 script = ExtResource("2_087fk")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 94.0
-offset_top = 41.0
-offset_right = 707.0
-offset_bottom = 286.0
+offset_left = 165.0
+offset_top = 107.0
+offset_right = 778.0
+offset_bottom = 352.0
 theme_override_font_sizes/font_size = 25
 text = "MAIN MENU"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(216, 50)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lvmr5")
 
 [connection signal="button_up" from="Levels_Button" to="Levels_Button" method="_on_button_up"]
 [connection signal="button_up" from="Play_Button" to="Play_Button" method="_on_button_up"]
