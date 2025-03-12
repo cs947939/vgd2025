@@ -34,7 +34,6 @@ func _physics_process(delta: float) -> void:
 		animation_player.play("idle")
 		velocity.x = move_toward(velocity.x, 0, ((SPEED/10) if is_on_floor() else (SPEED/200)))
 	sprite2d.flip_h = true if direction < 0 else false
-	sprite2d.position.x = 3 if direction < 0 else -3
 
 	move_and_slide()
 

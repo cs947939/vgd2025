@@ -15,3 +15,5 @@ func _process(delta: float) -> void:
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "start_running":
 		play("running-loop")
+	elif anim_name == "stop_running":
+		play("idle")

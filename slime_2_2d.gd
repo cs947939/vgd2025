@@ -25,19 +25,24 @@ func _physics_process(delta: float) -> void:
 	if (direction > 0 and velocity.x > direction*SPEED) or (direction < 0 and velocity.x < direction*SPEED):
 		move_toward(velocity.x, direction*SPEED, ((SPEED) if is_on_floor() else (SPEED/5)))
 	else:
-		if direction:
-			if animation_player.current_animation == "idle":
-				animation_player.play("start_running")
 			
 			if is_on_floor():
 				velocity.x += direction * SPEED/8
 			else:
 				velocity.x += direction * SPEED/16
+	
+	if direction and is_on_floor():
+		if animation_player.current_animation == "idle":
+			animation_player.play("start_running")
+	if not ((direction/abs(direction) if direction else 0) == velocity.x/abs(velocity.x) or animation_player.current_animation == "idle" or animation_player.current_animation == "stop_running" or not is_on_floor()):
+		animation_player.play("stop_running")
+	if velocity.y < -210:
+		animation_player.play("upward")
+	elif velocity.y >= -210 and velocity.y < 0 and animation_player.current_animation == "upward":
+		animation_player.play("stop_upward")
 	if not direction:
-		animation_player.play("idle")
 		velocity.x = move_toward(velocity.x, 0, ((SPEED/10) if is_on_floor() else (SPEED/200)))
-	sprite2d.flip_h = true if direction < 0 else false
-	sprite2d.position.x = 3 if direction < 0 else -3
+	sprite2d.flip_h = true if direction < 0 and animation_player.current_animation == "start_running" else (false if direction > 0 and animation_player.current_animation == "start_running" else sprite2d.flip_h)
 
 	move_and_slide()
 

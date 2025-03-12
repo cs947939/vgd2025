@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=43 format=3 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Texture2D" uid="uid://bj04vntg64lw5" path="res://icon.svg" id="1_0lk6c"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
@@ -72,7 +72,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [4, 5, 6]
+"values": [2, 3, 4]
 }
 
 [sub_resource type="Animation" id="Animation_udype"]
@@ -91,12 +91,64 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_s1nu8"]
+resource_name = "stop_running"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_jo3wt"]
+resource_name = "upward"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(13, 0), Vector2i(14, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7d5ql"]
+resource_name = "stop_upward"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(12, 0), Vector2i(11, 0), Vector2i(10, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4c86s"]
 _data = {
 "RESET": SubResource("Animation_frcoi"),
 "idle": SubResource("Animation_snefw"),
 "running-loop": SubResource("Animation_q1n6k"),
-"start_running": SubResource("Animation_udype")
+"start_running": SubResource("Animation_udype"),
+"stop_running": SubResource("Animation_s1nu8"),
+"stop_upward": SubResource("Animation_7d5ql"),
+"upward": SubResource("Animation_jo3wt")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ih3nk"]
@@ -188,10 +240,8 @@ script = ExtResource("1_lfuix")
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
 physics_interpolation_mode = 1
 material = SubResource("CanvasItemMaterial_by6cd")
-position = Vector2(-3, 2)
 texture = ExtResource("3_jcc0i")
-hframes = 3
-vframes = 4
+hframes = 21
 script = ExtResource("2_0odp4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D2"]
@@ -236,10 +286,8 @@ script = ExtResource("11_dxnox")
 [node name="Sprite2D3" type="Sprite2D" parent="CharacterBody2D3"]
 physics_interpolation_mode = 1
 material = SubResource("CanvasItemMaterial_by6cd")
-position = Vector2(-3, 2)
 texture = ExtResource("3_jcc0i")
-hframes = 3
-vframes = 4
+hframes = 21
 script = ExtResource("2_0odp4")
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="CharacterBody2D3"]
@@ -284,10 +332,8 @@ script = ExtResource("13_ysa2l")
 [node name="Sprite2D4" type="Sprite2D" parent="CharacterBody2D4"]
 physics_interpolation_mode = 1
 material = SubResource("CanvasItemMaterial_by6cd")
-position = Vector2(-3, 2)
 texture = ExtResource("3_jcc0i")
-hframes = 3
-vframes = 4
+hframes = 21
 script = ExtResource("2_0odp4")
 
 [node name="AnimationPlayer4" type="AnimationPlayer" parent="CharacterBody2D4"]
@@ -332,10 +378,8 @@ script = ExtResource("4_tgr73")
 [node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D"]
 physics_interpolation_mode = 1
 material = SubResource("CanvasItemMaterial_by6cd")
-position = Vector2(-3, 2)
 texture = ExtResource("3_jcc0i")
-hframes = 3
-vframes = 4
+hframes = 21
 script = ExtResource("2_0odp4")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="CharacterBody2D"]
