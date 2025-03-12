@@ -13,24 +13,24 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if animation_player.current_animation != "death":
+		if not is_on_floor():
+			velocity += get_gravity() * delta
 
-	# Handle jump.
+		# Handle jump.
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("left_2", "right_2")
-	
-	if (direction > 0 and velocity.x > direction*SPEED) or (direction < 0 and velocity.x < direction*SPEED):
-		move_toward(velocity.x, direction*SPEED, ((SPEED) if is_on_floor() else (SPEED/5)))
-	else:
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var direction := Input.get_axis("left_2", "right_2")
+		
+		if (direction > 0 and velocity.x > direction*SPEED) or (direction < 0 and velocity.x < direction*SPEED):
+			move_toward(velocity.x, direction*SPEED, ((SPEED) if is_on_floor() else (SPEED/5)))
+		else:
 			
 			if is_on_floor():
 				velocity.x += direction * SPEED/8
 			else:
 				velocity.x += direction * SPEED/16
-	if animation_player.current_animation != "death":
 		if velocity.y < -210:
 			animation_player.play("upward")
 		elif velocity.y >= -210 and velocity.y < 0 and animation_player.current_animation != "stop_upward":
@@ -58,11 +58,11 @@ func _physics_process(delta: float) -> void:
 		elif velocity.y == 0 and (animation_player.current_animation == "start_downward" or animation_player.current_animation == "downward"):
 			animation_player.play("idle")
 		
-	if not direction:
-		velocity.x = move_toward(velocity.x, 0, ((SPEED/10) if is_on_floor() else (SPEED/200)))
-	sprite2d.flip_h = true if direction < 0 and animation_player.current_animation == "start_running" else (false if direction > 0 and animation_player.current_animation == "start_running" else sprite2d.flip_h)
+		if not direction:
+			velocity.x = move_toward(velocity.x, 0, ((SPEED/10) if is_on_floor() else (SPEED/200)))
+		sprite2d.flip_h = true if direction < 0 and animation_player.current_animation == "start_running" else (false if direction > 0 and animation_player.current_animation == "start_running" else sprite2d.flip_h)
 
-	move_and_slide()
+		move_and_slide()
 
 
 func _on_area_2d_showslime() -> void:

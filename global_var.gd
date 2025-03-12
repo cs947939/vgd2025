@@ -37,7 +37,10 @@ func _process(delta: float) -> void:
 			current_level += 1
 			save_level()  
 			if level > max_level:
+				level = 7
+				save_level()
 				get_tree().change_scene_to_file("res://end.tscn")
+				
 			else:
 				print("loading level" + str(current_level))
 				get_tree().change_scene_to_file("res://level_" + str(current_level) + ".tscn")
