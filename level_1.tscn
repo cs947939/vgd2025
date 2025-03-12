@@ -54,13 +54,42 @@ position = Vector2(120, 256)
 position = Vector2(303, 235)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 37.0
-offset_top = 165.0
-offset_right = 95.0
-offset_bottom = 181.0
-theme_override_colors/font_color = Color(0.929788, 0.292919, 0.292399, 1)
+modulate = Color(1, 1, 1, 0.784314)
+offset_left = 93.0
+offset_top = 34.0
+offset_right = 151.0
+offset_bottom = 50.0
 theme_override_font_sizes/font_size = 10
-text = "WASD TO MOVE"
+text = "PLAYER 1"
+
+[node name="Label6" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+offset_left = 155.0
+offset_top = 34.0
+offset_right = 213.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 10
+text = "PLAYER 2"
+
+[node name="Label7" type="Label" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.784314)
+offset_left = 220.0
+offset_top = 34.0
+offset_right = 278.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 10
+text = "PLAYER 3"
+
+[node name="Label8" type="Label" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.784314)
+offset_left = 285.0
+offset_top = 34.0
+offset_right = 343.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 10
+text = "PLAYER 4"
 
 [node name="Label5" type="Label" parent="."]
 offset_left = 44.0
@@ -69,32 +98,5 @@ offset_right = 131.0
 offset_bottom = 69.0
 theme_override_font_sizes/font_size = 40
 text = "1"
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 37.0
-offset_top = 176.0
-offset_right = 95.0
-offset_bottom = 192.0
-theme_override_colors/font_color = Color(0.377069, 0.535864, 0.890813, 1)
-theme_override_font_sizes/font_size = 10
-text = "GVBN TO MOVE"
-
-[node name="Label3" type="Label" parent="."]
-offset_left = 37.0
-offset_top = 187.0
-offset_right = 95.0
-offset_bottom = 203.0
-theme_override_colors/font_color = Color(0.864595, 0.886535, 0, 1)
-theme_override_font_sizes/font_size = 10
-text = "OKL; TO MOVE"
-
-[node name="Label4" type="Label" parent="."]
-offset_left = 37.0
-offset_top = 198.0
-offset_right = 124.0
-offset_bottom = 214.0
-theme_override_colors/font_color = Color(0, 0.783204, 0.168981, 1)
-theme_override_font_sizes/font_size = 10
-text = "ARROW KEYS TO MOVE"
 
 [editable path="LevelMap"]

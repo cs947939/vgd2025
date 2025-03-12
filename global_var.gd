@@ -5,7 +5,7 @@ var max_level = 6
 var exit_unconnected = true
 var exit = null
 var input_allowed = true
-var players = 2
+var players = 4
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready():

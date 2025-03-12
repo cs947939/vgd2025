@@ -8,6 +8,11 @@ func _ready() -> void:
 	var instance = mynode.instantiate()
 	instance.position = spawns[GlobalVar.current_level - 1]
 	add_child(instance)
+	if GlobalVar.current_level == 1:
+		if GlobalVar.players >= 3:
+			$Label7.visible = true
+			if GlobalVar.players >= 4:
+				$Label8.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
