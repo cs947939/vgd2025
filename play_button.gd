@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_button_up() -> void:
-	$"../SceneTransition".change_scene("res://level_" + str(GlobalVar.current_level) + ".tscn")
+	$"../SceneTransition".change_scene("res://level_1.tscn")
