@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://wwcd03hjmdcg" path="res://9dc0ba3bc559e0c-2.png-1.png.png" id="12_yj87r"]
 [ext_resource type="Texture2D" uid="uid://c7340vs3i1fuu" path="res://9dc0ba3bc559e0c-1.png-1.png.png" id="13_s0d4m"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hxltl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rkmoi"]
 texture = ExtResource("1_fk3s3")
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -85,7 +85,7 @@ terrain_set_0/terrain_3/name = "Layer4"
 terrain_set_0/terrain_3/color = Color(0.375, 0.5, 0.25, 1)
 terrain_set_0/terrain_4/name = "Layer5"
 terrain_set_0/terrain_4/color = Color(0.28125, 0.5, 0.25, 1)
-sources/1 = SubResource("TileSetAtlasSource_hxltl")
+sources/1 = SubResource("TileSetAtlasSource_rkmoi")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r2vwo"]
 texture = ExtResource("3_fjcii")

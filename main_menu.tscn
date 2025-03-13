@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=4 uid="uid://cdfj6aq5apj55"]
+[gd_scene load_steps=25 format=4 uid="uid://cdfj6aq5apj55"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_uao1w"]
 [ext_resource type="Script" path="res://levels_button.gd" id="2_47q5c"]
 [ext_resource type="Script" path="res://play_button.gd" id="2_087fk"]
 [ext_resource type="Texture2D" uid="uid://dxhmj4bhybl75" path="res://New Piskel-1.png.png" id="2_xk2dl"]
 [ext_resource type="Texture2D" uid="uid://nhl642dom57l" path="res://photo2pixel_download-1.png.png" id="4_lvmr5"]
+[ext_resource type="Texture2D" uid="uid://dk87bpg8seme6" path="res://New Piskel-1.png (1).png" id="6_4btgr"]
 [ext_resource type="Texture2D" uid="uid://byfwciavf8uvt" path="res://63800cde4148860-1.png (1).png" id="6_i6vvf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1d4b"]
@@ -194,7 +195,15 @@ position = Vector2(216, 50)
 scale = Vector2(2, 2)
 texture = ExtResource("4_lvmr5")
 
-[node name="Button2" type="Button" parent="."]
+[node name="PlayerSelect" type="Node2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="PlayerSelect"]
+modulate = Color(1, 1, 1, 0.75)
+position = Vector2(67, 150)
+scale = Vector2(3, 3)
+texture = ExtResource("6_4btgr")
+
+[node name="Button2" type="Button" parent="PlayerSelect"]
 offset_left = 67.0
 offset_top = 150.0
 offset_right = 83.0
@@ -207,9 +216,13 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_gubdg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_lxlpv")
 theme_override_styles/normal = SubResource("StyleBoxTexture_busbp")
 
-[node name="Sprite2D" type="Sprite2D" parent="Button2"]
+[node name="Sprite2D3" type="Sprite2D" parent="PlayerSelect"]
+modulate = Color(1, 1, 1, 0.75)
+position = Vector2(192, 150)
+scale = Vector2(3, 3)
+texture = ExtResource("6_4btgr")
 
-[node name="Button3" type="Button" parent="."]
+[node name="Button3" type="Button" parent="PlayerSelect"]
 offset_left = 192.0
 offset_top = 150.0
 offset_right = 208.0
@@ -222,7 +235,13 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_af8mj")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dt01f")
 theme_override_styles/normal = SubResource("StyleBoxTexture_vddf8")
 
-[node name="Button4" type="Button" parent="."]
+[node name="Sprite2D4" type="Sprite2D" parent="PlayerSelect"]
+modulate = Color(1, 1, 1, 0.75)
+position = Vector2(317, 150)
+scale = Vector2(3, 3)
+texture = ExtResource("6_4btgr")
+
+[node name="Button4" type="Button" parent="PlayerSelect"]
 offset_left = 317.0
 offset_top = 150.0
 offset_right = 333.0
@@ -237,6 +256,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_8fnoe")
 
 [connection signal="button_up" from="Levels_Button" to="Levels_Button" method="_on_button_up"]
 [connection signal="button_up" from="Play_Button" to="Play_Button" method="_on_button_up"]
-[connection signal="button_up" from="Button2" to="Button2" method="_on_button_up"]
-[connection signal="button_up" from="Button3" to="Button3" method="_on_button_up"]
-[connection signal="button_up" from="Button4" to="Button4" method="_on_button_up"]
+[connection signal="pressed" from="PlayerSelect/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="PlayerSelect/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="PlayerSelect/Button4" to="." method="_on_button_4_pressed"]
