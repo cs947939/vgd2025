@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cdfj6aq5apj55"]
+[gd_scene load_steps=39 format=4 uid="uid://cdfj6aq5apj55"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_uao1w"]
 [ext_resource type="Script" path="res://levels_button.gd" id="2_47q5c"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c5aws4s566577" path="res://63800cde4148860-2.png (1)-1.png.png" id="6_v8rd8"]
 [ext_resource type="Texture2D" uid="uid://b4mmaem2ysqpd" path="res://63800cde4148860-2.png (1).png" id="7_x3e67"]
 [ext_resource type="PackedScene" uid="uid://solbk7kvpyny" path="res://scene_transition.tscn" id="8_tqpyi"]
+[ext_resource type="PackedScene" uid="uid://bjhlbg3mc2032" path="res://sfx.tscn" id="13_8qn7n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1d4b"]
 texture = ExtResource("2_xk2dl")
@@ -314,6 +315,9 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_8fnoe")
 
 [node name="SceneTransition" parent="." instance=ExtResource("8_tqpyi")]
 
+[node name="sfx" parent="." instance=ExtResource("13_8qn7n")]
+
+[connection signal="mouse_entered" from="Levels_Button" to="Levels_Button" method="_on_mouse_entered"]
 [connection signal="pressed" from="Levels_Button" to="Levels_Button" method="_on_button_up"]
 [connection signal="pressed" from="Play_Button" to="Play_Button" method="_on_button_up"]
 [connection signal="pressed" from="PlayerSelect/Button2" to="." method="_on_button_2_pressed"]

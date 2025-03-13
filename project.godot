@@ -21,6 +21,7 @@ config/icon="res://photo2pixel_download-1.png-1.png (1).svg"
 [autoload]
 
 GlobalVar="*res://global_var.gd"
+music="*res://music.tscn"
 
 [display]
 
