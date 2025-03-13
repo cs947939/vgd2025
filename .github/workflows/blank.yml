@@ -44,10 +44,7 @@ jobs:
         with:
           name: web  # The name for the artifact
           path: build/web  # The directory to upload as the artifact
-      - name: Itchio Deployment
-        run: |
-          zip -r build/index.zip build/web
-          butler push build/index.zip $ITCHIO_USERNAME/$ITCHIO_GAME:windows
+
       - name: SCP to debug Server
         uses: appleboy/scp-action@v0.1.7
         with: 
@@ -57,5 +54,8 @@ jobs:
           key: ${{ secrets.KEY }}
           source: "build/web/index.html, build/web/index.wasm, build/web/index.pck, build/web/index.js,build/web/index.icon.png, build/web/index.audio.worklet.js, build/web/index.apple-touch-icon.png"
           target: "/var/www/html/"
-
+     # - name: Itchio Deployment
+    #    run: |
+        #  zip -r build/index.zip build/web
+      #    butler push build/index.zip $ITCHIO_USERNAME/$ITCHIO_GAME:web
         
