@@ -180,18 +180,16 @@ tile_map_data = PackedByteArray("AAAaABYAAQABAAAAAAAaABUAAQAAAAAAAAAaABQAAQACAAE
 tile_set = SubResource("TileSet_k65m2")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(1, 1, 1, 0.75)
-position = Vector2(210, 166.5)
+position = Vector2(210, 155.5)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_ulnd6")
 
 [node name="Levels_Button" type="Button" parent="."]
-visible = false
 offset_left = 210.0
-offset_top = 166.5
+offset_top = 155.5
 offset_right = 257.0
-offset_bottom = 184.5
+offset_bottom = 173.5
 scale = Vector2(2.5, 2.5)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q4r8u")
@@ -203,18 +201,16 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_i3qdg")
 script = ExtResource("2_47q5c")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(1, 1, 1, 0.75)
-position = Vector2(103, 166.5)
+position = Vector2(103, 155.5)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("6_v8rd8")
 
 [node name="Play_Button" type="Button" parent="."]
-visible = false
 offset_left = 103.0
-offset_top = 166.5
+offset_top = 155.5
 offset_right = 136.0
-offset_bottom = 184.5
+offset_bottom = 173.5
 scale = Vector2(2.5, 2.5)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2h44f")

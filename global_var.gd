@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 			if level > max_level:
 				level = 7
 				save_level()
-				get_node("/root/level_" + str(current_level-1) + "/LevelMap/SceneTransition").change_scene("res://end.tscn")
+				get_node("/root/level_" + str(current_level-1) + "/LevelMap/SceneTransition").change_scene("res://main_menu.tscn")
 				
 			else:
 				
