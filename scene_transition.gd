@@ -9,14 +9,14 @@ func change_scene(scene):
 
 func _process(delta: float) -> void:
 	if entering_scene:
-		$ColorRect.x += 100*delta
-		if $ColorRect.x > 432:
-			$ColorRect.x == -432
+		$ColorRect.position.x += 1200*delta
+		if $ColorRect.position.x > 432:
 			entering_scene = false
+			$ColorRect.position.x = -432
 	elif leaving_scene:
-		$ColorRect.x += 100*delta
-		if $ColorRect.x > 0:
-			$ColorRect.x == 0
+		$ColorRect.position.x += 1200*delta
+		if $ColorRect.position.x > 0:
+			$ColorRect.position.x == 0
 			leaving_scene = false
 			get_tree().change_scene_to_file(load_scene)
 			

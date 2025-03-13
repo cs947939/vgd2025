@@ -73,3 +73,4 @@ text = "TOUCH EACH OTHER TO MERGE
 AND BECOME BIGGER"
 
 [editable path="LevelMap"]
+[editable path="LevelMap/SceneTransition"]

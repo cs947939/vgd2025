@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://de8owmo8n3p77"]
+[gd_scene load_steps=3 format=3 uid="uid://de8owmo8n3p77"]
+
+[ext_resource type="Script" path="res://end.gd" id="1_spjhg"]
+[ext_resource type="PackedScene" uid="uid://solbk7kvpyny" path="res://scene_transition.tscn" id="2_gfbf4"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_spjhg")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 16.0
@@ -12,3 +16,7 @@ theme_override_font_sizes/font_size = 50
 text = "CONGRATULATIONS
 YOU WIN"
 horizontal_alignment = 1
+
+[node name="SceneTransition" parent="." instance=ExtResource("2_gfbf4")]
+
+[editable path="SceneTransition"]

@@ -41,13 +41,13 @@ func _process(delta: float) -> void:
 			if level > max_level:
 				level = 7
 				save_level()
-				get_tree().change_scene_to_file("res://end.tscn")
+				get_node("/root/level_" + str(current_level-1) + "/LevelMap/SceneTransition").change_scene("res://end.tscn")
 				
 			else:
-				print("loading level" + str(current_level))
-				get_tree().change_scene_to_file("res://level_" + str(current_level) + ".tscn")
+				
+				get_node("/root/level_" + str(current_level -1) + "/LevelMap/SceneTransition").change_scene("res://level_" + str(current_level) + ".tscn")
 		else:
-			print("loading level" + str(current_level))
+			
 			current_level += 1
-			get_tree().change_scene_to_file("res://level_" + str(current_level) + ".tscn")
+			get_node("/root/level_" + str(current_level-1) + "/LevelMap/SceneTransition").change_scene("res://level_" + str(current_level) + ".tscn")
 		input_allowed = true

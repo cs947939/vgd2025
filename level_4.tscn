@@ -85,3 +85,4 @@ text = "4"
 [connection signal="body_shape_entered" from="LevelMap/ButtonDoor1/Sprite2D/Area2D" to="LevelMap/ButtonDoor1" method="_on_area_2d_body_shape_entered"]
 
 [editable path="LevelMap"]
+[editable path="LevelMap/SceneTransition"]

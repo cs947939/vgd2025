@@ -1,10 +1,11 @@
-[gd_scene load_steps=38 format=4 uid="uid://cb3yb4plq43bt"]
+[gd_scene load_steps=39 format=4 uid="uid://cb3yb4plq43bt"]
 
 [ext_resource type="Script" path="res://level_select.gd" id="1_yce8m"]
 [ext_resource type="Texture2D" uid="uid://dk87bpg8seme6" path="res://New Piskel-1.png (1).png" id="2_0px8g"]
 [ext_resource type="Script" path="res://button.gd" id="2_pmymv"]
 [ext_resource type="Texture2D" uid="uid://dxhmj4bhybl75" path="res://New Piskel-1.png.png" id="2_rjueo"]
 [ext_resource type="Texture2D" uid="uid://byfwciavf8uvt" path="res://63800cde4148860-1.png (1).png" id="2_y4xky"]
+[ext_resource type="PackedScene" uid="uid://solbk7kvpyny" path="res://scene_transition.tscn" id="6_1yp5d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1a6h"]
 texture = ExtResource("2_rjueo")
@@ -203,7 +204,7 @@ tile_set = SubResource("TileSet_jokah")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.75)
-position = Vector2(67, 150)
+position = Vector2(67, 40)
 scale = Vector2(3, 3)
 texture = ExtResource("2_0px8g")
 
@@ -228,6 +229,12 @@ disabled = true
 icon_alignment = 1
 script = ExtResource("2_pmymv")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.75)
+position = Vector2(192, 40)
+scale = Vector2(3, 3)
+texture = ExtResource("2_0px8g")
+
 [node name="Button2" type="Button" parent="."]
 offset_left = 192.0
 offset_top = 40.0
@@ -242,6 +249,12 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_bnxn7")
 theme_override_styles/normal = SubResource("StyleBoxTexture_e5b0x")
 disabled = true
 script = ExtResource("2_pmymv")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.75)
+position = Vector2(317, 40)
+scale = Vector2(3, 3)
+texture = ExtResource("2_0px8g")
 
 [node name="Button3" type="Button" parent="."]
 offset_left = 317.0
@@ -258,6 +271,12 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_x25rd")
 disabled = true
 script = ExtResource("2_pmymv")
 
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.75)
+position = Vector2(67, 120)
+scale = Vector2(3, 3)
+texture = ExtResource("2_0px8g")
+
 [node name="Button4" type="Button" parent="."]
 offset_left = 67.0
 offset_top = 120.0
@@ -272,6 +291,12 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_d3sth")
 theme_override_styles/normal = SubResource("StyleBoxTexture_xmses")
 disabled = true
 script = ExtResource("2_pmymv")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.75)
+position = Vector2(192, 120)
+scale = Vector2(3, 3)
+texture = ExtResource("2_0px8g")
 
 [node name="Button5" type="Button" parent="."]
 offset_left = 192.0
@@ -288,6 +313,12 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_qk4bv")
 disabled = true
 script = ExtResource("2_pmymv")
 
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.75)
+position = Vector2(317, 120)
+scale = Vector2(3, 3)
+texture = ExtResource("2_0px8g")
+
 [node name="Button6" type="Button" parent="."]
 offset_left = 317.0
 offset_top = 120.0
@@ -303,39 +334,13 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_6mqne")
 disabled = true
 script = ExtResource("2_pmymv")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.75)
-position = Vector2(67, 150)
-scale = Vector2(3, 3)
-texture = ExtResource("2_0px8g")
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.75)
-position = Vector2(67, 150)
-scale = Vector2(3, 3)
-texture = ExtResource("2_0px8g")
-
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.75)
-position = Vector2(67, 150)
-scale = Vector2(3, 3)
-texture = ExtResource("2_0px8g")
-
-[node name="Sprite2D5" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.75)
-position = Vector2(67, 150)
-scale = Vector2(3, 3)
-texture = ExtResource("2_0px8g")
-
-[node name="Sprite2D6" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.75)
-position = Vector2(67, 150)
-scale = Vector2(3, 3)
-texture = ExtResource("2_0px8g")
+[node name="SceneTransition" parent="." instance=ExtResource("6_1yp5d")]
 
 [connection signal="pressed" from="Button" to="Button" method="_on_button_up"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_button_up"]
 [connection signal="pressed" from="Button3" to="Button3" method="_on_button_up"]
-[connection signal="button_up" from="Button4" to="Button4" method="_on_button_up"]
-[connection signal="button_up" from="Button5" to="Button5" method="_on_button_up"]
-[connection signal="button_up" from="Button6" to="Button6" method="_on_button_up"]
+[connection signal="pressed" from="Button4" to="Button4" method="_on_button_up"]
+[connection signal="pressed" from="Button5" to="Button5" method="_on_button_up"]
+[connection signal="pressed" from="Button6" to="Button6" method="_on_button_up"]
+
+[editable path="SceneTransition"]

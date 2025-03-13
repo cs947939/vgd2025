@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://dlmrtdyvtir43"]
+[gd_scene load_steps=7 format=4 uid="uid://dlmrtdyvtir43"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_boexd"]
 [ext_resource type="PackedScene" uid="uid://dagkfdenp1qf6" path="res://level_map.tscn" id="2_60uu1"]
 [ext_resource type="Texture2D" uid="uid://celko4ho8b3wf" path="res://973eaedf89f6405 (3)-1.png-1.png-1.png-3.png-3.png.png" id="3_nxxb0"]
 [ext_resource type="Texture2D" uid="uid://s5vth2cen36k" path="res://973eaedf89f6405 (3)-1.png-1.png-1.png-3.png-2.png.png" id="4_h66s1"]
+[ext_resource type="Texture2D" uid="uid://cx6or8djj2v7r" path="res://973eaedf89f6405 (3)-1.png-1.png-1.png-3.png-4.png.png" id="5_q5a2a"]
+[ext_resource type="Texture2D" uid="uid://b0yckhq7kyr5g" path="res://973eaedf89f6405 (3)-1.png-1.png-1.png-3.png-1.png.png" id="6_ikse7"]
 
 [node name="level_1" type="Node2D"]
 script = ExtResource("1_boexd")
@@ -54,7 +56,7 @@ visible = false
 position = Vector2(120, 256)
 
 [node name="Exit" parent="LevelMap" index="8"]
-position = Vector2(303, 235)
+position = Vector2(303, 253)
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.784314)
@@ -84,6 +86,20 @@ horizontal_alignment = 1
 position = Vector2(52, 60)
 texture = ExtResource("4_h66s1")
 
+[node name="Label3" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+offset_left = 155.0
+offset_top = 88.0
+offset_right = 215.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 8
+text = "AND"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Label3"]
+position = Vector2(52, 60)
+texture = ExtResource("5_q5a2a")
+
 [node name="Label6" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.784314)
 offset_left = 155.0
@@ -94,27 +110,39 @@ theme_override_font_sizes/font_size = 10
 text = "PLAYER 2"
 horizontal_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="Label6"]
+position = Vector2(52, 60)
+texture = ExtResource("6_ikse7")
+
 [node name="Label7" type="Label" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.784314)
-offset_left = 220.0
+offset_left = 217.0
 offset_top = 34.0
-offset_right = 280.0
+offset_right = 277.0
 offset_bottom = 50.0
 theme_override_font_sizes/font_size = 10
 text = "PLAYER 3"
 horizontal_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="Label7"]
+position = Vector2(52, 60)
+texture = ExtResource("5_q5a2a")
+
 [node name="Label8" type="Label" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.784314)
-offset_left = 285.0
+offset_left = 279.0
 offset_top = 34.0
-offset_right = 345.0
+offset_right = 339.0
 offset_bottom = 50.0
 theme_override_font_sizes/font_size = 10
 text = "PLAYER 4"
 horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Label8"]
+position = Vector2(52, 60)
+texture = ExtResource("5_q5a2a")
 
 [node name="Label5" type="Label" parent="."]
 offset_left = 44.0
@@ -125,3 +153,4 @@ theme_override_font_sizes/font_size = 40
 text = "1"
 
 [editable path="LevelMap"]
+[editable path="LevelMap/SceneTransition"]

@@ -22,4 +22,4 @@ func _process(delta: float) -> void:
 
 func _on_button_up() -> void:
 	GlobalVar.current_level = names.find(self.name) + 1
-	get_tree().change_scene_to_file("res://level_" + str(names.find(self.name) + 1) + ".tscn")
+	$"../SceneTransition".change_scene("res://level_" + str(names.find(self.name) + 1) + ".tscn")
