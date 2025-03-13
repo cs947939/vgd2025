@@ -32,85 +32,88 @@ func _physics_process(delta: float) -> void:
 	var p4press = "NA"
 	var directions = ['up', 'down', 'left', 'right']
 	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if not animation_player.current_animation == "death":
+		if not is_on_floor():
+			velocity += get_gravity() * delta
 
-	# Handle jump.
+		# Handle jump.
 
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("left_2", "right_2")
-	var direction2 := Input.get_axis("left_1", "right_1")
-	var direction3 := Input.get_axis("left_3", "right_3")
-	var direction4 := Input.get_axis("left_4", "right_4")
-	if Input.is_action_pressed("up_1"):
-		p1press = (directions[0])
-	if Input.is_action_pressed("up_2"):
-		p2press = (directions[0])
-	if Input.is_action_pressed("up_3"):
-		p3press = (directions[0])
-	if Input.is_action_pressed("up_4"):
-		p4press = (directions[0])
-	if Input.is_action_pressed("down_1"):
-		p1press  = (directions[1])
-	if Input.is_action_pressed("down_2"):
-		p2press  = (directions[1])
-	if Input.is_action_pressed("down_3"):
-		p3press  = (directions[1])
-	if Input.is_action_pressed("down_4"):
-		p4press = (directions[1])
-	if Input.is_action_pressed("left_1"):
-		p1press = (directions[2])
-	if Input.is_action_pressed("left_2"):
-		p2press = (directions[2])
-	if Input.is_action_pressed("left_3"):
-		p3press = (directions[2])
-	if Input.is_action_pressed("left_4"):
-		p4press = (directions[2])
-	if Input.is_action_pressed("right_1"):
-		p1press = (directions[3])
-	if Input.is_action_pressed("right_2"):
-		p2press = (directions[3])	
-	if Input.is_action_pressed("right_3"):
-		p3press = (directions[3])
-	if Input.is_action_pressed("right_4"):
-		p4press = (directions[3])	
-	if p1press != p2press && p2press != p3press && p3press != p4press:
-		if p1press != p3press && p1press != p4press && p4press != "NA" && p3press != "NA" && p2press != "NA" && p1press != "NA":
-			split(p1press, p2press, p3press, p4press)
-	var final_direction = 0
-	if direction:
-		final_direction += direction
-	if direction2:
-		final_direction += direction2
-	if direction3:
-		final_direction += direction3
-	if direction4:
-		final_direction += direction4
-	if final_direction == 0:
-		velocity.x = move_toward(velocity.x, 0, ((SPEED/10) if is_on_floor() else (SPEED/200)))
-	else:
-		if is_on_floor():
-			velocity.x += final_direction*SPEED/32
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var direction := Input.get_axis("left_2", "right_2")
+		var direction2 := Input.get_axis("left_1", "right_1")
+		var direction3 := Input.get_axis("left_3", "right_3")
+		var direction4 := Input.get_axis("left_4", "right_4")
+		if Input.is_action_pressed("up_1"):
+			p1press = (directions[0])
+		if Input.is_action_pressed("up_2"):
+			p2press = (directions[0])
+		if Input.is_action_pressed("up_3"):
+			p3press = (directions[0])
+		if Input.is_action_pressed("up_4"):
+			p4press = (directions[0])
+		if Input.is_action_pressed("down_1"):
+			p1press  = (directions[1])
+		if Input.is_action_pressed("down_2"):
+			p2press  = (directions[1])
+		if Input.is_action_pressed("down_3"):
+			p3press  = (directions[1])
+		if Input.is_action_pressed("down_4"):
+			p4press = (directions[1])
+		if Input.is_action_pressed("left_1"):
+			p1press = (directions[2])
+		if Input.is_action_pressed("left_2"):
+			p2press = (directions[2])
+		if Input.is_action_pressed("left_3"):
+			p3press = (directions[2])
+		if Input.is_action_pressed("left_4"):
+			p4press = (directions[2])
+		if Input.is_action_pressed("right_1"):
+			p1press = (directions[3])
+		if Input.is_action_pressed("right_2"):
+			p2press = (directions[3])	
+		if Input.is_action_pressed("right_3"):
+			p3press = (directions[3])
+		if Input.is_action_pressed("right_4"):
+			p4press = (directions[3])	
+		if p1press != p2press && p2press != p3press && p3press != p4press:
+			if p1press != p3press && p1press != p4press && p4press != "NA" && p3press != "NA" && p2press != "NA" && p1press != "NA":
+				split(p1press, p2press, p3press, p4press)
+		var final_direction = 0
+		if direction:
+			final_direction += direction
+		if direction2:
+			final_direction += direction2
+		if direction3:
+			final_direction += direction3
+		if direction4:
+			final_direction += direction4
+		if final_direction == 0:
+			velocity.x = move_toward(velocity.x, 0, ((SPEED/10) if is_on_floor() else (SPEED/200)))
 		else:
-			velocity.x += final_direction*SPEED/64
-		if velocity.x > 0 and velocity.x > final_direction*SPEED/4:
-			velocity.x = final_direction*SPEED/4
-		elif velocity.x < 0 and velocity.x <final_direction*SPEED/4:
-			velocity.x = final_direction*SPEED/4
-			
-	if final_direction and is_on_floor():
-		if animation_player.current_animation == "idle":
-			animation_player.play("start_running")
-	if not ((final_direction/abs(final_direction) if final_direction else 0) == velocity.x/abs(velocity.x) or animation_player.current_animation == "idle" or animation_player.current_animation == "stop_running" or not is_on_floor()):
-		animation_player.play("stop_running")
-	
-	if not final_direction:
-		velocity.x = move_toward(velocity.x, 0, ((SPEED/10) if is_on_floor() else (SPEED/200)))
-	sprite2d.flip_h = true if final_direction < 0 and animation_player.current_animation == "start_running" else (false if final_direction > 0 and animation_player.current_animation == "start_running" else sprite2d.flip_h)
+			if is_on_floor():
+				velocity.x += final_direction*SPEED/32
+			else:
+				velocity.x += final_direction*SPEED/64
+			if velocity.x > 0 and velocity.x > final_direction*SPEED/4:
+				velocity.x = final_direction*SPEED/4
+			elif velocity.x < 0 and velocity.x <final_direction*SPEED/4:
+				velocity.x = final_direction*SPEED/4
+				
+		if final_direction and is_on_floor():
+			if animation_player.current_animation == "idle":
+				animation_player.play("start_running")
+		if not ((final_direction/abs(final_direction) if final_direction else 0) == velocity.x/abs(velocity.x) or animation_player.current_animation == "idle" or animation_player.current_animation == "stop_running" or not is_on_floor()):
+			animation_player.play("stop_running")
+		
+		if not final_direction:
+			velocity.x = move_toward(velocity.x, 0, ((SPEED/10) if is_on_floor() else (SPEED/200)))
+		sprite2d.flip_h = true if final_direction < 0 and animation_player.current_animation == "start_running" else (false if final_direction > 0 and animation_player.current_animation == "start_running" else sprite2d.flip_h)
 
-	move_and_slide()
+		move_and_slide()
+	else:
+		p1press = ""
 func _on_area_2d_showslime() -> void:
 	mergecheck.emit()
 	if allowmerge == true:
@@ -156,3 +159,7 @@ func _on_merging_engine_sprite_comm(msg: int, id: int) -> void:
 
 func _on_spring_area_5_body_entered(node: Node2D) -> void:
 	velocity.y = -200
+
+
+func _on_damage_area_body_entered(body: Node2D) -> void:
+	animation_player.play("death")

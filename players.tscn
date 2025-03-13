@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=51 format=3 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
 [ext_resource type="Script" path="res://new_script.gd" id="2_0odp4"]
@@ -24,37 +24,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame_coords")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_yhe6j"]
-resource_name = "death"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [15, 16, 17, 18, 19]
+"values": [15, 16, 17, 18]
 }
 
 [sub_resource type="Animation" id="Animation_hxkon"]
@@ -188,11 +161,42 @@ tracks/0/keys = {
 "values": [Vector2i(13, 0), Vector2i(14, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_yhe6j"]
+resource_name = "idk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bkjm1"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [15, 16, 17, 18]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4c86s"]
 _data = {
 "RESET": SubResource("Animation_frcoi"),
-"death": SubResource("Animation_yhe6j"),
+"death": SubResource("Animation_bkjm1"),
 "downward": SubResource("Animation_hxkon"),
+"idk": SubResource("Animation_yhe6j"),
 "idle": SubResource("Animation_snefw"),
 "running-loop": SubResource("Animation_q1n6k"),
 "start_downward": SubResource("Animation_qgsfa"),
@@ -309,6 +313,7 @@ physics_interpolation_mode = 1
 material = SubResource("CanvasItemMaterial_by6cd")
 texture = ExtResource("3_jcc0i")
 hframes = 21
+frame = 15
 script = ExtResource("2_0odp4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D2"]
@@ -361,6 +366,7 @@ physics_interpolation_mode = 1
 material = SubResource("CanvasItemMaterial_by6cd")
 texture = ExtResource("3_jcc0i")
 hframes = 21
+frame = 15
 script = ExtResource("2_0odp4")
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="CharacterBody2D3"]
@@ -413,6 +419,7 @@ physics_interpolation_mode = 1
 material = SubResource("CanvasItemMaterial_by6cd")
 texture = ExtResource("3_jcc0i")
 hframes = 21
+frame = 15
 script = ExtResource("2_0odp4")
 
 [node name="AnimationPlayer4" type="AnimationPlayer" parent="CharacterBody2D4"]
@@ -465,6 +472,7 @@ physics_interpolation_mode = 1
 material = SubResource("CanvasItemMaterial_by6cd")
 texture = ExtResource("3_jcc0i")
 hframes = 21
+frame = 15
 script = ExtResource("2_0odp4")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="CharacterBody2D"]
@@ -527,6 +535,7 @@ shape = SubResource("RectangleShape2D_wy72w")
 modulate = Color(0.746242, 0.322526, 1, 1)
 texture = ExtResource("10_o44jy")
 hframes = 5
+frame = 1
 
 [node name="SlimeInputDelay" type="Timer" parent="BigSlime"]
 wait_time = 3.0
@@ -542,7 +551,6 @@ collision_mask = 8192
 shape = SubResource("RectangleShape2D_175ee")
 
 [node name="damageArea" type="Area2D" parent="BigSlime"]
-visible = false
 collision_layer = 0
 collision_mask = 16384
 
@@ -632,6 +640,7 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="mergecheck" from="BigSlime" to="SlimeMergeDelay" method="_on_big_slime_mergecheck"]
 [connection signal="timeout" from="BigSlime/SlimeInputDelay" to="BigSlime" method="_on_slime_input_delay_timeout"]
 [connection signal="body_entered" from="BigSlime/springArea5" to="BigSlime" method="_on_spring_area_5_body_entered"]
+[connection signal="body_entered" from="BigSlime/damageArea" to="BigSlime" method="_on_damage_area_body_entered"]
 [connection signal="animation_finished" from="BigSlime/AnimationPlayer" to="BigSlime/AnimationPlayer" method="_on_animation_finished"]
 [connection signal="allowmerge" from="SlimeMergeDelay" to="CharacterBody2D2" method="_on_slime_merge_delay_allowmerge"]
 [connection signal="allowmerge" from="SlimeMergeDelay" to="BigSlime" method="_on_slime_merge_delay_allowmerge"]

@@ -109,5 +109,5 @@ func _on_spring_area_4_body_entered(body: Node2D) -> void:
 
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
+	$Sprite2D.frame = 0
 	animation_player.play("death")
-	$"2".process_mode = Node.PROCESS_MODE_DISABLED

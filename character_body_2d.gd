@@ -128,7 +128,6 @@ func _on_area_2d_on_enter() -> void:
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
 	animation_player.play("death")
-	$"1".process_mode = Node.PROCESS_MODE_DISABLED
 
 
 
