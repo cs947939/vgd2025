@@ -1,6 +1,5 @@
 [gd_scene load_steps=50 format=3 uid="uid://cq7jfqid4pjt2"]
 
-[ext_resource type="Texture2D" uid="uid://bj04vntg64lw5" path="res://icon.svg" id="1_0lk6c"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
 [ext_resource type="Script" path="res://new_script.gd" id="2_0odp4"]
 [ext_resource type="Texture2D" uid="uid://ct77hsl52qxgb" path="res://551cc3fd67aeaaf (1).png" id="3_jcc0i"]
@@ -9,6 +8,7 @@
 [ext_resource type="Script" path="res://animation_script.gd" id="5_gk6m3"]
 [ext_resource type="Script" path="res://big_slime.gd" id="7_v2y33"]
 [ext_resource type="Script" path="res://slime_input_delay.gd" id="8_jm5xw"]
+[ext_resource type="Texture2D" uid="uid://c24y72vfsx3xk" path="res://31ea9cc07ae137b-1.png.png" id="10_o44jy"]
 [ext_resource type="Script" path="res://slime_merge_delay.gd" id="10_ud7et"]
 [ext_resource type="Script" path="res://player_3_body.gd" id="11_dxnox"]
 [ext_resource type="Script" path="res://player_4_body.gd" id="13_ysa2l"]
@@ -92,7 +92,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_q1n6k"]
 resource_name = "running-loop"
-length = 0.45
+length = 0.3
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -101,10 +101,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2, 3, 4]
+"values": [3, 4]
 }
 
 [sub_resource type="Animation" id="Animation_qgsfa"]
@@ -283,13 +283,13 @@ radius = 2.0
 height = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wy72w"]
-size = Vector2(38, 38)
+size = Vector2(42, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_175ee"]
-size = Vector2(38, 38)
+size = Vector2(42, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfh7o"]
-size = Vector2(38, 38)
+size = Vector2(42, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_budch"]
 size = Vector2(432, 243)
@@ -522,8 +522,9 @@ shape = SubResource("RectangleShape2D_wy72w")
 shape = SubResource("RectangleShape2D_wy72w")
 
 [node name="Sprite2D" type="Sprite2D" parent="BigSlime"]
-scale = Vector2(0.29, 0.29)
-texture = ExtResource("1_0lk6c")
+modulate = Color(0.6, 0, 1, 1)
+texture = ExtResource("10_o44jy")
+hframes = 5
 
 [node name="SlimeInputDelay" type="Timer" parent="BigSlime"]
 wait_time = 3.0
@@ -543,6 +544,14 @@ collision_mask = 16384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BigSlime/damageArea"]
 shape = SubResource("RectangleShape2D_xfh7o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BigSlime"]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_4c86s")
+}
+autoplay = "idle"
+script = ExtResource("5_gk6m3")
 
 [node name="SlimeMergeDelay" type="Timer" parent="."]
 one_shot = true
@@ -619,6 +628,7 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="mergecheck" from="BigSlime" to="SlimeMergeDelay" method="_on_big_slime_mergecheck"]
 [connection signal="timeout" from="BigSlime/SlimeInputDelay" to="BigSlime" method="_on_slime_input_delay_timeout"]
 [connection signal="body_entered" from="BigSlime/springArea5" to="BigSlime" method="_on_spring_area_5_body_entered"]
+[connection signal="animation_finished" from="BigSlime/AnimationPlayer" to="BigSlime/AnimationPlayer" method="_on_animation_finished"]
 [connection signal="allowmerge" from="SlimeMergeDelay" to="CharacterBody2D2" method="_on_slime_merge_delay_allowmerge"]
 [connection signal="allowmerge" from="SlimeMergeDelay" to="BigSlime" method="_on_slime_merge_delay_allowmerge"]
 [connection signal="stopmerge" from="SlimeMergeDelay" to="CharacterBody2D2" method="_on_slime_merge_delay_stopmerge"]

@@ -10,6 +10,8 @@ signal hideslime(x1, x2, y1, y2, x3, y3, x4, y4)
 var sprite_id = 5 
 var allowsplit = false
 var allowmerge = true
+@onready var animation_player = $AnimationPlayer
+@onready var sprite2d = $Sprite2D
 func _ready() -> void:
 	visible=false
 	process_mode = PROCESS_MODE_DISABLED
@@ -97,6 +99,17 @@ func _physics_process(delta: float) -> void:
 			velocity.x = final_direction*SPEED/4
 		elif velocity.x < 0 and velocity.x <final_direction*SPEED/4:
 			velocity.x = final_direction*SPEED/4
+			
+	if final_direction and is_on_floor():
+		if animation_player.current_animation == "idle":
+			animation_player.play("start_running")
+	if not ((final_direction/abs(final_direction) if final_direction else 0) == velocity.x/abs(velocity.x) or animation_player.current_animation == "idle" or animation_player.current_animation == "stop_running" or not is_on_floor()):
+		animation_player.play("stop_running")
+	
+	if not final_direction:
+		velocity.x = move_toward(velocity.x, 0, ((SPEED/10) if is_on_floor() else (SPEED/200)))
+	sprite2d.flip_h = true if final_direction < 0 and animation_player.current_animation == "start_running" else (false if final_direction > 0 and animation_player.current_animation == "start_running" else sprite2d.flip_h)
+
 	move_and_slide()
 func _on_area_2d_showslime() -> void:
 	mergecheck.emit()
