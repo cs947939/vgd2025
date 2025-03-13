@@ -64,6 +64,18 @@ metadata/_edit_group_ = true
 position = Vector2(365, 289)
 metadata/_edit_group_ = true
 
+[node name="Button" parent="LevelMap" index="9"]
+offset_left = 360.0
+offset_top = 145.0
+offset_right = 378.0
+offset_bottom = 163.0
+
+[node name="Button2" parent="LevelMap" index="10"]
+offset_left = 327.0
+offset_top = 145.0
+offset_right = 345.0
+offset_bottom = 163.0
+
 [node name="Label5" type="Label" parent="."]
 offset_left = 44.0
 offset_top = 29.0
@@ -75,9 +87,9 @@ text = "3"
 [node name="Label" type="Label" parent="Label5"]
 layout_mode = 0
 offset_left = 219.0
-offset_top = 21.0
+offset_top = 39.0
 offset_right = 356.0
-offset_bottom = 48.0
+offset_bottom = 66.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 10
 text = "MOVE IN DIFFERENT DIRECTIONS 

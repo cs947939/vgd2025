@@ -58,6 +58,18 @@ position = Vector2(120, 256)
 [node name="Exit" parent="LevelMap" index="8"]
 position = Vector2(303, 253)
 
+[node name="Button" parent="LevelMap" index="9"]
+offset_left = 360.0
+offset_top = 145.0
+offset_right = 378.0
+offset_bottom = 163.0
+
+[node name="Button2" parent="LevelMap" index="10"]
+offset_left = 327.0
+offset_top = 145.0
+offset_right = 345.0
+offset_bottom = 163.0
+
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.784314)
 offset_left = 93.0

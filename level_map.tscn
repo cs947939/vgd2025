@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://dagkfdenp1qf6"]
+[gd_scene load_steps=49 format=4 uid="uid://dagkfdenp1qf6"]
 
 [ext_resource type="Texture2D" uid="uid://cupxi4beigahc" path="res://973eaedf89f6405 (1).png" id="1_3st2v"]
 [ext_resource type="Texture2D" uid="uid://dxhmj4bhybl75" path="res://New Piskel-1.png.png" id="1_fk3s3"]
@@ -11,9 +11,12 @@
 [ext_resource type="Script" path="res://button_door_2.gd" id="5_inm3s"]
 [ext_resource type="TileSet" uid="uid://chn5ywcei5rt2" path="res://new_tile_set.tres" id="5_khmxy"]
 [ext_resource type="Script" path="res://exit.gd" id="6_ejwjo"]
+[ext_resource type="Texture2D" uid="uid://dstgntsgv3rv1" path="res://63800cde4148860-4.png (1).png" id="7_m5rue"]
+[ext_resource type="Script" path="res://restart.gd" id="8_eeyqm"]
 [ext_resource type="Texture2D" uid="uid://wwcd03hjmdcg" path="res://9dc0ba3bc559e0c-2.png-1.png.png" id="12_yj87r"]
 [ext_resource type="Texture2D" uid="uid://c7340vs3i1fuu" path="res://9dc0ba3bc559e0c-1.png-1.png.png" id="13_s0d4m"]
 [ext_resource type="PackedScene" uid="uid://solbk7kvpyny" path="res://scene_transition.tscn" id="14_0clhb"]
+[ext_resource type="Script" path="res://button_2.gd" id="16_m7biu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rkmoi"]
 texture = ExtResource("1_fk3s3")
@@ -447,6 +450,24 @@ size = Vector2(16, 14)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhiax"]
 size = Vector2(46, 46)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xqwh6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wvuky"]
+texture = ExtResource("7_m5rue")
+region_rect = Rect2(36, 0, 18, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hoau7"]
+texture = ExtResource("7_m5rue")
+region_rect = Rect2(0, 0, 18, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5ifp"]
+texture = ExtResource("7_m5rue")
+region_rect = Rect2(54, 0, 18, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6xw0n"]
+texture = ExtResource("7_m5rue")
+region_rect = Rect2(18, 0, 18, 18)
+
 [node name="Level_Map" type="Node2D"]
 physics_interpolation_mode = 1
 position = Vector2(13, -114)
@@ -503,12 +524,6 @@ position = Vector2(448, 0)
 rotation = 1.5708
 tile_map_data = PackedByteArray("AAAbACAAAAABAAAAAAAbAB8AAAAAAAIAAAAbAB4AAAAAAAIAAAAaACAAAAABAAEAAAAaAB8AAAABAAEAAAAaAB4AAAABAAEAAAAeACAAAAAAAAIAAAAeACEAAAACAAEAAAAdACEAAAABAAIAAAAdACAAAAABAAAAAAAcACAAAAABAAAAAAAcACEAAAABAAIAAAAbACEAAAABAAIAAAAaACEAAAACAAAAAAA=")
 tile_set = ExtResource("5_khmxy")
-
-[node name="Button" type="Button" parent="."]
-offset_left = -13.0
-offset_top = 114.0
-offset_right = -5.0
-offset_bottom = 122.0
 
 [node name="ButtonDoor2" type="Node2D" parent="."]
 position = Vector2(-142, -199)
@@ -606,7 +621,6 @@ tile_map_data = PackedByteArray("AAAIACIAAQABAAMAAAAJACIAAQACAAIAAAAJACEAAQAAAAA
 tile_set = SubResource("TileSet_762ot")
 
 [node name="VIEWPORT_SIZE_TEMP" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(203, 235)
 shape = SubResource("RectangleShape2D_budch")
 
@@ -661,7 +675,46 @@ texture = ExtResource("12_yj87r")
 scale = Vector2(2, 2)
 texture = ExtResource("13_s0d4m")
 
+[node name="Button" type="Button" parent="."]
+offset_left = 364.0
+offset_top = 133.0
+offset_right = 382.0
+offset_bottom = 151.0
+scale = Vector2(1.5, 1.5)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xqwh6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xqwh6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xqwh6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_xqwh6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_wvuky")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xqwh6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wvuky")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_xqwh6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wvuky")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_xqwh6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hoau7")
+script = ExtResource("8_eeyqm")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 331.0
+offset_top = 133.0
+offset_right = 349.0
+offset_bottom = 151.0
+scale = Vector2(1.5, 1.5)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xqwh6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xqwh6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xqwh6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_xqwh6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_l5ifp")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xqwh6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l5ifp")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_xqwh6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l5ifp")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_xqwh6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6xw0n")
+script = ExtResource("16_m7biu")
+
 [node name="SceneTransition" parent="." instance=ExtResource("14_0clhb")]
+visible = false
 
 [connection signal="body_entered" from="ButtonDoor1/Sprite2D/Area2D" to="ButtonDoor1" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="ButtonDoor2/Sprite2D/Area2D" to="ButtonDoor2" method="_on_area_2d_body_entered"]
@@ -669,5 +722,7 @@ texture = ExtResource("13_s0d4m")
 [connection signal="animation_finished" from="Spring" to="Spring" method="_on_animation_finished"]
 [connection signal="area_entered" from="Spring/Area2D" to="Spring" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Exit" to="Exit" method="_on_area_entered"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
 
 [editable path="SceneTransition"]

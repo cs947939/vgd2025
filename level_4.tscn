@@ -74,10 +74,22 @@ metadata/_edit_group_ = true
 position = Vector2(47, 161)
 metadata/_edit_group_ = true
 
+[node name="Button" parent="LevelMap" index="9"]
+offset_left = 360.0
+offset_top = 145.0
+offset_right = 378.0
+offset_bottom = 163.0
+
+[node name="Button2" parent="LevelMap" index="10"]
+offset_left = 327.0
+offset_top = 145.0
+offset_right = 345.0
+offset_bottom = 163.0
+
 [node name="Label5" type="Label" parent="."]
-offset_left = 376.0
+offset_left = 300.0
 offset_top = 29.0
-offset_right = 463.0
+offset_right = 387.0
 offset_bottom = 69.0
 theme_override_font_sizes/font_size = 40
 text = "4"
