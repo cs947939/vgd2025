@@ -504,6 +504,12 @@ rotation = 1.5708
 tile_map_data = PackedByteArray("AAAbACAAAAABAAAAAAAbAB8AAAAAAAIAAAAbAB4AAAAAAAIAAAAaACAAAAABAAEAAAAaAB8AAAABAAEAAAAaAB4AAAABAAEAAAAeACAAAAAAAAIAAAAeACEAAAACAAEAAAAdACEAAAABAAIAAAAdACAAAAABAAAAAAAcACAAAAABAAAAAAAcACEAAAABAAIAAAAbACEAAAABAAIAAAAaACEAAAACAAAAAAA=")
 tile_set = ExtResource("5_khmxy")
 
+[node name="Button" type="Button" parent="."]
+offset_left = -13.0
+offset_top = 114.0
+offset_right = -5.0
+offset_bottom = 122.0
+
 [node name="ButtonDoor2" type="Node2D" parent="."]
 position = Vector2(-142, -199)
 script = ExtResource("5_inm3s")

@@ -18,5 +18,8 @@ func _process(delta: float) -> void:
 		if $ColorRect.position.x > 0:
 			$ColorRect.position.x == 0
 			leaving_scene = false
-			get_tree().change_scene_to_file(load_scene)
+			if load_scene != get_tree().current_scene.name:
+				get_tree().change_scene_to_file(load_scene)
+			else:
+				get_tree().reload_current_scene()
 			

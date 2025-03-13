@@ -18,4 +18,5 @@ func _on_animation_finished(anim_name: StringName) -> void:
 	elif anim_name == "stop_running":
 		play("idle")
 	elif anim_name == "death":
-		get_tree().reload_current_scene()
+		get_node("/root/level_" + str(GlobalVar.current_level) + "/LevelMap/SceneTransition").change_scene(get_tree().current_scene.name)
+		play("death")
