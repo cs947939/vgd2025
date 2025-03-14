@@ -76,6 +76,9 @@ offset_top = 145.0
 offset_right = 345.0
 offset_bottom = 163.0
 
+[node name="SceneTransition" parent="LevelMap" index="11"]
+visible = false
+
 [node name="Label5" type="Label" parent="."]
 offset_left = 44.0
 offset_top = 29.0
@@ -86,16 +89,17 @@ text = "3"
 
 [node name="Label" type="Label" parent="Label5"]
 layout_mode = 0
-offset_left = 219.0
+offset_left = 194.0
 offset_top = 39.0
-offset_right = 356.0
+offset_right = 359.0
 offset_bottom = 66.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 10
-text = "MOVE IN DIFFERENT DIRECTIONS 
-TO SPLIT AND BOOST"
+text = "MOVE IN DIFFERENT DIRECTIONS WHILE
+MERGED TO SPLIT AND BOOST"
 
 [connection signal="body_shape_entered" from="LevelMap/ButtonDoor1/Sprite2D/Area2D" to="LevelMap/ButtonDoor1" method="_on_area_2d_body_shape_entered"]
 
 [editable path="LevelMap"]
 [editable path="LevelMap/SceneTransition"]
+[editable path="LevelMap/sfx"]
