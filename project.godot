@@ -15,7 +15,7 @@ run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.129412, 0.137255, 0.137255, 1)
 boot_splash/show_image=false
-boot_splash/image="res://photo2pixel_download-1.png-1.png (1).svg"
+boot_splash/image="uid://pr3ecvn7eh3c"
 config/icon="uid://pr3ecvn7eh3c"
 
 [autoload]
