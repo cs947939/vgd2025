@@ -76,9 +76,6 @@ offset_top = 145.0
 offset_right = 345.0
 offset_bottom = 163.0
 
-[node name="SceneTransition" parent="LevelMap" index="11"]
-visible = false
-
 [node name="Label5" type="Label" parent="."]
 offset_left = 44.0
 offset_top = 29.0
