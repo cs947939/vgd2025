@@ -54,6 +54,7 @@ func _physics_process(delta: float) -> void:
 		elif velocity.y <= 210 and velocity.y > 0 and animation_player.current_animation != "start_downward":
 			animation_player.play("start_downward")
 		elif velocity.y == 0 and (animation_player.current_animation == "start_downward" or animation_player.current_animation == "downward"):
+			$"../sfx/Fall".play_sfx()
 			animation_player.play("idle")
 		
 		if not direction:
@@ -92,9 +93,11 @@ func _on_area_2d_rmdetect_1() -> void:
 
 
 func _on_spring_area_body_entered(body: Node2D) -> void:
+	$"../sfx/Boing".play_sfx()
 	velocity.y = -400
 
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
+	$"../sfx/Hurt".play_sfx()
 	animation_player.play("death")
 	$"3".process_mode = Node.PROCESS_MODE_DISABLED

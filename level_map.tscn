@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://dagkfdenp1qf6"]
+[gd_scene load_steps=50 format=4 uid="uid://dagkfdenp1qf6"]
 
 [ext_resource type="Texture2D" uid="uid://cupxi4beigahc" path="res://973eaedf89f6405 (1).png" id="1_3st2v"]
 [ext_resource type="Texture2D" uid="uid://dxhmj4bhybl75" path="res://New Piskel-1.png.png" id="1_fk3s3"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c7340vs3i1fuu" path="res://9dc0ba3bc559e0c-1.png-1.png.png" id="13_s0d4m"]
 [ext_resource type="PackedScene" uid="uid://solbk7kvpyny" path="res://scene_transition.tscn" id="14_0clhb"]
 [ext_resource type="Script" path="res://button_2.gd" id="16_m7biu"]
+[ext_resource type="PackedScene" uid="uid://bjhlbg3mc2032" path="res://sfx.tscn" id="18_1colw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rkmoi"]
 texture = ExtResource("1_fk3s3")
@@ -715,13 +716,18 @@ script = ExtResource("16_m7biu")
 
 [node name="SceneTransition" parent="." instance=ExtResource("14_0clhb")]
 
+[node name="sfx" parent="." instance=ExtResource("18_1colw")]
+
 [connection signal="body_entered" from="ButtonDoor1/Sprite2D/Area2D" to="ButtonDoor1" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="ButtonDoor2/Sprite2D/Area2D" to="ButtonDoor2" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="ButtonDoor3/Sprite2D/Area2D" to="ButtonDoor3" method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Spring" to="Spring" method="_on_animation_finished"]
 [connection signal="area_entered" from="Spring/Area2D" to="Spring" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Exit" to="Exit" method="_on_area_entered"]
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="mouse_entered" from="Button2" to="Button2" method="_on_mouse_entered"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
 
 [editable path="SceneTransition"]
+[editable path="sfx"]

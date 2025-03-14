@@ -64,3 +64,12 @@ func _on_button_4_pressed() -> void:
 	$Sprite2D2.visible = true
 	$Sprite2D3.visible = true
 	$Play_Button.visible = true
+
+
+
+func _on_mouse_entered() -> void:
+	get_node("/root/MainMenu/sfx/Button_Hover").play_sfx()
+
+
+func _on_button_pressed() -> void:
+	get_node("/root/MainMenu/sfx/Button_Click").play_sfx()

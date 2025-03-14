@@ -1,25 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjhlbg3mc2032"]
+[gd_scene load_steps=7 format=3 uid="uid://bjhlbg3mc2032"]
 
 [ext_resource type="AudioStream" uid="uid://i5ww3bv0qcra" path="res://jump (1).wav" id="1_47hmv"]
 [ext_resource type="Script" path="res://sfx.gd" id="2_2t1qr"]
 [ext_resource type="AudioStream" uid="uid://bx2db02jxvhkf" path="res://blipSelect.wav" id="3_qpd3p"]
 [ext_resource type="AudioStream" uid="uid://f2f5f67x2pu4" path="res://pickupCoin.wav" id="4_csiwl"]
 [ext_resource type="AudioStream" uid="uid://vstwomkpelx4" path="res://jump.wav" id="5_elalv"]
+[ext_resource type="AudioStream" uid="uid://deabychkfltyf" path="res://random.wav" id="6_phuod"]
 
 [node name="sfx" type="Node2D"]
 
 [node name="Boing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_47hmv")
+volume_db = -20.0
 script = ExtResource("2_2t1qr")
 
 [node name="Button_Hover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_qpd3p")
+volume_db = -20.0
 script = ExtResource("2_2t1qr")
 
 [node name="Button_Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_csiwl")
+volume_db = -20.0
 script = ExtResource("2_2t1qr")
 
 [node name="Fall" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_elalv")
+volume_db = -20.0
+script = ExtResource("2_2t1qr")
+
+[node name="Hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_phuod")
+volume_db = -20.0
 script = ExtResource("2_2t1qr")

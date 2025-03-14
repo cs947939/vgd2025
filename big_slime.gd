@@ -158,8 +158,10 @@ func _on_merging_engine_sprite_comm(msg: int, id: int) -> void:
 
 
 func _on_spring_area_5_body_entered(node: Node2D) -> void:
+	$"../sfx/Boing".play_sfx()
 	velocity.y = -200
 
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
+	$"../sfx/Hurt".play_sfx()
 	animation_player.play("death")

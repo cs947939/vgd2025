@@ -22,4 +22,9 @@ func _process(delta: float) -> void:
 
 func _on_button_up() -> void:
 	GlobalVar.current_level = names.find(self.name) + 1
+	$"../sfx/Button_Click".play_sfx()
 	$"../SceneTransition".change_scene("res://level_" + str(names.find(self.name) + 1) + ".tscn")
+
+
+func _on_mouse_entered() -> void:
+	$"../sfx/Button_Hover".play_sfx()

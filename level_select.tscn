@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cb3yb4plq43bt"]
+[gd_scene load_steps=40 format=4 uid="uid://cb3yb4plq43bt"]
 
 [ext_resource type="Script" path="res://level_select.gd" id="1_yce8m"]
 [ext_resource type="Texture2D" uid="uid://dk87bpg8seme6" path="res://New Piskel-1.png (1).png" id="2_0px8g"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dxhmj4bhybl75" path="res://New Piskel-1.png.png" id="2_rjueo"]
 [ext_resource type="Texture2D" uid="uid://byfwciavf8uvt" path="res://63800cde4148860-1.png (1).png" id="2_y4xky"]
 [ext_resource type="PackedScene" uid="uid://solbk7kvpyny" path="res://scene_transition.tscn" id="6_1yp5d"]
+[ext_resource type="PackedScene" uid="uid://bjhlbg3mc2032" path="res://sfx.tscn" id="7_d2wnv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1a6h"]
 texture = ExtResource("2_rjueo")
@@ -336,11 +337,20 @@ script = ExtResource("2_pmymv")
 
 [node name="SceneTransition" parent="." instance=ExtResource("6_1yp5d")]
 
+[node name="sfx" parent="." instance=ExtResource("7_d2wnv")]
+
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
 [connection signal="pressed" from="Button" to="Button" method="_on_button_up"]
+[connection signal="mouse_entered" from="Button2" to="Button2" method="_on_mouse_entered"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_button_up"]
+[connection signal="mouse_entered" from="Button3" to="Button3" method="_on_mouse_entered"]
 [connection signal="pressed" from="Button3" to="Button3" method="_on_button_up"]
+[connection signal="mouse_entered" from="Button4" to="Button4" method="_on_mouse_entered"]
 [connection signal="pressed" from="Button4" to="Button4" method="_on_button_up"]
+[connection signal="mouse_entered" from="Button5" to="Button5" method="_on_mouse_entered"]
 [connection signal="pressed" from="Button5" to="Button5" method="_on_button_up"]
+[connection signal="mouse_entered" from="Button6" to="Button6" method="_on_mouse_entered"]
 [connection signal="pressed" from="Button6" to="Button6" method="_on_button_up"]
 
 [editable path="SceneTransition"]
+[editable path="sfx"]

@@ -12,4 +12,9 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
+	$"../sfx/Button_Click".play_sfx()
 	get_node("/root/level_" + str(GlobalVar.current_level) + "/LevelMap/SceneTransition").change_scene(get_tree().current_scene.name)
+
+
+func _on_mouse_entered() -> void:
+	$"../sfx/Button_Hover".play_sfx()

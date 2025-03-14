@@ -39,6 +39,7 @@ func _physics_process(delta: float) -> void:
 		elif velocity.y <= 210 and velocity.y > 0 and animation_player.current_animation != "start_downward":
 			animation_player.play("start_downward")
 		elif velocity.y == 0 and (animation_player.current_animation == "start_downward" or animation_player.current_animation == "downward"):
+			$"../sfx/Fall".play_sfx()
 			animation_player.play("idle")
 			
 		if direction and is_on_floor():
@@ -127,10 +128,13 @@ func _on_area_2d_on_enter() -> void:
 
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
+	$"../sfx/Hurt".play_sfx()
 	animation_player.play("death")
+	$"1".process_mode = Node.PROCESS_MODE_DISABLED
 
 
 
 func _on_spring_area_body_entered(body: Node2D) -> void:
+	$"../sfx/Boing".play_sfx()
 	velocity.y = -400
 	move_and_slide()

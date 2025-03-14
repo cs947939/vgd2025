@@ -13,7 +13,3 @@ func _process(delta: float) -> void:
 
 func _on_button_up() -> void:
 	$"../SceneTransition".change_scene("res://level_select.tscn")
-
-
-func _on_mouse_entered() -> void:
-	$"../sfx/Button_Hover".play_sfx()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=53 format=3 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
 [ext_resource type="Script" path="res://new_script.gd" id="2_0odp4"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://player_3_body.gd" id="11_dxnox"]
 [ext_resource type="Script" path="res://player_4_body.gd" id="13_ysa2l"]
 [ext_resource type="Script" path="res://merging_engine.gd" id="14_p8mhi"]
+[ext_resource type="PackedScene" uid="uid://bjhlbg3mc2032" path="res://sfx.tscn" id="14_y4s3m"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_by6cd"]
 
@@ -30,6 +31,22 @@ tracks/0/keys = {
 "values": [15, 16, 17, 18]
 }
 
+[sub_resource type="Animation" id="Animation_bkjm1"]
+resource_name = "death"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_hxkon"]
 resource_name = "downward"
 length = 0.2
@@ -45,6 +62,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_yhe6j"]
+resource_name = "idk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_snefw"]
@@ -161,36 +193,6 @@ tracks/0/keys = {
 "values": [Vector2i(13, 0), Vector2i(14, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_yhe6j"]
-resource_name = "idk"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_bkjm1"]
-resource_name = "death"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [15, 16, 17, 18]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4c86s"]
 _data = {
 "RESET": SubResource("Animation_frcoi"),
@@ -294,6 +296,21 @@ size = Vector2(42, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfh7o"]
 size = Vector2(42, 42)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_808gb"]
+_data = {
+"RESET": SubResource("Animation_frcoi"),
+"death": SubResource("Animation_bkjm1"),
+"downward": SubResource("Animation_hxkon"),
+"idk": SubResource("Animation_yhe6j"),
+"idle": SubResource("Animation_snefw"),
+"running-loop": SubResource("Animation_q1n6k"),
+"start_downward": SubResource("Animation_qgsfa"),
+"start_running": SubResource("Animation_udype"),
+"stop_running": SubResource("Animation_s1nu8"),
+"stop_upward": SubResource("Animation_7d5ql"),
+"upward": SubResource("Animation_jo3wt")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_budch"]
 size = Vector2(432, 243)
@@ -535,7 +552,6 @@ shape = SubResource("RectangleShape2D_wy72w")
 modulate = Color(0.746242, 0.322526, 1, 1)
 texture = ExtResource("10_o44jy")
 hframes = 5
-frame = 1
 
 [node name="SlimeInputDelay" type="Timer" parent="BigSlime"]
 wait_time = 3.0
@@ -560,7 +576,7 @@ shape = SubResource("RectangleShape2D_xfh7o")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BigSlime"]
 root_node = NodePath("../Sprite2D")
 libraries = {
-"": SubResource("AnimationLibrary_4c86s")
+"": SubResource("AnimationLibrary_808gb")
 }
 autoplay = "idle"
 script = ExtResource("5_gk6m3")
@@ -578,6 +594,8 @@ script = ExtResource("14_p8mhi")
 visible = false
 position = Vector2(203, 235)
 shape = SubResource("RectangleShape2D_budch")
+
+[node name="sfx" parent="." instance=ExtResource("14_y4s3m")]
 
 [connection signal="detect1" from="CharacterBody2D2" to="MergingEngine" method="_on_character_body_2d_2_detect_1"]
 [connection signal="mergecheck3" from="CharacterBody2D2" to="SlimeMergeDelay" method="_on_character_body_2d_2_mergecheck_3"]
@@ -653,3 +671,5 @@ shape = SubResource("RectangleShape2D_budch")
 [connection signal="sprite_comm" from="MergingEngine" to="CharacterBody2D4" method="_on_merging_engine_sprite_comm"]
 [connection signal="sprite_comm" from="MergingEngine" to="CharacterBody2D" method="_on_merging_engine_sprite_comm"]
 [connection signal="sprite_comm" from="MergingEngine" to="BigSlime" method="_on_merging_engine_sprite_comm"]
+
+[editable path="sfx"]
