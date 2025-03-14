@@ -1,7 +1,6 @@
-[gd_scene load_steps=53 format=3 uid="uid://cq7jfqid4pjt2"]
+[gd_scene load_steps=54 format=3 uid="uid://cq7jfqid4pjt2"]
 
 [ext_resource type="Script" uid="uid://t6duki60mjn4" path="res://character_body_2d.gd" id="1_lfuix"]
-[ext_resource type="Script" uid="uid://boxopyatbxcqk" path="res://new_script.gd" id="2_0odp4"]
 [ext_resource type="Texture2D" uid="uid://ct77hsl52qxgb" path="res://551cc3fd67aeaaf (1).png" id="3_jcc0i"]
 [ext_resource type="Script" uid="uid://bsfwtwn5ed4er" path="res://playerCollision.gd" id="4_2y4d7"]
 [ext_resource type="Script" uid="uid://jcnj3dq3xxm1" path="res://slime_2_2d.gd" id="4_tgr73"]
@@ -17,6 +16,20 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_by6cd"]
 
+[sub_resource type="GDScript" id="GDScript_dy8ra"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [sub_resource type="Animation" id="Animation_frcoi"]
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -31,8 +44,23 @@ tracks/0/keys = {
 "values": [15, 16, 17, 18]
 }
 
-[sub_resource type="Animation" id="Animation_bkjm1"]
+[sub_resource type="Animation" id="Animation_dy8ra"]
 resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [15, 16, 17, 18]
+}
+
+[sub_resource type="Animation" id="Animation_bkjm1"]
+resource_name = "death3"
 length = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -196,7 +224,8 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4c86s"]
 _data = {
 &"RESET": SubResource("Animation_frcoi"),
-&"death": SubResource("Animation_bkjm1"),
+&"death": SubResource("Animation_dy8ra"),
+&"death3": SubResource("Animation_bkjm1"),
 &"downward": SubResource("Animation_hxkon"),
 &"idk": SubResource("Animation_yhe6j"),
 &"idle": SubResource("Animation_snefw"),
@@ -331,12 +360,12 @@ material = SubResource("CanvasItemMaterial_by6cd")
 texture = ExtResource("3_jcc0i")
 hframes = 21
 frame = 15
-script = ExtResource("2_0odp4")
+script = SubResource("GDScript_dy8ra")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D2"]
 root_node = NodePath("../Sprite2D")
 libraries = {
-"": SubResource("AnimationLibrary_4c86s")
+&"": SubResource("AnimationLibrary_4c86s")
 }
 autoplay = "idle"
 script = ExtResource("5_gk6m3")
@@ -384,12 +413,12 @@ material = SubResource("CanvasItemMaterial_by6cd")
 texture = ExtResource("3_jcc0i")
 hframes = 21
 frame = 15
-script = ExtResource("2_0odp4")
+script = SubResource("GDScript_dy8ra")
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="CharacterBody2D3"]
 root_node = NodePath("../Sprite2D3")
 libraries = {
-"": SubResource("AnimationLibrary_4c86s")
+&"": SubResource("AnimationLibrary_4c86s")
 }
 autoplay = "idle"
 script = ExtResource("5_gk6m3")
@@ -437,12 +466,12 @@ material = SubResource("CanvasItemMaterial_by6cd")
 texture = ExtResource("3_jcc0i")
 hframes = 21
 frame = 15
-script = ExtResource("2_0odp4")
+script = SubResource("GDScript_dy8ra")
 
 [node name="AnimationPlayer4" type="AnimationPlayer" parent="CharacterBody2D4"]
 root_node = NodePath("../Sprite2D4")
 libraries = {
-"": SubResource("AnimationLibrary_4c86s")
+&"": SubResource("AnimationLibrary_4c86s")
 }
 autoplay = "idle"
 script = ExtResource("5_gk6m3")
@@ -490,12 +519,12 @@ material = SubResource("CanvasItemMaterial_by6cd")
 texture = ExtResource("3_jcc0i")
 hframes = 21
 frame = 15
-script = ExtResource("2_0odp4")
+script = SubResource("GDScript_dy8ra")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="CharacterBody2D"]
 root_node = NodePath("../Sprite2D2")
 libraries = {
-"": SubResource("AnimationLibrary_4c86s")
+&"": SubResource("AnimationLibrary_4c86s")
 }
 autoplay = "idle"
 script = ExtResource("5_gk6m3")
@@ -550,6 +579,7 @@ shape = SubResource("RectangleShape2D_wy72w")
 
 [node name="Sprite2D" type="Sprite2D" parent="BigSlime"]
 modulate = Color(0.746242, 0.322526, 1, 1)
+position = Vector2(0, -1.5)
 texture = ExtResource("10_o44jy")
 hframes = 5
 
@@ -576,7 +606,7 @@ shape = SubResource("RectangleShape2D_xfh7o")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BigSlime"]
 root_node = NodePath("../Sprite2D")
 libraries = {
-"": SubResource("AnimationLibrary_808gb")
+&"": SubResource("AnimationLibrary_808gb")
 }
 autoplay = "idle"
 script = ExtResource("5_gk6m3")

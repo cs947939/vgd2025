@@ -112,5 +112,4 @@ func _on_spring_area_4_body_entered(body: Node2D) -> void:
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
 	$"../sfx/Hurt".play_sfx()
-	$Sprite2D.frame = 0
 	animation_player.play("death")

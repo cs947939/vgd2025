@@ -622,6 +622,7 @@ tile_map_data = PackedByteArray("AAAIACIAAQABAAMAAAAJACIAAQACAAIAAAAJACEAAQAAAAA
 tile_set = SubResource("TileSet_762ot")
 
 [node name="VIEWPORT_SIZE_TEMP" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(203, 235)
 shape = SubResource("RectangleShape2D_budch")
 
