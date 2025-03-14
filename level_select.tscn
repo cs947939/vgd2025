@@ -1,8 +1,8 @@
 [gd_scene load_steps=40 format=4 uid="uid://cb3yb4plq43bt"]
 
-[ext_resource type="Script" path="res://level_select.gd" id="1_yce8m"]
+[ext_resource type="Script" uid="uid://c2r682qpsjgb0" path="res://level_select.gd" id="1_yce8m"]
 [ext_resource type="Texture2D" uid="uid://dk87bpg8seme6" path="res://New Piskel-1.png (1).png" id="2_0px8g"]
-[ext_resource type="Script" path="res://button.gd" id="2_pmymv"]
+[ext_resource type="Script" uid="uid://b7rlolmelod1l" path="res://button.gd" id="2_pmymv"]
 [ext_resource type="Texture2D" uid="uid://dxhmj4bhybl75" path="res://New Piskel-1.png.png" id="2_rjueo"]
 [ext_resource type="Texture2D" uid="uid://byfwciavf8uvt" path="res://63800cde4148860-1.png (1).png" id="2_y4xky"]
 [ext_resource type="PackedScene" uid="uid://solbk7kvpyny" path="res://scene_transition.tscn" id="6_1yp5d"]

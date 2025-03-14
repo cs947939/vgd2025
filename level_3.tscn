@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=4 uid="uid://b71cf77luv710"]
 
-[ext_resource type="Script" path="res://level_1.gd" id="1_bqy4u"]
+[ext_resource type="Script" uid="uid://cxkhff6bcbjix" path="res://level_1.gd" id="1_bqy4u"]
 [ext_resource type="PackedScene" uid="uid://dagkfdenp1qf6" path="res://level_map.tscn" id="2_mevxb"]
 
 [sub_resource type="Curve2D" id="Curve2D_0s4jp"]

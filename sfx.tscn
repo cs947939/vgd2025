@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bjhlbg3mc2032"]
 
 [ext_resource type="AudioStream" uid="uid://i5ww3bv0qcra" path="res://jump (1).wav" id="1_47hmv"]
-[ext_resource type="Script" path="res://sfx.gd" id="2_2t1qr"]
+[ext_resource type="Script" uid="uid://1w71anbhnwur" path="res://sfx.gd" id="2_2t1qr"]
 [ext_resource type="AudioStream" uid="uid://bx2db02jxvhkf" path="res://blipSelect.wav" id="3_qpd3p"]
 [ext_resource type="AudioStream" uid="uid://f2f5f67x2pu4" path="res://pickupCoin.wav" id="4_csiwl"]
 [ext_resource type="AudioStream" uid="uid://vstwomkpelx4" path="res://jump.wav" id="5_elalv"]

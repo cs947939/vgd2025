@@ -1,18 +1,18 @@
 [gd_scene load_steps=53 format=3 uid="uid://cq7jfqid4pjt2"]
 
-[ext_resource type="Script" path="res://character_body_2d.gd" id="1_lfuix"]
-[ext_resource type="Script" path="res://new_script.gd" id="2_0odp4"]
+[ext_resource type="Script" uid="uid://t6duki60mjn4" path="res://character_body_2d.gd" id="1_lfuix"]
+[ext_resource type="Script" uid="uid://boxopyatbxcqk" path="res://new_script.gd" id="2_0odp4"]
 [ext_resource type="Texture2D" uid="uid://ct77hsl52qxgb" path="res://551cc3fd67aeaaf (1).png" id="3_jcc0i"]
-[ext_resource type="Script" path="res://playerCollision.gd" id="4_2y4d7"]
-[ext_resource type="Script" path="res://slime_2_2d.gd" id="4_tgr73"]
-[ext_resource type="Script" path="res://animation_script.gd" id="5_gk6m3"]
-[ext_resource type="Script" path="res://big_slime.gd" id="7_v2y33"]
-[ext_resource type="Script" path="res://slime_input_delay.gd" id="8_jm5xw"]
+[ext_resource type="Script" uid="uid://bsfwtwn5ed4er" path="res://playerCollision.gd" id="4_2y4d7"]
+[ext_resource type="Script" uid="uid://jcnj3dq3xxm1" path="res://slime_2_2d.gd" id="4_tgr73"]
+[ext_resource type="Script" uid="uid://kemkbkoa16yf" path="res://animation_script.gd" id="5_gk6m3"]
+[ext_resource type="Script" uid="uid://dg5y8dkeok80y" path="res://big_slime.gd" id="7_v2y33"]
+[ext_resource type="Script" uid="uid://deojy2kndyxc2" path="res://slime_input_delay.gd" id="8_jm5xw"]
 [ext_resource type="Texture2D" uid="uid://c24y72vfsx3xk" path="res://31ea9cc07ae137b-1.png.png" id="10_o44jy"]
-[ext_resource type="Script" path="res://slime_merge_delay.gd" id="10_ud7et"]
-[ext_resource type="Script" path="res://player_3_body.gd" id="11_dxnox"]
-[ext_resource type="Script" path="res://player_4_body.gd" id="13_ysa2l"]
-[ext_resource type="Script" path="res://merging_engine.gd" id="14_p8mhi"]
+[ext_resource type="Script" uid="uid://dmihadkd8fbgg" path="res://slime_merge_delay.gd" id="10_ud7et"]
+[ext_resource type="Script" uid="uid://bnjh72srmjkhr" path="res://player_3_body.gd" id="11_dxnox"]
+[ext_resource type="Script" uid="uid://cu2sq244mime8" path="res://player_4_body.gd" id="13_ysa2l"]
+[ext_resource type="Script" uid="uid://0jd50mbstvse" path="res://merging_engine.gd" id="14_p8mhi"]
 [ext_resource type="PackedScene" uid="uid://bjhlbg3mc2032" path="res://sfx.tscn" id="14_y4s3m"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_by6cd"]
@@ -195,17 +195,17 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4c86s"]
 _data = {
-"RESET": SubResource("Animation_frcoi"),
-"death": SubResource("Animation_bkjm1"),
-"downward": SubResource("Animation_hxkon"),
-"idk": SubResource("Animation_yhe6j"),
-"idle": SubResource("Animation_snefw"),
-"running-loop": SubResource("Animation_q1n6k"),
-"start_downward": SubResource("Animation_qgsfa"),
-"start_running": SubResource("Animation_udype"),
-"stop_running": SubResource("Animation_s1nu8"),
-"stop_upward": SubResource("Animation_7d5ql"),
-"upward": SubResource("Animation_jo3wt")
+&"RESET": SubResource("Animation_frcoi"),
+&"death": SubResource("Animation_bkjm1"),
+&"downward": SubResource("Animation_hxkon"),
+&"idk": SubResource("Animation_yhe6j"),
+&"idle": SubResource("Animation_snefw"),
+&"running-loop": SubResource("Animation_q1n6k"),
+&"start_downward": SubResource("Animation_qgsfa"),
+&"start_running": SubResource("Animation_udype"),
+&"stop_running": SubResource("Animation_s1nu8"),
+&"stop_upward": SubResource("Animation_7d5ql"),
+&"upward": SubResource("Animation_jo3wt")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ih3nk"]
@@ -299,17 +299,17 @@ size = Vector2(42, 42)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_808gb"]
 _data = {
-"RESET": SubResource("Animation_frcoi"),
-"death": SubResource("Animation_bkjm1"),
-"downward": SubResource("Animation_hxkon"),
-"idk": SubResource("Animation_yhe6j"),
-"idle": SubResource("Animation_snefw"),
-"running-loop": SubResource("Animation_q1n6k"),
-"start_downward": SubResource("Animation_qgsfa"),
-"start_running": SubResource("Animation_udype"),
-"stop_running": SubResource("Animation_s1nu8"),
-"stop_upward": SubResource("Animation_7d5ql"),
-"upward": SubResource("Animation_jo3wt")
+&"RESET": SubResource("Animation_frcoi"),
+&"death": SubResource("Animation_bkjm1"),
+&"downward": SubResource("Animation_hxkon"),
+&"idk": SubResource("Animation_yhe6j"),
+&"idle": SubResource("Animation_snefw"),
+&"running-loop": SubResource("Animation_q1n6k"),
+&"start_downward": SubResource("Animation_qgsfa"),
+&"start_running": SubResource("Animation_udype"),
+&"stop_running": SubResource("Animation_s1nu8"),
+&"stop_upward": SubResource("Animation_7d5ql"),
+&"upward": SubResource("Animation_jo3wt")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_budch"]

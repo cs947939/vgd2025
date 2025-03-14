@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=4 uid="uid://df7uthvu8ly84"]
 
-[ext_resource type="Script" path="res://level_1.gd" id="1_63p83"]
+[ext_resource type="Script" uid="uid://cxkhff6bcbjix" path="res://level_1.gd" id="1_63p83"]
 [ext_resource type="PackedScene" uid="uid://dagkfdenp1qf6" path="res://level_map.tscn" id="2_rj2bm"]
-[ext_resource type="Script" path="res://button_door_1.gd" id="3_gl8lp"]
+[ext_resource type="Script" uid="uid://c21nmo3xd13m4" path="res://button_door_1.gd" id="3_gl8lp"]
 
 [sub_resource type="Curve2D" id="Curve2D_0s4jp"]
 _data = {
