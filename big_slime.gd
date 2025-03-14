@@ -16,7 +16,6 @@ func _ready() -> void:
 	visible=false
 	process_mode = PROCESS_MODE_DISABLED
 func split(direction1, direction2, direction3, direction4) -> void:
-	print("Different Input")
 	hideslime.emit(direction1, direction2, direction3, direction4)
 	cooldownstart.emit()
 	allowmerge = false

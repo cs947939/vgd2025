@@ -16,17 +16,14 @@ func _ready():
 func load_level():
 	var save_file = FileAccess.open("user://savefile.save", FileAccess.READ)
 	if not FileAccess.file_exists("user://savefile.save"):
-		print("Aborting, no savefile")
 		return
 
 	level = int(save_file.get_line())
-	print(level)
 	if level < 1:
 		level = 1
 	save_file.close()
 
 func save_level():
-	print("Saving...")
 
 	var save_file = FileAccess.open("user://savefile.save", FileAccess.WRITE)
 	save_file.store_line(str(level))

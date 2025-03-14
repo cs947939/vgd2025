@@ -20,7 +20,6 @@ func _process(delta: float) -> void:
 		$Label.process_mode = Node.PROCESS_MODE_DISABLED
 	if exit:
 		$Label.modulate.a = pow(sin(Time.get_unix_time_from_system()),2)/2+0.5
-		print(pow(sin(Time.get_unix_time_from_system()),2))
 	else:
 		$Label.modulate.a = 0
 	
